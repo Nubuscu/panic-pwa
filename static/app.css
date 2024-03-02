@@ -1,0 +1,11 @@
+:root {
+	--archetypeLight: #b4a7d6;
+	--archetypeDark: #8e7cc3;
+	--styleLight: #ea9999;
+	--styleDark: #e06666;
+	--formLight: #a4c2f4;
+	--formDark: #6d9eeb;
+    --actionLight: #b6d7a8;
+    --actionDark: #93c47d;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
