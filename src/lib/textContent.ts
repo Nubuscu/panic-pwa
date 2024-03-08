@@ -1,12 +1,12 @@
+import { FORM_BLASTER_AMPLIFY_3_PLUS_DESC, FORM_BLASTER_DESC, FORM_BLASTER_DICE, FORM_BLASTER_SHOCKWAVE_3_PLUS_DESC, FORM_BLASTER_SHOCKWAVE_6_PLUS_DESC, FORM_CONTROL_DESC, FORM_CONTROL_DICE, FORM_CONTROL_SUPPRESSION_3_PLUS_DESC, FORM_CONTROL_SUPPRESSION_6_PLUS_DESC, FORM_CONTROL_SUPPRESSION_9_PLUS_DESC, FORM_DANCE_DESC, FORM_DANCE_DICE, FORM_DANCE_TRY_TO_KEEP_UP_3_SPEED_TOKENS_DESC } from './strings';
 import { type Style, type Form, type Archetype, Dice, Token, type Build } from './types';
 
 export const forms: Form[] = [
 	{
 		name: 'Blaster',
-		actionDice: [Dice.d8, Dice.d8, Dice.d8],
+		actionDice: FORM_BLASTER_DICE,
 		ability: {
-			description:
-				"Your Actions may apply to one extra target within range. When you add Blaster Form to a Style, increase that Style's maximum range by 1."
+			description: FORM_BLASTER_DESC
 		},
 		actions: [
 			{
@@ -14,8 +14,7 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description:
-							'Your next Action this turn has its range increased by 2 and may apply to up to three extra targets within range'
+						description: FORM_BLASTER_AMPLIFY_3_PLUS_DESC
 					}
 				]
 			},
@@ -24,14 +23,57 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description: 'Deal 1 damage to every enemy within range'
+						description: FORM_BLASTER_SHOCKWAVE_3_PLUS_DESC
 					},
 					{
 						diceCost: [6],
-						description: 'Deal 2 damage to one enemy within range'
+						description: FORM_BLASTER_SHOCKWAVE_6_PLUS_DESC
 					}
 				]
 			}
+		]
+	}, {
+		name: 'Control',
+		actionDice: FORM_CONTROL_DICE,
+		ability: {
+			description: FORM_CONTROL_DESC
+		},
+		actions: [
+			{
+				name: 'Suppression',
+				levels: [
+					{
+						diceCost: [3],
+						description: FORM_CONTROL_SUPPRESSION_3_PLUS_DESC
+					},
+					{
+						diceCost: [6],
+						description: FORM_CONTROL_SUPPRESSION_6_PLUS_DESC
+					},
+					{
+						diceCost: [9],
+						description: FORM_CONTROL_SUPPRESSION_9_PLUS_DESC
+					}
+				]
+			},
+		]
+	},
+	{
+		name: 'Dance',
+		actionDice: FORM_DANCE_DICE,
+		ability: {
+			description: FORM_DANCE_DESC
+		},
+		actions: [
+			{
+				name: 'Try to keep up',
+				levels: [
+					{
+						tokenCost: [{ tokenType: Token.Speed, number: 3 }],
+						description: FORM_DANCE_TRY_TO_KEEP_UP_3_SPEED_TOKENS_DESC
+					}
+				]
+			},
 		]
 	}
 ];

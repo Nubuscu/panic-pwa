@@ -349,8 +349,7 @@ Style Action,Lightning,Deadly Dance,2+ or 5+ or 8+,"Teleport 2 spaces. Deal 1 da
 Style Action,Overwhelming,Power Strike,4+ or 8+,"Deal 2 damage to an enemy within range.
 You gain 2 Power tokens.
 8+: Deal 4 damage and gain 4 Power tokens instead.",
-Style Action,Relentless,Rush Down,3+ or 5+ or 7+,"Deal 1 damage to an enemy within range.
-Then, deal 1 damage to an enemy within range.
+Style Action,Relentless,Rush Down,3+ or 5+ or 7+,"Deal 1 damage to an enemy within range. Then, deal 1 damage to an enemy within range.
 5+: Then, deal 1 damage to an enemy within range.
 7+: Then, deal 1 damage to an enemy within range.",
 Style Action,Weightless,Effortless,4+ or 7+,"Teleport to any space you can see.

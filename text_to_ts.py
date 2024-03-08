@@ -11,31 +11,50 @@ import csv
 import re
 from functools import partial
 
-DROP_PATTERN = re.compile(r"[?!',.]")
-UNDERSCORE_PATTERN = re.compile(r"[- ]")
+drop_bad_char = partial(re.sub, r"[?!',.]", "")
+underscore_bad_char = partial(re.sub, r"[- ]", "_")
+plus_sub_char = partial(re.sub, r"\+", "_PLUS")
 
-drop_bad_char = partial(DROP_PATTERN.sub, "")
-underscore_bad_char = partial(UNDERSCORE_PATTERN.sub, "_")
+get_action_numbers = partial(re.findall, r"\d+\+")
 
 
 def const_name(*strings: str):
     return "_".join(
-        underscore_bad_char(drop_bad_char(string)).upper() for string in strings
+        underscore_bad_char(drop_bad_char(plus_sub_char(string))).upper()
+        for string in strings
     )
+
+
+def parse_multi_costs(costs, raw_desc):
+    if "token" in costs.lower():
+        return {costs: raw_desc}
+    action_numbers = get_action_numbers(costs)
+    desc_lines = raw_desc.split("\n")
+    return {
+        num: line
+        for num, line in zip(action_numbers, desc_lines)
+    }
 
 
 def parse_lines(reader) -> list[str]:
     output_lines = []
     for row in reader:
         match row:
-            case ["Form", _, name, _dice, desc, *_]:
+            case ["Form", _, name, dice, desc, *_]:
                 output_lines.append(
                     f"export const FORM_{const_name(name)}_DESC = `{desc}`"
                 )
+                dice_formatted = ", ".join([f"Dice.{d}" for d in dice.split(" ")])
+                output_lines.append(
+                    f"export const FORM_{const_name(name)}_DICE = [{dice_formatted}]"
+                )
             case ["Form-Action", form, action_name, costs, desc, *_]:
                 var_prefix = f"FORM_{const_name(form, action_name)}"
-                output_lines.append(f"export const {var_prefix}_COSTS = `{costs}`")
-                output_lines.append(f"export const {var_prefix}_DESC = `{desc}`")
+                costs_dict = parse_multi_costs(costs, desc)
+                for level_cost, level_desc in costs_dict.items():
+                    output_lines.append(
+                        f"export const FORM_{const_name(form, action_name, level_cost)}_DESC = `{level_desc}`"
+                    )
             case ["Build", _, name, _, desc, *_]:
                 output_lines.append(
                     f"export const BUILD_{const_name(name)}_DESC = `{desc}`"
@@ -56,9 +75,11 @@ def parse_lines(reader) -> list[str]:
                 output_lines.append(f"export const {var_prefix}_RANGE = `{range_}`")
                 output_lines.append(f"export const {var_prefix}_ABILITY = `{ability}`")
             case ["Style Action", archetype, action_name, costs, desc, *_]:
-                var_prefix = f"STYLE_{const_name(archetype, action_name)}"
-                output_lines.append(f"export const {var_prefix}_COSTS = `{costs}`")
-                output_lines.append(f"export const {var_prefix}_DESC = `{desc}`")
+                costs_dict = parse_multi_costs(costs, desc)
+                for level_cost, level_desc in costs_dict.items():
+                    output_lines.append(
+                        f"export const STYLE_{const_name(archetype, action_name, level_cost)}_DESC = `{level_desc}`"
+                    )
             case [("Boss Archetype" | ""), *_]:
                 # suppress known errors - skipping boss archetypes for now
                 # some empty lines in source too
@@ -76,9 +97,10 @@ def main():
         out = parse_lines(reader)
 
     with open("./GENERATED_strings.ts", "w") as outfile:
-        for line in out:
+        outfile.write("import { Dice } from './types';\n")
+        for line in sorted(out):
             outfile.write(line)
-            outfile.write("\n")
+            outfile.write(";\n")
 
 
 if __name__ == "__main__":
