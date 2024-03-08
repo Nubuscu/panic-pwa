@@ -1,0 +1,368 @@
+Item,,Name,Action Pool,Description,
+Form,,Blaster,d8 d8 d8,"Your Actions may apply to one extra target within range. When you add Blaster Form to a Style, increase that Style's maximum range by 1",d8 d8 d8
+Form,,Control,d10 d8 d6 d4,"When an enemy within range takes an action you can spend one Control token to negate it or two control tokens to redirect it.
+You may only use Control tokens once per turn. If you negate an action they lose the number they spent and the action does not happen.
+If you redirect an action you choose all targets and make all decisions for that action",d10 d8 d6 d4
+Form,,Dance,d10 d8 d6,"After you Throw or Grapple someone, you gain X Speed tokens, where X is how many spaces you moved them.
+After each space you move using Free Movement, you may choose someone within range and pull them 1 space",d10 d8 d6
+Form,,Iron,d8 d6 d6,"You have Armor. When you gain Speed tokens, replace half of them (rounded up) with Iron tokens",d8 d6 d6
+Form,,One-Two,d6 d6 d4 d4,"After you deal damage to an enemy with an Action, you hit them again for 1 damage",d6 d6 d4 d4
+Form,,Power,d10 d10 d4,"When you gain Speed tokens, replace half of them (rounded up) with Power tokens.
+You may spend up to 3 Power tokens per hit",d10 d10 d8
+Form,,Reversal,d8 d8 d6 d4,"You have Armor. You do not discard your Speed tokens at the end of a turn.
+You may only take one Action per turn.
+Your Action Pool does not empty between Turns or Rounds",d8 d8 d6 d4
+Form,,Shadow,d4 d4 d4 d4 d4 d4,"At the start and end of your turn, you gain 2 Speed tokens
+You do not discard your Speed tokens at the end of a turn.",d4 d4 d4 d4 d4 d4
+Form,,Song,d8 d6 d6 d4,"At the start of each turn choose a song; Iron, Power or Speed. You gain three tokens of the chosen type and each of your allies gain 1 of that type",d8 d6 d6 d4
+Form,,Vigilance,d6 d6 d6 d6,"At the start of your turn, either heal or discard one token you hold. At the end of your turn, choose an enemy in range and give them one Weakness token",d6 d6 d6 d6
+Form,,Wild,d10 d6 d6,"At the start of your turn, for each of these that is true, add 1d6 to your Action Dice
+-Your current Health Bar is at half HP or less
+-Someone on your team is Taken Out
+-You are holding a non-basic Token",d10 d6 d6
+Form,,Zen,7 5 3 1,"Your Action Pool is predetermined: 7, 5, 3, 1. You may hold multiple Shields at a time. Only one Shield is active at a time. When your active Shield breaks, your next Shield doesn't become active until the end of the current turn.
+When an enemy damages or breaks your Shield, you deal 1 damage to them",7 5 3 1
+,,,,,
+,,,,,
+,,,,,
+,Form,Name,Cost,Description,
+Form-Action,Blaster,Amplify,3+,Your next Action this turn has its range increased by 2 and may apply to up to three extra targets within range,
+Form-Action,Blaster,Shockwave,3+ 6+,"Deal 1 damage to every enemy within range.
+6+: Deal 2 damage to one enemy within range",
+Form-Action,Control,Suppression,3+ 6+ 9+,"You gain 1 Control token and move 1 space.
+6+ you gain 1 Control token
+9+ You gain one control token and can move one space",
+Form-Action,Dance,Try to Keep Up,3 Speed Tokens,"Move two spaces, then heal 2.",
+Form-Action,Iron,Secure,3+,Choose two: you gain 3 Iron tokens; an ally within range gains 2 Iron tokens; or heal someone within range,
+Form-Action,Iron,Contain,3+,Choose two: pull an enemy 2 spaces; Challenge an enemy you can see; or place a trap into a space within range,
+Form-Action,Iron,Protect,6+,Choose 4 from the Secure and/or Contain lists,
+Form-Action,One-Two,Slide In,1+,Teleport 2 spaces,
+Form-Action,One-Two,Whirlwind,4+,Deal 1 damage to up to three enemies within range,
+Form-Action,Power,Yell,3+,You gain 3 Power tokens,
+Form-Action,Power,Crush,6+ 9+,"Deal 3 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Crush or the damage it deals.
+9+: You may spend any number of Power tokens on this hit",
+Form-Action,Reversal,Counter Attack,1+,"Teleport within range of an enemy that dealt damage to you this turn, then spend this number on another Action. That Action must target the enemy you teleported to",
+Form-Action,Shadow,Stunt,3 Speed Tokens,"Place one Fog, Copy, or Trap obstacle into an adjacent space, then teleport two spaces",
+Form-Action,Song,Sing Along,1+ 4+ 6+,"Choose one ally you can see. Choose one: They remove one token they hold; they heal; or they gain 2 tokens from your song.
+4+: They also choose one from the list.
+6+: Add a 4 to their Action Pool. They must immediately spend it on an Action.",
+Form-Action,Vigilance,Bow Down,1+ 4+,"Give one weakness token to an enemy within range.
+4+: give two weakness tokens to an enemy within range",
+Form-Action,Vigilance,Stand Strong,1+ 4+,"Heal yourself or an ally you can see.
+4+: heal yourself or a different ally you can see",
+Form-Action,Wild,Fury,2 Basic Tokens,"Deal 1 damage to an enemy within range.
+At the end of this turn, push that enemy 1 space.
+Fury can be used only 3 times per turn",
+Form-Action,Zen,Focus,3+ 7+,"You gain a 2 point Shield. You may move one space.
+7+: You gain a 4 point Shield. You may move two spaces",
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+Build,,Agile,,At the start of your turn you gain 2 speed tokens,
+Build,,Overpowering,,"At the start of your turn, you gain 1 Power token",
+Build,,Tough,,"At the start of your turn, you gain 1 Iron token",
+Build,,Bumbling,,"At the end of any turn you took damage, you may move 1 space",
+Build,,Scheming,,"At either the start or the end of your turn, you may place one Trap into an adjacent space",
+Build,,Mysterious,,"At the start of your turn, you may place a Copy or Fog obstacle into an empty adjacent space",
+,,,,,
+,,,,,
+Boss Archetype,The Blur,The Blur,,"After you perform an Action, you may move one space",
+Boss Archetype,The Giant,The Giant,,Your maximum range is increased by 1 in all Stances. Edges do not remove you from play unless your entire 2x2 space,
+Boss Archetype,The Immortal,The Immortal,,"The first time you deal damage with an Action each turn, you heal. The Immortal drains life with every blow.",
+Boss Archetype,The Necromancer,The Necromancer,,"At the end of your turn, each of your Copies may move one space,",
+Boss Archetype,The Swarm,The Swarm,,"At the end of your turn, for each Copy you have in play, choose one: You gain 1 Power token; or you gain 1 Iron token; or you may move one space; or each of your Copies may move 1 space; or destroy a Copy to deal 1 damage to each enemy adjacent to it",
+Boss Archetype,The Tank,The Tank,,"You have Armor. When you are Pushed or Pulled, you move one less space.",
+Boss Archetype,The Untouchable,The Untouchable,,"At the start of your turn, you gain one Control token (page 47). You can spend one Control token to Counter an enemy's Action. When you Counter an Action, that Action targets its user in addition to its other targets",
+Boss Archetype,The Vehicle,The Vehicle,,"You take up as much or as little space on the battle grid as you want. Once your shape has been drawn in, it cannot be changed. Enemies and allies can move on top of you. When you move, everyone on top of you moves with you. Spaces inside of you are always within your Range. Edges do not remove you from play unless
+our entire space is over Edge spaces. You can move over Walls. When you do, they become Rubble, and you must discard a number from your Action Pool",
+Focused Archetype,Focused Angel,Angel,,"At the start of your turn, Challenge an enemy you can see, then deal 1 damage to them, then heal 1. After you Challenge an enemy, deal 1 damage to them and heal 1.",
+Focused Archetype,Focused Cavalry,Cavalry,,"At the start and end of your turn, you and each ally adjacent to you gains a 2 point Shield. When your Shield or an ally's Shield breaks, you gain 1 Speed token",
+Focused Archetype,Focused Cyborg,Cyborg,,"At the start of your turn, you gain four Basic Tokens of your choice.",
+Focused Archetype,Focused Demon,Demon,,"At the end of your turn, you gain 2 Chaos tokens.",
+Focused Archetype,Focused Flametongue,Flametongue,,"After you deal damage to an enemy with an Action, give that enemy one Burning token",
+Focused Archetype,Focused Gunkata,Gunkata,,"At the start of your turn, push every adjacent enemy one space, the move one space. At the end of your turn, deal 1 damage to each enemy within range.",
+Focused Archetype,Focused Phantom,Phantom,,"You have access to all of your Styles' Unique Actions at all times, no matter what your current Stance is. All of your Unique Actions have their cost reduced by 1 (to a minimum of 1+ or 2 tokens",
+Focused Archetype,Focused Punk,Punk,,"At the start of your turn, add X to your Action Pool. X is equal to twice the damage on your current health bar. If your health bar is full, X = 1",
+Focused Archetype,Focused Teacher,Teacher,,"At the end of your turn, you gain two Inspired tokens.",
+Focused Archetype,Focused Trickster,Trickster,,"You may spend any tokens you hold as if they were Iron tokens. When you spend Iron tokens to reduce the damage you take, push your attacker 1 space, then you may move 1 space",
+Focused Archetype,Focused Underdog,Underdog,,"At the start of your turn, you gain one Basic token of your choice.
+After you take damage, you gain one Basic token of your choice",
+Focused Archetype,Focused Wardancer,Wardancer,,"After rolling your Action Dice, either increase all of your numbers by 1, or increase one of your number by 4",
+Focused Archetype,Focused Winterblossom,Winterblossom,,"At the start of every turn, give 1 Weakness token to one enemy within range",
+Frantic Archetype,Frantic Angel,Angel,,"At the start of this turn, Challenge an enemy you can see, then deal 2 damage to them, then heal.",
+Frantic Archetype,Frantic Cavalry,Cavalry,,"At the start and end of this turn, you and each ally adjacent to you gains a 2 point shield",
+Frantic Archetype,Frantic Cyborg,Cyborg,,"At the start of this turn, you gain four Basic Tokens of your choice.",
+Frantic Archetype,Frantic Demon,Demon,,"At the end of this turn, you gain 2 Chaos tokens.",
+Frantic Archetype,Frantic Flametongue,Flametongue,,"During this turn, after you deal damage to an enemy with three or less Burning tokens, give them one Burning token",
+Frantic Archetype,Frantic Gunkata,Gunkata,,"At the end of this turn, you may move one space, then deal 1 damage to each enemy within range. Then, you may move one space",
+Frantic Archetype,Frantic Phantom,Phantom,,"You have access to all of your Unique Actions this turn, no matter what your current Style and Form are. Your Unique Actions have their cost reduced by 1 (to a minimum of 1+ or 2 tokens",
+Frantic Archetype,Frantic Punk,Punk,,"At the start of this turn, add X to your Action Pool. X is equal to twice the damage on your current health bar. If your health bar is full, X = 1",
+Frantic Archetype,Frantic Teacher,Teacher,,"At the end of this turn, you gain two Inspired tokens.",
+Frantic Archetype,Frantic Trickster,Trickster,,"Until your next turn, you may spend any tokens you hold as if they were Iron tokens. When you spend Iron tokens to reduce the damage you take, push your attacker 1 space, then you may move 1 space",
+Frantic Archetype,Frantic Underdog,Underdog,,"At the start of this turn, you gain one Basic token of your choice.
+Until your next turn, after you take damage, you gain one Basic token of your choice",
+Frantic Archetype,Frantic Wardancer,Wardancer,,"After rolling your Action Dice this turn, either increase all of your numbers by 1, or increase one of your number by 4",
+Frantic Archetype,Frantic Winterblossom,Winterblossom,,"At the start and end of this turn, give 1 Weakness token to one enemy within range",
+Fused Archetype,Fused Angel,Angel,,"At the start of your turn, Challenge an enemy you can see, then deal 1 damage to them, then heal 1. After you Challenge an enemy, deal 1 damage to them and heal 1.",
+Fused Archetype,Fused Cavalry,Cavalry,,"At the end of your turn, you and each ally adjacent to you gains a 2 point shield",
+Fused Archetype,Fused Cyborg,Cyborg,,"At the start of your turn, you gain two Basic Tokens of your choice.",
+Fused Archetype,Fused Demon,Demon,,"At the end of your turn, you gain 1 Chaos token.",
+Fused Archetype,Fused Flametongue,Flametongue,,"The first time you deal damage to an enemy during your turn, give that enemy two Burning tokens",
+Fused Archetype,Fused Gunkata,Gunkata,,"At the end of your turn, deal 1 damage to each enemy within range.",
+Fused Archetype,Fused Phantom,Phantom,,Your Unique Actions have their cost reduced by 1 (to a minimum of 1+ or 2 tokens,
+Fused Archetype,Fused Punk,Punk,,"At the start of your turn, add X to your Action Pool. X is equal to your current health bar. If your health bar is full, X = 1",
+Fused Archetype,Fused Teacher,Teacher,,"At the end of your turn, you gain an Inspired token.",
+Fused Archetype,Fused Trickster,Trickster,,"You may spend any basic tokens you hold as if they were Iron tokens. When you spend Iron tokens to reduce the damage you take, you may move 1 space",
+Fused Archetype,Fused Underdog,Underdog,,"At the start of your turn, you gain one Basic token of your choice. After you take damage, you gain one Basic token of your choice. You cannot choose a Basic token you are already holding.",
+Fused Archetype,Fused Wardancer,Wardancer,,"After rolling your Action Dice, increase two of your numbers by 2",
+Fused Archetype,Fused Winterblossom,Winterblossom,,"At the start and end of your turn, give 1 Weakness token to one enemy within range",
+,,,,,
+,,,,,
+,,,,,
+,Archetype,Name,Range,Ability,
+Archetype Style,Angel,Halcyon,1-2,"At the start of your turn, remove one token you hold.
+After you remove tokens using an Action or Ability, you gain an equal number of Iron tokens.",
+Archetype Style,Angel,Judgment,1,"When an enemy with your Challenge starts their turn, they do not roll their lowest Action Die. It is discarded and unused.",
+Archetype Style,Angel,Shining,1,"At the start of your turn, all obstacles and enemies adjacent to you are pushed one space.
+Enemies cannot move into the spaces adjacent to you.",
+Archetype Style,Angel,Singing,2-4,"At the start and end of your turn, you gain a 2 point Shield.
+After each Action you perform, if you have an active Shield, increase its value by 1.",
+Archetype Style,Angel,Winged,1-2,"Edges cannot remove you from play.
+At the end of every turn, you may move two spaces.",
+Archetype Style,Cavalry,Charging,1,"At the start of your turn, you may move 2 spaces.
+At the start of each ally's turn, they may move 2 spaces.",
+Archetype Style,Cavalry,Heroic,1-2,"Whenever an ally within range takes damage, they take half that damage (rounded down) and you take the other half (rounded up).",
+Archetype Style,Cavalry,Jumping,1,"At the start and end of your turn, you may teleport one, two, or three spaces.",
+Archetype Style,Cavalry,Rallying,1,"At the end of your turn, you and each ally within range heals.
+At the start of each ally's turn, if they are within range of you, they may heal.",
+Archetype Style,Cavalry,Unbreakable,1-2,"After each Action you perform, give one Iron token to an ally other than yourself within range.
+Your allies within range may spend your tokens.",
+Archetype Style,Cyborg,Armored,1-2,"After you spend Iron tokens, you heal 1.",
+Archetype Style,Cyborg,Incinerator,1-3,"When you spend Power tokens to boost the damage a hit deals, give one Burning token to the target of that hit.",
+Archetype Style,Cyborg,Machine,1-2,"You may spend your Basic Tokens as if they were any other Basic Tokens. The Basic Tokens are Iron, Power, and Speed tokens.",
+Archetype Style,Cyborg,Rocket,1,"After you push someone, you may teleport to any empty space adjacent to them.",
+Archetype Style,Cyborg,Syphon,1-2,"At the end of your turn, choose a token you hold. Either replace it with a Power token, or gain another copy of it.",
+Archetype Style,Demon,Dark,2-4,"You can see and target enemies through Fog.
+At the end of your turn, place a Fog obstacle into your space.",
+Archetype Style,Demon,Ogre,1-2,"Your Throw Actions may target any number of enemies within range. After you Throw an enemy, they take 1 damage.",
+Archetype Style,Demon,Slasher,1,"At the end of every turn, you deal 1 damage to an adjacent enemy",
+Archetype Style,Demon,Vampire,1,"After you deal damage with a hit, you heal 1.
+After you give Weakness tokens to an enemy, you gain that many Power tokens.",
+Archetype Style,Demon,Zombie,1,"You have Armor. At the start of your turn, if your HP is 3 or less, you heal.",
+Archetype Style,Flametongue,Burning,2-4,"After you target an enemy with an Action, if they have four Burning tokens or less, give them 1 Burning token.",
+Archetype Style,Flametongue,Explosion,2-4,"After you deal damage to an enemy, push that enemy one space.
+After you destroy an obstacle, replace it with an Edge.",
+Archetype Style,Flametongue,Inferno,1-2,"At the end of your turn, after your Burning tokens have already triggered, you gain three Burning tokens.
+After an enemy deals damages to you with an Action, you may give them all of your Burning tokens.",
+Archetype Style,Flametongue,Phoenix,1,"Whenever you would take damage from Burning tokens or from Traps, you heal that much damage instead.",
+Archetype Style,Flametongue,Volcanic,1-3,"After you spend Speed tokens on Free Movement, you may place a Trap into each space you exit.
+You do not take damage from entering a space with a Trap.",
+Archetype Style,Gunkata,Akimbo,3-5,"After you deal damage to someone, you move one space.",
+Archetype Style,Gunkata,Artillery,3-8,You can see and target enemies through Fog and Walls.,
+Archetype Style,Gunkata,Crosshair,4-8,"You ignore Armor and Shields when dealing damage.
+Weakness tokens you hold and Iron tokens your enemies hold do not reduce the damage you deal.",
+Archetype Style,Gunkata,Ricochet,2-4,"After you deal damage to an enemy with an Action, you may deal 1 damage to a different enemy within 3 spaces of them.",
+Archetype Style,Gunkata,Ten Thousand,2-3,Add two d4's to your Action Dice.,
+Archetype Style,Phantom,Aura,1-3,"At the start of your turn, you gain a 3 point Shield.
+When an enemy within range damages or breaks a Shield, you may move that enemy one space.
+After a Shield within range breaks, you gain 1 Iron token.",
+Archetype Style,Phantom,Crying,1-4,"At the start of your turn, give one Weakness token to all enemies within range.
+At the end of your turn, Challenge an enemy within range and give them one Weakness token.",
+Archetype Style,Phantom,Puppet,1-5,"You may use Speed tokens to move any ally, enemy, or obstacle within range, using the normal Free Movement rules.
+Walls and Traps you move with this Ability become Rubble.
+Edges cannot be moved with this Ability.",
+Archetype Style,Phantom,Spirit,1-3,"Edges cannot remove your Copies from play. You and your Copies can move over Walls as though they were empty space.
+After you use Free Movement on yourself or your Copy, you may move any number of your Copies one space.",
+Archetype Style,Phantom,Vortex,1-3,"Edges cannot remove you from play. When you stand on an Edge, every other Edge counts as an adjacent space you can move to.",
+Archetype Style,Punk,Bleeding,1,You don't get Taken Out at zero HP. You can continue to fight as long as you remain in play. Your side still loses if everyone in play is at zero HP at the same time.,
+Archetype Style,Punk,Brawling,1,"After your Shield breaks, you gain 1 Power token.
+After you deal damage, if you didn't spend a Power token on that hit, you gain 1 Power token.",
+Archetype Style,Punk,Flashy,1,"After you roll your Action Dice, you may combine two of your numbers into a single, larger number.",
+Archetype Style,Punk,Knockdown,1,"After you take damage from an enemy, you deal 1 damage back to them.",
+Archetype Style,Punk,Taunting,1,"After you take damage, you gain 1 Iron token.
+After you take damage from an enemy with your Challenge, you may move one space.",
+Archetype Style,Teacher,Patient,1,"At the end of your turn, your Speed tokens become Iron tokens.
+You may only take one Action per turn.
+Your Action Pool does not empty between Turns or Rounds.",
+Archetype Style,Teacher,Elder,1-2,"The cost of this Stance's Unique Actions are reduced by 1 (to a minimum of 1+ or 2 tokens).
+Once per turn, during your turn, you may use any Unique Action you know, from among all of your Stances, for free. It does not cost any tokens or numbers to use. If your free Action is a Tiered Action, you perform it as if you spent a 7.",
+Archetype Style,Teacher,Mastermind,No,"You cannot perform Actions. Instead, you spend your numbers on your allies, making them perform Actions for you.
+Each Action you take uses an ally's current location, range, and Stance bonuses as if they'd taken that Action themselves. You can only give Actions to allies you can see.
+After each Action an ally performs during your turn, you may move 1 space.",
+Archetype Style,Teacher,Motivating,1-2,"At the end of your turn, allies within range heal, and you gain an Inspired token.",
+Archetype Style,Teacher,Training,1,"At the end of your turn, give an ally one Training token.
+Training Token: Before performing an Action, you may spend a Training token to increase all numbers listed in that Action by 1, including its cost. You may only spend 1 Training token per turn.",
+Archetype Style,Trickster,Caged,1,Adjacent enemies cannot gain or spend Speed tokens.,
+Archetype Style,Trickster,Mysterious,1-2,"At the start of your turn, place a Fog obstacle into your space.
+While you stand in Fog, your maximum range is doubled.",
+Archetype Style,Trickster,Illusion,1-3,"After an enemy deals damage to you while within range of at least
+one of your Copies, you deal 1 damage to them. If they are within range of three or more Copies, you deal 2 damage to them instead.
+You may spend your Copies as Iron tokens.",
+Archetype Style,Trickster,Hidden,1-3,"You may move through Walls as though they were empty spaces.
+You can see and target enemies through Walls.",
+Archetype Style,Trickster,Whip,2-5,"Your Throw Actions target one person within range.
+When you Throw or Grapple an enemy, they take 2 damage.",
+Archetype Style,Underdog,Collateral,1-2,"After you destroy an obstacle, you gain one Basic token of your choice.",
+Archetype Style,Underdog,Distracting,1-2,"After an enemy deals damage to you, if they have no Weakness tokens, give that enemy one Weakness token.",
+Archetype Style,Underdog,Eye of the ...,1,"At the start of your turn, you gain a Bonus of your choice.",
+Archetype Style,Underdog,Lucky,1,"You have Armor.
+Add a d4 to your Action Dice.",
+Archetype Style,Underdog,Misfortune's,1-3,"When you would take damage from a Trap, deal that damage to an enemy within range instead. If no enemies are within range, gain one Power token instead.",
+Archetype Style,Wardancer,Forbidden,1-2,"At the start of your turn, you take 2 damage. This damage cannot drop you below 1 HP on your current Health Bar.
+This Style is attached to two Forms. You have the Abilities and Unique Actions from each Form. Do not use the Action Dicelisted in those Forms. This Stance's Action Dice are determined by combining the results of the following chart:
+Blaster: d8            Reversal: d8 d4
+Control: d8 d6       Shadow: d4 d4 d4
+Dance: d8 d6        Song: d8 d4
+Iron: d6 d6            Vigilance: d6 d6
+One-Two: d6 d4    Wild: d10
+Power: d10 d4       Zen: 5 3",
+Archetype Style,Wardancer,Lightning,1,"After you deal damage, you gain 1 Speed token.",
+Archetype Style,Wardancer,Overwhelming,1,"You ignore Armor when dealing damage.
+When an enemy hits you with an Action, you may spend a Power token to deal 1 damage to them and push them 1 space.",
+Archetype Style,Wardancer,Relentless,1,"When you deal damage to an enemy, immediately push them one space and then move into the empty space they left.
+If you damage multiple enemies at the same time, push all of them one space, then move into one of the empty spaces they left.",
+Archetype Style,Wardancer,Weightless,1,"All spaces are Empty spaces to you.
+Edges cannot remove you from play.
+Rubble does not make you discard Speed tokens.
+Traps deal no damage to you.",
+Archetype Style,Winterblossom,Crystal,1-2,"When one of your Copies is destroyed, it deals 1 damage to everyenemy adjacent to it.",
+Archetype Style,Winterblossom,Frozen,1,"After an enemy moves into an empty space adjacent to you, you may give them one Weakness token.",
+Archetype Style,Winterblossom,Precision,1-2,"Your Actions deal +1 damage to enemies with Armor or Shields.
+When you target an enemy with an Action, they must discard 1 Iron token.",
+Archetype Style,Winterblossom,Pressure,1-2,"At the start of your turn, give one Weakness token to every enemy within range.",
+Archetype Style,Winterblossom,Reflected,2-3,"At the start of your turn, you may place up to three Walls into empty adjacent spaces.
+You can see and target enemies through Walls.",
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,Archetype Style,Name,Cost,Ability,
+Style Action,Halcyon,Purify,1+ or 3+ or 6+,"Remove one token from yourself or an ally within range.
+3+: Remove up to two tokens from someone within range.
+6+: Remove up to two tokens from someone within range.",
+Style Action,Judgment,Denial,5+,"Teleport adjacent to an enemy you can see, and Challenge them.",
+Style Action,Shining,Beacon,1+ or 4+,"Pull one ally up to three spaces. You and that ally heal 1.
+4+: That ally heals.",
+Style Action,Singing,Symphony,Destroy Your Active Shield,"Symphony is a Token Action, but the cost is your Active Shield.
+Choose two: Pull an ally 3 spaces; an ally within range heals; Challenge an enemy within range; an enemy within range is pushed 3 spaces; or destroy an obstacle within range.",
+Style Action,Winged,As The Crow Flies,1+,Teleport three or four spaces.,
+Style Action,Charging,Follow My Lead,3+,"You may move one space, then deal 1 damage to an enemy within range. An ally you can see may move one space, then deal 1 damage to an enemy within their range.",
+Style Action,Heroic,Burning Heart,4+,You and each ally within range gains 2 Iron tokens.,
+Style Action,Jumping,Leap In,4+,"Teleport up to three spaces.
+You may deal 2 damage to an enemy within range.",
+Style Action,Rallying,Group Up,2+ or 3+ or 5+,"Pull one ally up to 3 spaces.
+3+: Pull one ally up to 4 spaces.
+5+: Each pulled ally heals.",
+Style Action,Unbreakable,Eyes Open,4+,You gain 6 Iron tokens and 1 Weakness token.,
+Style Action,Armored,"You, Stay",2 Iron Tokens,"Challenge an enemy within range.
+That enemy discards three Speed tokens.",
+Style Action,Incinerator,Flamethrower,2 Power Tokens,"Choose an enemy within range. They take 1 damage, gain one Burning token, and are pushed 1 space.",
+Style Action,Machine,High Efficiency,1+ or 4+,"Choose three: You heal 1; you gain one Iron token; you gain one Power token; you gain one Speed token; or you deal 1 damage to an enemy within range.
+4+: Choose the last two options.",
+Style Action,Rocket,Rocket Tackle,2 Speed Tokens,Push an adjacent enemy or ally two spaces.,
+Style Action,Syphon,Power Converter,2+ or 6+,"Target a single token held by you or someone within range.
+Choose one or both: You steal the targeted token(s) from them; and/or replace the targeted token(s) with Power tokens.
+6+: The Choice Effect applies to every token they hold of the targeted token's type.",
+Style Action,Dark,Darkness Dawns,4+,"Place two Fog obstacles into empty spaces within range.
+You may teleport to one of those Fog obstacles.",
+Style Action,Dark,Twilight Sorrow,4+,"Each enemy standing in Fog gains one Weakness token.
+You gain one Speed token for each enemy affected.",
+Style Action,Ogre,Watch Your Step,3+,Choose an enemy you can see that moved during this turn. You deal 2 damage to them.,
+Style Action,Slasher,Suddenly...,4+,"Teleport into an empty space adjacent to someone who is alone.
+Someone is alone if nobody is adjacent to them.",
+Style Action,Vampire,Life Steal,4+,"Deal 2 damage to an enemy within range.
+You may give that enemy one Weakness token.",
+Style Action,Zombie,Hunger,4+,"Deal 2 damage to an enemy within range.
+You may take one token from that enemy.",
+Style Action,Burning,Burn It All Down,4+,Target one enemy within range. Give them one Burning token and put a Trap into their space.,
+Style Action,Explosion,Ka-Boom!,6+,"Deal 2 damage to an enemy within range.
+Then, destroy every obstacle adjacent to them.",
+Style Action,Inferno,Ignition,Gain 1 Burning Token,"Give one Burning token to an enemy within range.
+You can only use Ignition once per turn.",
+Style Action,Phoenix,Cleansing Fire,4+,Choose two: Give a Burning token to someone within range; heal an ally within range; or place a Trap within range.,
+Style Action,Volcanic,Pyroclasm,4+,Place three Traps within range. Each Trap placed by this Action must be adjacent to a Trap obstacle.,
+Style Action,Akimbo,Firing Wild,4+,Choose one: Deal 1 damage to every enemy and ally adjacent to you; or deal 1 damage to every enemy and ally within range.,
+Style Action,Artillery,Bombardment,1+ or 6+,"Place a Trap into a space within range.
+6+: Place a Trap into each space adjacent to the first Trap.
+Do not place these Traps over Edges or Walls.",
+Style Action,Crosshair,Take Aim,1+,Your next Action this turn has its cost and every number listed in its description increased by 1.,
+Style Action,Ricochet,Trick Shot,3+,"Choose one obstacle within range.
+Deal 2 damage to an enemy within 3 spaces of that obstacle.",
+Style Action,Ten Thousand,Point Blank Shot,2+,"Deal 1 damage to an adjacent enemy.  Then, push them 1 space.",
+Style Action,Aura,Shields Up,3 Basic Tokens,An ally within range gains a 3 point Shield.,
+Style Action,Crying,Banshee's Wail,6+,"All enemies within range gain a Weakness token.
+All Traps and Walls within range become Rubble",
+Style Action,Puppet,Pull The Strings,3+ or 5+,"Choose an enemy or ally you can see. Move them 3 spaces.
+5+: Choose an enemy or ally you can see. Move them 3 spaces.",
+Style Action,Spirit,Now You See Me...,1+ or 3+ or 5+,"Place a Copy into an empty space within range.
+3+: Place a Copy into an empty space within range.
+5+: Place a Copy into an empty space within range.",
+Style Action,Spirit,...Now You Don't,Destroy 1 Copy,"…Now You Don't is a Token Action, but the Cost is one of your Copies.
+Teleport into the space of the destroyed Copy.",
+Style Action,Vortex,Black Hole,4+,Place an Edge into an empty space within range.,
+Style Action,Bleeding,Lash Out,2 HP,"Lash Out is a Token Action that spends your HP.
+You can't spend HP you do not have.
+Push an adjacent enemy two spaces.",
+Style Action,Bleeding,I'm Still Here,12+,"Deal 7 damage to an enemy within range.
+Then, push that enemy 7 spaces.",
+Style Action,Brawling,Tough It Out,2 Power Tokens,You gain a 2 point Shield.,
+Style Action,Flashy,Show Off,X,"Choose two of these Basic Actions: Movement, Damage, A Challenger Approaches, Put It Out!, or Throw.
+Perform both of those Actions as if you had spent X on them.
+You can only use Show Off once per turn.",
+Style Action,Knockdown,Take It On The Chin,4+,"Each enemy within range deals 1 damage to you.
+Then, you deal 3 damage to one of them.",
+Style Action,Taunting,Is That All You Got?,1+,Challenge an enemy you can see. You gain 1 Iron token.,
+Style Action,Taunting,Not Good Enough,X,"Give X - 2 Weakness tokens to an enemy with your Challenge.Then, they discard your Challenge.",
+Style Action,Patient,Waiting Game,X,"Add X+1 to your Action Pool. Then, you may move one space.You can only use Waiting Game during enemy turns.",
+Style Action,Motivating,You Can Do It!,4+,Choose an ally within range. They choose two: They heal; they move two spaces; they gain a copy of a token they hold; or they discard one token they hold.,
+Style Action,Training,Watch Closely,3+,"You gain one Training Token. If you spend it before the end of this turn, give one Training Token to an ally.",
+Style Action,Caged,Welcome To My Maze,2+,"Deal 1 damage to one enemy outside of your Range.
+Then, pull them three spaces.",
+Style Action,Mysterious,Ghost Walk,3 Speed or Iron Tokens,"Place a Fog obstacle into an empty space within range.
+Then, teleport to a Fog obstacle within range.",
+Style Action,Illusion,Where Are You Looking?,3+ or 6+,"Place 2 Copies into empty spaces within range.
+6+: Place 2 more Copies into empty spaces within range.",
+Style Action,Hidden,Sudden Strike,3 Iron Tokens,Deal 2 damage to an enemy within range.,
+Style Action,Whip,Grapple Hook,5+,Teleport to any empty space within range.,
+Style Action,Collateral,Roughhousing,3+,"Destroy an obstacle within range, then choose one: Teleport to that obstacle's space; deal 1 damage to each enemy adjacent to the destroyed obstacle; or destroy another obstacle within range.
+You can spend 2 Basic Tokens to choose a second option from the list, or 3 Basic Tokens to choose all three.",
+Style Action,Distracting,Flare,1+ or 2 Basic Tokens,"Flare can be used as either a Simple or Token Action.
+Move one space, then give one Weakness token to one enemy within range.",
+Style Action,Eye of the ...,Thrill of the Fight,3+,"Target an adjacent enemy, then choose one: Challenge them; you deal 2 damage to them; or give them 2 Burning tokens.
+You can spend 2 Basic Tokens to choose a second option from the list, or 3 Basic Tokens to choose all three.",
+Style Action,Lucky,Just What I Needed,3+,"Choose one: You gain 2 Basic tokens; you teleport two or three spaces; or you heal.
+You can spend 2 Basic Token to choose a second option from the list, or 3 Basic Tokens to choose all three.",
+Style Action,Misfortune's,Bad Luck,1+ or 3 Basic Tokens,"Bad Luck can be used as either a Simple or Token Action.
+Place a Trap into a space within range.",
+Style Action,Lightning,Deadly Dance,2+ or 5+ or 8+,"Teleport 2 spaces. Deal 1 damage to an enemy within range.
+5+: Teleport 2 spaces. Deal 2 damage to an enemy within range.
+8+: Teleport 2 spaces. Deal 2 damage to an enemy within range.",
+Style Action,Overwhelming,Power Strike,4+ or 8+,"Deal 2 damage to an enemy within range.
+You gain 2 Power tokens.
+8+: Deal 4 damage and gain 4 Power tokens instead.",
+Style Action,Relentless,Rush Down,3+ or 5+ or 7+,"Deal 1 damage to an enemy within range.
+Then, deal 1 damage to an enemy within range.
+5+: Then, deal 1 damage to an enemy within range.
+7+: Then, deal 1 damage to an enemy within range.",
+Style Action,Weightless,Effortless,4+ or 7+,"Teleport to any space you can see.
+7+: Choose an ally. They may teleport to any space they can see.",
+Style Action,Crystal,Splinter,3+ or 6+,"Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.
+6+: Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.",
+Style Action,Crystal,Shatter,Free,"Shatter is a Token Action that costs nothing.
+Destroy one of your Copies. Give one Weakness token to an enemy that was within range of that Copy.",
+Style Action,Frozen,Exploit Weakness,3+,Choose one enemy within range. Give them one Weakness token and deal 2 damage to them.,
+Style Action,Precision,Perfect Strike,3+ and 3+,"This Action costs two numbers to perform.
+Deal 4 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Perfect Strike.",
+Style Action,Pressure,Apply Pressure,5+,"Choose one enemy within range. Deal damage to them equal to the number of tokens they hold.
+You can only use Apply Pressure once per turn.",
+Style Action,Reflected,Walled In,3+,Place 3 Walls into empty spaces within Range 1-3.,
+Style Action,Reflected,Icicle Fall,3+,Deal 1 damage to each enemy adjacent to any Walls.,
