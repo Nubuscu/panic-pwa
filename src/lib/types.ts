@@ -24,6 +24,7 @@ export interface TokenCost {
 export interface ActionLevel {
 	diceCost?: number[]; // most actions will have a single number, handful of exceptions
 	tokenCost?: TokenCost[];
+	otherCost?: string[]; // Free actions, X, or health costs
 	description: string; // TODO match bits of the description to costs
 }
 
@@ -92,5 +93,5 @@ export interface Hero {
 }
 
 export const emptyHero: Hero = {
-	type: HeroType.Focused,
-}
+	type: HeroType.Focused
+};
