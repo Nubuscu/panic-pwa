@@ -5,7 +5,7 @@ export const forms: Form[] = [
 			description:
 				"Your Actions may apply to one extra target within range. When you add Blaster Form to a Style, increase that Style's maximum range by 1"
 		},
-		actionDice: 'Dice.d8, Dice.d8, Dice.d8',
+		actionDice: [Dice.d8, Dice.d8, Dice.d8],
 		name: 'Blaster',
 		actions: [
 			{
@@ -40,7 +40,7 @@ export const forms: Form[] = [
 			description:
 				'When an enemy within range takes an action you can spend one Control token to negate it or two control tokens to redirect it.\nYou may only use Control tokens once per turn. If you negate an action they lose the number they spent and the action does not happen.\nIf you redirect an action you choose all targets and make all decisions for that action'
 		},
-		actionDice: 'Dice.d10, Dice.d8, Dice.d6, Dice.d4',
+		actionDice: [Dice.d10, Dice.d8, Dice.d6, Dice.d4],
 		name: 'Control',
 		actions: [
 			{
@@ -70,7 +70,7 @@ export const forms: Form[] = [
 			description:
 				'After you Throw or Grapple someone, you gain X Speed tokens, where X is how many spaces you moved them.\nAfter each space you move using Free Movement, you may choose someone within range and pull them 1 space'
 		},
-		actionDice: 'Dice.d10, Dice.d8, Dice.d6',
+		actionDice: [Dice.d10, Dice.d8, Dice.d6],
 		name: 'Dance',
 		actions: [
 			{
@@ -80,7 +80,7 @@ export const forms: Form[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Speed'
+								tokenType: Token.Speed
 							}
 						],
 						description: 'Move two spaces, then heal 2.'
@@ -94,7 +94,7 @@ export const forms: Form[] = [
 			description:
 				'You have Armor. When you gain Speed tokens, replace half of them (rounded up) with Iron tokens'
 		},
-		actionDice: 'Dice.d8, Dice.d6, Dice.d6',
+		actionDice: [Dice.d8, Dice.d6, Dice.d6],
 		name: 'Iron',
 		actions: [
 			{
@@ -133,7 +133,7 @@ export const forms: Form[] = [
 			description:
 				'After you deal damage to an enemy with an Action, you hit them again for 1 damage'
 		},
-		actionDice: 'Dice.d6, Dice.d6, Dice.d4, Dice.d4',
+		actionDice: [Dice.d6, Dice.d6, Dice.d4, Dice.d4],
 		name: 'One-Two',
 		actions: [
 			{
@@ -161,7 +161,7 @@ export const forms: Form[] = [
 			description:
 				'When you gain Speed tokens, replace half of them (rounded up) with Power tokens.\nYou may spend up to 3 Power tokens per hit'
 		},
-		actionDice: 'Dice.d10, Dice.d10, Dice.d4',
+		actionDice: [Dice.d10, Dice.d10, Dice.d4],
 		name: 'Power',
 		actions: [
 			{
@@ -195,7 +195,7 @@ export const forms: Form[] = [
 			description:
 				'You have Armor. You do not discard your Speed tokens at the end of a turn.\nYou may only take one Action per turn.\nYour Action Pool does not empty between Turns or Rounds'
 		},
-		actionDice: 'Dice.d8, Dice.d8, Dice.d6, Dice.d4',
+		actionDice: [Dice.d8, Dice.d8, Dice.d6, Dice.d4],
 		name: 'Reversal',
 		actions: [
 			{
@@ -215,7 +215,7 @@ export const forms: Form[] = [
 			description:
 				'At the start and end of your turn, you gain 2 Speed tokens\nYou do not discard your Speed tokens at the end of a turn.'
 		},
-		actionDice: 'Dice.d4, Dice.d4, Dice.d4, Dice.d4, Dice.d4, Dice.d4',
+		actionDice: [Dice.d4, Dice.d4, Dice.d4, Dice.d4, Dice.d4, Dice.d4],
 		name: 'Shadow',
 		actions: [
 			{
@@ -225,7 +225,7 @@ export const forms: Form[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Speed'
+								tokenType: Token.Speed
 							}
 						],
 						description:
@@ -240,7 +240,7 @@ export const forms: Form[] = [
 			description:
 				'At the start of each turn choose a song; Iron, Power or Speed. You gain three tokens of the chosen type and each of your allies gain 1 of that type'
 		},
-		actionDice: 'Dice.d8, Dice.d6, Dice.d6, Dice.d4',
+		actionDice: [Dice.d8, Dice.d6, Dice.d6, Dice.d4],
 		name: 'Song',
 		actions: [
 			{
@@ -270,7 +270,7 @@ export const forms: Form[] = [
 			description:
 				'At the start of your turn, either heal or discard one token you hold. At the end of your turn, choose an enemy in range and give them one Weakness token'
 		},
-		actionDice: 'Dice.d6, Dice.d6, Dice.d6, Dice.d6',
+		actionDice: [Dice.d6, Dice.d6, Dice.d6, Dice.d6],
 		name: 'Vigilance',
 		actions: [
 			{
@@ -310,7 +310,7 @@ export const forms: Form[] = [
 			description:
 				'At the start of your turn, for each of these that is true, add 1d6 to your Action Dice\n-Your current Health Bar is at half HP or less\n-Someone on your team is Taken Out\n-You are holding a non-basic Token'
 		},
-		actionDice: 'Dice.d10, Dice.d6, Dice.d6',
+		actionDice: [Dice.d10, Dice.d6, Dice.d6],
 		name: 'Wild',
 		actions: [
 			{
@@ -320,7 +320,7 @@ export const forms: Form[] = [
 						tokenCost: [
 							{
 								number: 2,
-								tokenType: 'Token.Basic'
+								tokenType: Token.Basic
 							}
 						],
 						description:
@@ -335,7 +335,7 @@ export const forms: Form[] = [
 			description:
 				"Your Action Pool is predetermined: 7, 5, 3, 1. You may hold multiple Shields at a time. Only one Shield is active at a time. When your active Shield breaks, your next Shield doesn't become active until the end of the current turn.\nWhen an enemy damages or breaks your Shield, you deal 1 damage to them"
 		},
-		actionDice: 'Dice.7, Dice.5, Dice.3, Dice.1',
+		actionDice: [7, 5, 3, 1],
 		name: 'Zen',
 		actions: [
 			{
@@ -798,7 +798,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 2,
-								tokenType: 'Token.Iron'
+								tokenType: Token.Iron
 							}
 						],
 						description: 'Challenge an enemy within range.\nThat enemy discards three Speed tokens.'
@@ -824,7 +824,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 2,
-								tokenType: 'Token.Power'
+								tokenType: Token.Power
 							}
 						],
 						description:
@@ -877,7 +877,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 2,
-								tokenType: 'Token.Speed'
+								tokenType: Token.Speed
 							}
 						],
 						description: 'Push an adjacent enemy or ally two spaces.'
@@ -1092,7 +1092,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 1,
-								tokenType: 'Token.Burning'
+								tokenType: Token.Burning
 							}
 						],
 						description:
@@ -1274,7 +1274,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Basic'
+								tokenType: Token.Basic
 							}
 						],
 						description: 'An ally within range gains a 3 point Shield.'
@@ -1443,7 +1443,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 2,
-								tokenType: 'Token.Power'
+								tokenType: Token.Power
 							}
 						],
 						description: 'You gain a 2 point Shield.'
@@ -1562,8 +1562,8 @@ export const styles: Style[] = [
 	{
 		parentArchetypeName: 'Teacher',
 		name: 'Mastermind',
-		minRange: 'No',
-		maxRange: 'No',
+		minRange: 0,
+		maxRange: 0,
 		ability: {
 			description:
 				"You cannot perform Actions. Instead, you spend your numbers on your allies, making them perform Actions for you.\nEach Action you take uses an ally's current location, range, and Stance bonuses as if they'd taken that Action themselves. You can only give Actions to allies you can see.\nAfter each Action an ally performs during your turn, you may move 1 space."
@@ -1652,7 +1652,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Speed'
+								tokenType: Token.Speed
 							}
 						],
 						description:
@@ -1662,7 +1662,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Iron'
+								tokenType: Token.Iron
 							}
 						],
 						description:
@@ -1716,7 +1716,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Iron'
+								tokenType: Token.Iron
 							}
 						],
 						description: 'Deal 2 damage to an enemy within range.'
@@ -1789,7 +1789,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 2,
-								tokenType: 'Token.Basic'
+								tokenType: Token.Basic
 							}
 						],
 						description:
@@ -1863,7 +1863,7 @@ export const styles: Style[] = [
 						tokenCost: [
 							{
 								number: 3,
-								tokenType: 'Token.Basic'
+								tokenType: Token.Basic
 							}
 						],
 						description:

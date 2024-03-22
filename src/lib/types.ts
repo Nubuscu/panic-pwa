@@ -6,11 +6,17 @@ export enum Dice {
 }
 
 export enum Token {
-	// TODO all the token types
-	// and any token (at all, not just basic)
 	Speed = 'Speed',
 	Iron = 'Iron',
-	Power = 'Power'
+	Power = 'Power',
+	Basic = 'Basic', // TODO represent basic/any as sum of other tokens
+	Burning = 'Burning',
+	Chaos = 'Chaos',
+	Challenge = 'Challenge',
+	Inspired = 'Inspired',
+	Training = 'Training',
+	Weakness = 'Weakness',
+	Any = 'Any'
 }
 
 export interface Action {
@@ -36,7 +42,7 @@ export interface Ability {
 export interface Form {
 	name: string;
 	ability: Ability;
-	actionDice: Dice[];
+	actionDice: Dice[] | number[];
 	actions: Action[];
 	// TODO skills, though not hugely important
 }
