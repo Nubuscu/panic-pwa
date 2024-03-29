@@ -23,13 +23,11 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description:
-							'Deal 1 damage to every enemy within range.\n6+: Deal 2 damage to one enemy within range'
+						description: 'Deal 1 damage to every enemy within range.'
 					},
 					{
 						diceCost: [6],
-						description:
-							'Deal 1 damage to every enemy within range.\n6+: Deal 2 damage to one enemy within range'
+						description: 'Deal 2 damage to one enemy within range'
 					}
 				]
 			}
@@ -48,18 +46,15 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description:
-							'You gain 1 Control token and move 1 space.\n6+ you gain 1 Control token\n9+ You gain one control token and can move one space'
+						description: 'You gain 1 Control token and move 1 space.'
 					},
 					{
 						diceCost: [6],
-						description:
-							'You gain 1 Control token and move 1 space.\n6+ you gain 1 Control token\n9+ You gain one control token and can move one space'
+						description: '6+ you gain 1 Control token'
 					},
 					{
 						diceCost: [9],
-						description:
-							'You gain 1 Control token and move 1 space.\n6+ you gain 1 Control token\n9+ You gain one control token and can move one space'
+						description: '9+ You gain one control token and can move one space'
 					}
 				]
 			}
@@ -179,12 +174,11 @@ export const forms: Form[] = [
 					{
 						diceCost: [6],
 						description:
-							'Deal 3 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Crush or the damage it deals.\n9+: You may spend any number of Power tokens on this hit'
+							'Deal 3 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Crush or the damage it deals.'
 					},
 					{
 						diceCost: [9],
-						description:
-							'Deal 3 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Crush or the damage it deals.\n9+: You may spend any number of Power tokens on this hit'
+						description: '9+: You may spend any number of Power tokens on this hit'
 					}
 				]
 			}
@@ -249,17 +243,16 @@ export const forms: Form[] = [
 					{
 						diceCost: [1],
 						description:
-							'Choose one ally you can see. Choose one: They remove one token they hold; they heal; or they gain 2 tokens from your song.\n4+: They also choose one from the list.\n6+: Add a 4 to their Action Pool. They must immediately spend it on an Action.'
+							'Choose one ally you can see. Choose one: They remove one token they hold; they heal; or they gain 2 tokens from your song.'
 					},
 					{
 						diceCost: [4],
-						description:
-							'Choose one ally you can see. Choose one: They remove one token they hold; they heal; or they gain 2 tokens from your song.\n4+: They also choose one from the list.\n6+: Add a 4 to their Action Pool. They must immediately spend it on an Action.'
+						description: 'They also choose one from the list.'
 					},
 					{
 						diceCost: [6],
 						description:
-							'Choose one ally you can see. Choose one: They remove one token they hold; they heal; or they gain 2 tokens from your song.\n4+: They also choose one from the list.\n6+: Add a 4 to their Action Pool. They must immediately spend it on an Action.'
+							'Add a 4 to their Action Pool. They must immediately spend it on an Action.'
 					}
 				]
 			}
@@ -278,13 +271,11 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Give one weakness token to an enemy within range.\n4+: give two weakness tokens to an enemy within range'
+						description: 'Give one weakness token to an enemy within range.'
 					},
 					{
 						diceCost: [4],
-						description:
-							'Give one weakness token to an enemy within range.\n4+: give two weakness tokens to an enemy within range'
+						description: 'give two weakness tokens to an enemy within range'
 					}
 				]
 			},
@@ -293,13 +284,11 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Heal yourself or an ally you can see.\n4+: heal yourself or a different ally you can see'
+						description: 'Heal yourself or an ally you can see.'
 					},
 					{
 						diceCost: [4],
-						description:
-							'Heal yourself or an ally you can see.\n4+: heal yourself or a different ally you can see'
+						description: 'heal yourself or a different ally you can see'
 					}
 				]
 			}
@@ -343,13 +332,11 @@ export const forms: Form[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description:
-							'You gain a 2 point Shield. You may move one space.\n7+: You gain a 4 point Shield. You may move two spaces'
+						description: 'You gain a 2 point Shield. You may move one space.'
 					},
 					{
 						diceCost: [7],
-						description:
-							'You gain a 2 point Shield. You may move one space.\n7+: You gain a 4 point Shield. You may move two spaces'
+						description: 'You gain a 4 point Shield. You may move two spaces'
 					}
 				]
 			}
@@ -452,7 +439,7 @@ export const archetypes: Archetype[] = [
 		},
 		fusedAbility: {
 			description:
-				'Your Unique Actions have their cost reduced by 1 (to a minimum of 1+ or 2 tokens'
+				'Your Unique Actions have their cost reduced by 1 (to a minimum of 1+ or 2 tokens)'
 		}
 	},
 	{
@@ -467,7 +454,7 @@ export const archetypes: Archetype[] = [
 		},
 		fusedAbility: {
 			description:
-				'At the start of your turn, add X to your Action Pool. X is equal to your current health bar. If your health bar is full, X = 1'
+				'At the start of your turn, add X to your Action Pool. X is equal to the damage on your current health bar. If your health bar is full, X = 1'
 		}
 	},
 	{
@@ -557,18 +544,15 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Remove one token from yourself or an ally within range.\n3+: Remove up to two tokens from someone within range.\n6+: Remove up to two tokens from someone within range.'
+						description: 'Remove one token from yourself or an ally within range.'
 					},
 					{
 						diceCost: [3],
-						description:
-							'Remove one token from yourself or an ally within range.\n3+: Remove up to two tokens from someone within range.\n6+: Remove up to two tokens from someone within range.'
+						description: 'Remove up to two tokens from someone within range.'
 					},
 					{
 						diceCost: [6],
-						description:
-							'Remove one token from yourself or an ally within range.\n3+: Remove up to two tokens from someone within range.\n6+: Remove up to two tokens from someone within range.'
+						description: 'Remove up to two tokens from someone within range.'
 					}
 				]
 			}
@@ -610,13 +594,11 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Pull one ally up to three spaces. You and that ally heal 1.\n4+: That ally heals.'
+						description: 'Pull one ally up to three spaces. You and that ally heal 1.'
 					},
 					{
 						diceCost: [4],
-						description:
-							'Pull one ally up to three spaces. You and that ally heal 1.\n4+: That ally heals.'
+						description: 'That ally heals.'
 					}
 				]
 			}
@@ -744,18 +726,15 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [2],
-						description:
-							'Pull one ally up to 3 spaces.\n3+: Pull one ally up to 4 spaces.\n5+: Each pulled ally heals.'
+						description: 'Pull one ally up to 3 spaces.'
 					},
 					{
 						diceCost: [3],
-						description:
-							'Pull one ally up to 3 spaces.\n3+: Pull one ally up to 4 spaces.\n5+: Each pulled ally heals.'
+						description: 'Pull one ally up to 4 spaces.'
 					},
 					{
 						diceCost: [5],
-						description:
-							'Pull one ally up to 3 spaces.\n3+: Pull one ally up to 4 spaces.\n5+: Each pulled ally heals.'
+						description: 'Each pulled ally heals.'
 					}
 				]
 			}
@@ -850,12 +829,11 @@ export const styles: Style[] = [
 					{
 						diceCost: [1],
 						description:
-							'Choose three: You heal 1; you gain one Iron token; you gain one Power token; you gain one Speed token; or you deal 1 damage to an enemy within range.\n4+: Choose the last two options.'
+							'Choose three: You heal 1; you gain one Iron token; you gain one Power token; you gain one Speed token; or you deal 1 damage to an enemy within range.'
 					},
 					{
 						diceCost: [4],
-						description:
-							'Choose three: You heal 1; you gain one Iron token; you gain one Power token; you gain one Speed token; or you deal 1 damage to an enemy within range.\n4+: Choose the last two options.'
+						description: 'Choose the last two options.'
 					}
 				]
 			}
@@ -902,12 +880,12 @@ export const styles: Style[] = [
 					{
 						diceCost: [2],
 						description:
-							"Target a single token held by you or someone within range.\nChoose one or both: You steal the targeted token(s) from them; and/or replace the targeted token(s) with Power tokens.\n6+: The Choice Effect applies to every token they hold of the targeted token's type."
+							'Target a single token held by you or someone within range.\nChoose one or both: You steal the targeted token(s) from them; and/or replace the targeted token(s) with Power tokens.'
 					},
 					{
 						diceCost: [6],
 						description:
-							"Target a single token held by you or someone within range.\nChoose one or both: You steal the targeted token(s) from them; and/or replace the targeted token(s) with Power tokens.\n6+: The Choice Effect applies to every token they hold of the targeted token's type."
+							"The Choice Effect applies to every token they hold of the targeted token's type."
 					}
 				]
 			}
@@ -1181,13 +1159,12 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Place a Trap into a space within range.\n6+: Place a Trap into each space adjacent to the first Trap.\nDo not place these Traps over Edges or Walls.'
+						description: 'Place a Trap into a space within range.'
 					},
 					{
 						diceCost: [6],
 						description:
-							'Place a Trap into a space within range.\n6+: Place a Trap into each space adjacent to the first Trap.\nDo not place these Traps over Edges or Walls.'
+							'Place a Trap into each space adjacent to the first Trap.\nDo not place these Traps over Edges or Walls.'
 					}
 				]
 			}
@@ -1320,13 +1297,11 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description:
-							'Choose an enemy or ally you can see. Move them 3 spaces.\n5+: Choose an enemy or ally you can see. Move them 3 spaces.'
+						description: 'Choose an enemy or ally you can see. Move them 3 spaces.'
 					},
 					{
 						diceCost: [5],
-						description:
-							'Choose an enemy or ally you can see. Move them 3 spaces.\n5+: Choose an enemy or ally you can see. Move them 3 spaces.'
+						description: 'Choose an enemy or ally you can see. Move them 3 spaces.'
 					}
 				]
 			}
@@ -1347,18 +1322,15 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Place a Copy into an empty space within range.\n3+: Place a Copy into an empty space within range.\n5+: Place a Copy into an empty space within range.'
+						description: 'Place a Copy into an empty space within range.'
 					},
 					{
 						diceCost: [3],
-						description:
-							'Place a Copy into an empty space within range.\n3+: Place a Copy into an empty space within range.\n5+: Place a Copy into an empty space within range.'
+						description: 'Place a Copy into an empty space within range.'
 					},
 					{
 						diceCost: [5],
-						description:
-							'Place a Copy into an empty space within range.\n3+: Place a Copy into an empty space within range.\n5+: Place a Copy into an empty space within range.'
+						description: 'Place a Copy into an empty space within range.'
 					}
 				]
 			},
@@ -1368,7 +1340,7 @@ export const styles: Style[] = [
 					{
 						otherCost: ['Destroy 1 Copy'],
 						description:
-							"\u2026Now You Don't is a Token Action, but the Cost is one of your Copies.\nTeleport into the space of the destroyed Copy."
+							"...Now You Don't is a Token Action, but the Cost is one of your Copies.\nTeleport into the space of the destroyed Copy."
 					}
 				]
 			}
@@ -1687,13 +1659,11 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [3],
-						description:
-							'Place 2 Copies into empty spaces within range.\n6+: Place 2 more Copies into empty spaces within range.'
+						description: 'Place 2 Copies into empty spaces within range.'
 					},
 					{
 						diceCost: [6],
-						description:
-							'Place 2 Copies into empty spaces within range.\n6+: Place 2 more Copies into empty spaces within range.'
+						description: 'Place 2 more Copies into empty spaces within range.'
 					}
 				]
 			}
@@ -1782,10 +1752,6 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Flare can be used as either a Simple or Token Action.\nMove one space, then give one Weakness token to one enemy within range.'
-					},
-					{
 						tokenCost: [
 							{
 								number: 2,
@@ -1856,10 +1822,6 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [1],
-						description:
-							'Bad Luck can be used as either a Simple or Token Action.\nPlace a Trap into a space within range.'
-					},
-					{
 						tokenCost: [
 							{
 								number: 3,
@@ -1898,18 +1860,15 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [2],
-						description:
-							'Teleport 2 spaces. Deal 1 damage to an enemy within range.\n5+: Teleport 2 spaces. Deal 2 damage to an enemy within range.\n8+: Teleport 2 spaces. Deal 2 damage to an enemy within range.'
+						description: 'Teleport 2 spaces. Deal 1 damage to an enemy within range.'
 					},
 					{
 						diceCost: [5],
-						description:
-							'Teleport 2 spaces. Deal 1 damage to an enemy within range.\n5+: Teleport 2 spaces. Deal 2 damage to an enemy within range.\n8+: Teleport 2 spaces. Deal 2 damage to an enemy within range.'
+						description: 'Teleport 2 spaces. Deal 2 damage to an enemy within range.'
 					},
 					{
 						diceCost: [8],
-						description:
-							'Teleport 2 spaces. Deal 1 damage to an enemy within range.\n5+: Teleport 2 spaces. Deal 2 damage to an enemy within range.\n8+: Teleport 2 spaces. Deal 2 damage to an enemy within range.'
+						description: 'Teleport 2 spaces. Deal 2 damage to an enemy within range.'
 					}
 				]
 			}
@@ -1930,13 +1889,11 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [4],
-						description:
-							'Deal 2 damage to an enemy within range.\nYou gain 2 Power tokens.\n8+: Deal 4 damage and gain 4 Power tokens instead.'
+						description: 'Deal 2 damage to an enemy within range. You gain 2 Power tokens.'
 					},
 					{
 						diceCost: [8],
-						description:
-							'Deal 2 damage to an enemy within range.\nYou gain 2 Power tokens.\n8+: Deal 4 damage and gain 4 Power tokens instead.'
+						description: 'Deal 4 damage and gain 4 Power tokens instead.'
 					}
 				]
 			}
@@ -1958,17 +1915,15 @@ export const styles: Style[] = [
 					{
 						diceCost: [3],
 						description:
-							'Deal 1 damage to an enemy within range. Then, deal 1 damage to an enemy within range.\n5+: Then, deal 1 damage to an enemy within range.\n7+: Then, deal 1 damage to an enemy within range.'
+							'Deal 1 damage to an enemy within range. Then, deal 1 damage to an enemy within range.'
 					},
 					{
 						diceCost: [5],
-						description:
-							'Deal 1 damage to an enemy within range. Then, deal 1 damage to an enemy within range.\n5+: Then, deal 1 damage to an enemy within range.\n7+: Then, deal 1 damage to an enemy within range.'
+						description: 'Then, deal 1 damage to an enemy within range.'
 					},
 					{
 						diceCost: [7],
-						description:
-							'Deal 1 damage to an enemy within range. Then, deal 1 damage to an enemy within range.\n5+: Then, deal 1 damage to an enemy within range.\n7+: Then, deal 1 damage to an enemy within range.'
+						description: 'Then, deal 1 damage to an enemy within range.'
 					}
 				]
 			}
@@ -1989,13 +1944,11 @@ export const styles: Style[] = [
 				levels: [
 					{
 						diceCost: [4],
-						description:
-							'Teleport to any space you can see.\n7+: Choose an ally. They may teleport to any space they can see.'
+						description: 'Teleport to any space you can see.'
 					},
 					{
 						diceCost: [7],
-						description:
-							'Teleport to any space you can see.\n7+: Choose an ally. They may teleport to any space they can see.'
+						description: 'Choose an ally. They may teleport to any space they can see.'
 					}
 				]
 			}
@@ -2017,12 +1970,12 @@ export const styles: Style[] = [
 					{
 						diceCost: [3],
 						description:
-							'Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.\n6+: Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.'
+							'Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.'
 					},
 					{
 						diceCost: [6],
 						description:
-							'Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.\n6+: Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.'
+							'Place a Copy of you into any space within range. Then, deal 1 damage to every enemy adjacent to that Copy.'
 					}
 				]
 			},
@@ -2074,12 +2027,7 @@ export const styles: Style[] = [
 				name: 'Perfect Strike',
 				levels: [
 					{
-						diceCost: [3],
-						description:
-							'This Action costs two numbers to perform.\nDeal 4 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Perfect Strike.'
-					},
-					{
-						diceCost: [3],
+						diceCost: [3, 3],
 						description:
 							'This Action costs two numbers to perform.\nDeal 4 damage to an enemy within range. This damage cannot be reduced by Armor and ignores Shields. Tokens and Abilities cannot be used in response to Perfect Strike.'
 					}
