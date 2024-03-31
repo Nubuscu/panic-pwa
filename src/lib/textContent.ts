@@ -1,4 +1,12 @@
 import { Dice, Token, type Form, type Style, type Archetype, type Build } from './types';
+export const defaultForm: Form = {
+	name: '<unselected>',
+	ability: {
+		description: ''
+	},
+	actionDice: [],
+	actions: []
+};
 export const forms: Form[] = [
 	{
 		ability: {
@@ -343,6 +351,18 @@ export const forms: Form[] = [
 		]
 	}
 ];
+export const defaultArchetype: Archetype = {
+	name: '<unselected>',
+	focusedAbility: {
+		description: ''
+	},
+	fusedAbility: {
+		description: ''
+	},
+	franticAbility: {
+		description: ''
+	}
+};
 export const archetypes: Archetype[] = [
 	{
 		name: 'Angel',
@@ -528,6 +548,17 @@ export const archetypes: Archetype[] = [
 		}
 	}
 ];
+
+export const defaultStyle: Style = {
+	name: '<unselected>',
+	parentArchetypeName: '<unselected>',
+	maxRange: 0,
+	minRange: 0,
+	ability: {
+		description: ''
+	},
+	actions: []
+};
 export const styles: Style[] = [
 	{
 		parentArchetypeName: 'Angel',

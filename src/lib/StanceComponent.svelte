@@ -67,6 +67,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
+		width: 33%;
 		border: 2px;
 		margin: 2px;
 		border-color: black;

@@ -1,3 +1,5 @@
+import { defaultArchetype, defaultForm, defaultStyle } from './textContent';
+
 export enum Dice {
 	d4 = 'd4',
 	d6 = 'd6',
@@ -83,21 +85,66 @@ export interface Stance {
 
 // A combined focused/fused/frantic hero
 // use `type` to validate the rest
-export interface Hero {
+export class Hero {
 	name?: string;
-	type: HeroType;
+	private _type: HeroType;
 	build?: Build;
-	archetype1?: Archetype;
-	archetype2?: Archetype;
-	archetype3?: Archetype;
-	form1?: Form;
-	form2?: Form;
-	form3?: Form;
-	style1?: Style;
-	style2?: Style;
-	style3?: Style;
-}
+	archetype1: Archetype;
+	archetype2: Archetype;
+	archetype3: Archetype;
+	form1: Form;
+	form2: Form;
+	form3: Form;
+	style1: Style;
+	style2: Style;
+	style3: Style;
 
-export const emptyHero: Hero = {
-	type: HeroType.Focused
-};
+	constructor(options = {}) {
+		// default to focused, overwrite with options
+		this._type = HeroType.Focused;
+		this.archetype1 = defaultArchetype;
+		this.archetype2 = defaultArchetype;
+		this.archetype3 = defaultArchetype;
+		this.form1 = defaultForm;
+		this.form2 = defaultForm;
+		this.form3 = defaultForm;
+		this.style1 = defaultStyle;
+		this.style2 = defaultStyle;
+		this.style3 = defaultStyle;
+		Object.assign(this, options);
+	}
+
+	/**
+	 * custom setter to keep archetypes in sync
+	 */
+	public set type(v: HeroType) {
+		this._type = v;
+		switch (this._type) {
+			case HeroType.Focused: {
+				this.archetype2 = defaultArchetype;
+				this.archetype3 = defaultArchetype;
+				break;
+			}
+			case HeroType.Fused: {
+				this.archetype3 = defaultArchetype;
+				break;
+			}
+		}
+	}
+
+	public get type(): HeroType {
+		return this._type;
+	}
+
+	public selectedArchetypes(): Archetype[] {
+		return [this.archetype1, this.archetype2, this.archetype3].filter(
+			(arch) => arch !== defaultArchetype
+		);
+	}
+	public selectedForms(): Form[] {
+		return [this.form1, this.form2, this.form3].filter((form) => form !== defaultForm);
+	}
+	public selectedStyles(): Style[] {
+		return [this.style1, this.style2, this.style3].filter((style) => style !== defaultStyle);
+	}
+}
