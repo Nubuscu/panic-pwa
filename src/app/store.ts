@@ -1,11 +1,11 @@
-import { configureStore, combineSlices } from '@reduxjs/toolkit'
-import { heroSlice } from '../features/hero/heroSlice'
+import { configureStore, combineSlices } from "@reduxjs/toolkit"
+import { heroSlice } from "../features/hero/heroSlice"
 
 const rootReducer = combineSlices(heroSlice)
 export const store = configureStore({
-    reducer: {
-        hero: rootReducer
-    }
+  reducer: {
+    hero: rootReducer,
+  },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
