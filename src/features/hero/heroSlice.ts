@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store"
-import type { Hero } from "../../app/types"
+import type { Build, Hero } from "../../app/types"
 import { HeroType } from "../../app/types"
 import {
   archetypes,
@@ -9,6 +9,8 @@ import {
   defaultArchetype,
   defaultForm,
   defaultStyle,
+  forms,
+  styles,
 } from "../../app/textContent"
 
 const initialState: Hero = {
@@ -30,13 +32,23 @@ interface ArchetypeUpdate {
   archetypeName: string
   number: number
 }
-
+interface StyleUpdate {
+  styleName: string
+  number: number
+}
+interface FormUpdate {
+  formName: string
+  number: number
+}
 export const heroSlice = createSlice({
   name: "hero",
   initialState,
   reducers: {
     setName: (state, action: PayloadAction<string>) => {
       state.name = action.payload
+    },
+    setBuild: (state, action: PayloadAction<Build>) => {
+      state.build = action.payload
     },
     setType: (state, action: PayloadAction<HeroType>) => {
       state.type = action.payload
@@ -52,9 +64,7 @@ export const heroSlice = createSlice({
       }
     },
     setArchetype: (state, action: PayloadAction<ArchetypeUpdate>) => {
-      const archForName = archetypes.find(
-        v => v.name === action.payload.archetypeName,
-      )
+      const archForName = archetypes.find(v => v.name === action.payload.archetypeName)
       if (archForName !== undefined) {
         switch (action.payload.number) {
           case 1:
@@ -69,11 +79,41 @@ export const heroSlice = createSlice({
         }
       }
     },
-
-    // TODO rest of the fields
+    setStyle: (state, action: PayloadAction<StyleUpdate>) => {
+      const styleForName = styles.find(v => v.name === action.payload.styleName)
+      if (styleForName !== undefined) {
+        switch (action.payload.number) {
+          case 1:
+            state.style1 = styleForName
+            break
+          case 2:
+            state.style2 = styleForName
+            break
+          case 3:
+            state.style3 = styleForName
+            break
+        }
+      }
+    },
+    setForm: (state, action: PayloadAction<FormUpdate>) => {
+      const formForName = forms.find(v => v.name === action.payload.formName)
+      if (formForName !== undefined) {
+        switch (action.payload.number) {
+          case 1:
+            state.form1 = formForName
+            break
+          case 2:
+            state.form2 = formForName
+            break
+          case 3:
+            state.form3 = formForName
+            break
+        }
+      }
+    }
   },
 })
 
-export const { setName, setType, setArchetype } = heroSlice.actions
+export const { setName, setBuild, setType, setArchetype, setStyle, setForm } = heroSlice.actions
 
 export const selectHero = (state: RootState) => state.hero.hero
