@@ -1,9 +1,11 @@
 import * as Mui from "@mui/material"
 import { useAppSelector } from "../hooks"
-import { Archetype, Form, Hero, HeroType, Stance, Style } from "../types"
-import { ReactNode, SyntheticEvent, useState } from "react"
+import type { Archetype, Form, Hero, Style } from "../types"
+import { HeroType } from "../types"
+import type { ReactNode, SyntheticEvent } from "react"
+import { useState } from "react"
 import { ActionDisplay } from "./Action"
-import { basicActions, defaultArchetype } from "../textContent"
+import { defaultArchetype } from "../textContent"
 
 interface TabPanelProps {
   children?: ReactNode

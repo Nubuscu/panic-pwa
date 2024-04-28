@@ -1,4 +1,4 @@
-import { Action, ActionLevel } from "../types"
+import type { Action, ActionLevel } from "../types"
 import * as Mui from "@mui/material"
 
 interface ActionProps {

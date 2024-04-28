@@ -1,5 +1,6 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { GameState, Token } from "../../app/types"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { GameState } from "../../app/types"
 import type { RootState } from "../../app/store"
 
 interface TokenUpdate {

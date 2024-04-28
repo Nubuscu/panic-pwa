@@ -6,7 +6,6 @@ import {
   TableRow,
   TableCell,
   Card,
-  TableHead,
 } from "@mui/material"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import {
@@ -17,7 +16,7 @@ import {
   setShields,
   setToken,
 } from "../../features/hero/gameStateSlice"
-import { TokenDisplay } from "../types"
+import type { TokenDisplay } from "../types"
 
 export const StatsTracking = () => {
   const gameState = useAppSelector(state => state.hero.gameState)

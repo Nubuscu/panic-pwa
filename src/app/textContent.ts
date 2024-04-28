@@ -1,3 +1,4 @@
+import type { Action } from "./types"
 import {
   Dice,
   Token,
@@ -5,7 +6,6 @@ import {
   type Style,
   type Archetype,
   type Build,
-  Action,
 } from "./types"
 export const defaultForm: Form = {
   name: "<unselected>",

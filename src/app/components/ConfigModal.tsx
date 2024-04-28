@@ -1,7 +1,8 @@
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import * as Mui from "@mui/material"
-import { Form, Hero, HeroType, Style } from "../types"
+import type { Form, Style } from "../types"
+import { HeroType } from "../types"
 import {
   archetypes,
   builds,
