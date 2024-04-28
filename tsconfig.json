@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "vite-plugin-pwa/react"]
   },
   "references": [{ "path": "./tsconfig.node.json" }]
 }
