@@ -2186,11 +2186,106 @@ export const builds: Build[] = [
 
 export const basicActions: Action[] = [
   {
-    name: "asdf",
-    levels: [{ description: "yes", diceCost: [3] }],
+    name: "Movement",
+    levels: [{ description: "You gain X Speed tokens.", otherCost: ["X"] }],
   },
   {
-    name: "asdf",
-    levels: [{ description: "yes", diceCost: [3] }],
+    name: "Damage",
+    levels: [
+      {
+        description:
+          "Choose one enemy within your range. Deal 1 damage to them",
+        diceCost: [1],
+      },
+      {
+        description: "Deal 2 damage instead.",
+        diceCost: [3],
+      },
+      {
+        description: "Deal 3 damage instead, and push them 1 space away.",
+        diceCost: [5],
+      },
+      {
+        description: "Deal 4 damage instead, and push them 1 more space.",
+        diceCost: [7],
+      },
+      {
+        description: "Deal 5 damage instead, and push them 1 more space.",
+        diceCost: [9],
+      },
+    ],
+  },
+  {
+    name: "Throw",
+    levels: [
+      {
+        description:
+          "Choose an adjacent enemy or ally. Push them up to X spaces.",
+        otherCost: ["X"],
+      },
+    ],
+  },
+  {
+    name: "Grapple",
+    levels: [
+      {
+        description:
+          "Choose an enemy or ally within range. Pull them up to X spaces.",
+        otherCost: ["X"],
+      },
+    ],
+  },
+  {
+    name: "Open The Path",
+    levels: [
+      {
+        description: "Choose an obstacle in range and destroy it.",
+        diceCost: [1],
+      },
+      {
+        description: "Also destroy every obstacle adjacent to it.",
+        diceCost: [4],
+      },
+      {
+        description: "Also destroy every obstacle adjacent to those obstacles.",
+        diceCost: [8],
+      },
+    ],
+  },
+  {
+    name: "A Challenger Approaches",
+    levels: [
+      {
+        description: "Challenge an enemy within Range 1 - 4.",
+        diceCost: [1],
+      },
+    ],
+  },
+  {
+    name: "Put It Out!",
+    levels: [
+      {
+        description: "Remove one token from someone within range.",
+        diceCost: [2],
+      },
+      {
+        description: "Remove one more token from them.",
+        diceCost: [4],
+      },
+      {
+        description: "Remove one more token from them.",
+        diceCost: [7],
+      },
+    ],
+  },
+  {
+    name: "Rescue",
+    levels: [
+      {
+        description:
+          "Chose an ally within range with zero HP, or an ally who is not in play. That ally heals. If that ally is not in play, they return to play in an empty space of their choice.",
+        diceCost: [5],
+      },
+    ],
   },
 ]
