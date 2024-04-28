@@ -1,7 +1,8 @@
 import { configureStore, combineSlices } from "@reduxjs/toolkit"
 import { heroSlice } from "../features/hero/heroSlice"
+import { gameStateSlice } from "../features/hero/gameStateSlice"
 
-const rootReducer = combineSlices(heroSlice)
+const rootReducer = combineSlices(heroSlice, gameStateSlice)
 export const store = configureStore({
   reducer: {
     hero: rootReducer,

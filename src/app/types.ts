@@ -96,3 +96,31 @@ export interface Hero {
   style2: Style
   style3: Style
 }
+
+export interface TokenDisplay {
+  value: number
+  helpText: string
+}
+export interface TokenState {
+  speed: TokenDisplay
+  iron: TokenDisplay
+  power: TokenDisplay
+  burning: TokenDisplay
+  weakness: TokenDisplay
+  chaos: TokenDisplay
+  control: TokenDisplay
+  inspired: TokenDisplay
+  training: TokenDisplay
+  [key: string]: TokenDisplay
+}
+
+export interface GameState {
+  health: number
+  healthBars: number
+  shields: number
+  extraShields: number[]
+  // hasArmor: boolean
+  challenging: string
+  challengedBy: string
+  tokens: TokenState
+}

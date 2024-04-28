@@ -5,6 +5,7 @@ import {
   type Style,
   type Archetype,
   type Build,
+  Action,
 } from "./types"
 export const defaultForm: Form = {
   name: "<unselected>",
@@ -2180,5 +2181,16 @@ export const builds: Build[] = [
     name: "Mysterious",
     description:
       "At the start of your turn, you may place a Copy or Fog obstacle into an empty adjacent space",
+  },
+]
+
+export const basicActions: Action[] = [
+  {
+    name: "asdf",
+    levels: [{ description: "yes", diceCost: [3] }],
+  },
+  {
+    name: "asdf",
+    levels: [{ description: "yes", diceCost: [3] }],
   },
 ]

@@ -64,7 +64,9 @@ export const heroSlice = createSlice({
       }
     },
     setArchetype: (state, action: PayloadAction<ArchetypeUpdate>) => {
-      const archForName = archetypes.find(v => v.name === action.payload.archetypeName)
+      const archForName = archetypes.find(
+        v => v.name === action.payload.archetypeName,
+      )
       if (archForName !== undefined) {
         switch (action.payload.number) {
           case 1:
@@ -110,10 +112,11 @@ export const heroSlice = createSlice({
             break
         }
       }
-    }
+    },
   },
 })
 
-export const { setName, setBuild, setType, setArchetype, setStyle, setForm } = heroSlice.actions
+export const { setName, setBuild, setType, setArchetype, setStyle, setForm } =
+  heroSlice.actions
 
 export const selectHero = (state: RootState) => state.hero.hero
