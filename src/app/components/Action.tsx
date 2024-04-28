@@ -9,10 +9,13 @@ export const ActionDisplay = ({ action }: ActionProps) => {
     // TODO prettier formatting
     let out = ""
     if (level.diceCost) {
-      out = out.concat(`${level.diceCost}`)
+      out = out.concat(`${level.diceCost.join(" and ")}`)
     }
     if (level.tokenCost) {
-      out = out.concat(`${level.tokenCost}`)
+      const costs = level.tokenCost
+        ?.map(cost => `${cost.number} ${cost.tokenType} token`)
+        .join(" or ")
+      out = out.concat(costs)
     }
     if (level.otherCost) {
       out = out.concat(`${level.otherCost}`)

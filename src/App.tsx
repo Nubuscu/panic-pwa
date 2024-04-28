@@ -12,7 +12,6 @@ const App = () => {
   return (
     <Mui.Container maxWidth={"xl"} disableGutters={true}>
       <ConfigModal />
-      {/* TODO header for passives from archetype abilities */}
       <Mui.Grid
         container
         direction="row"
