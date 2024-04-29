@@ -42,7 +42,16 @@ interface FormUpdate {
 }
 export const heroSlice = createSlice({
   name: "hero",
-  initialState,
+  initialState: () => {
+    try {
+      const hash = atob(window.location.hash.substring(1))
+      const urlState = JSON.parse(hash) as { hero: { hero: Hero } }
+      return urlState.hero.hero
+    } catch (err) {
+      console.warn(err)
+      return initialState
+    }
+  },
   reducers: {
     setName: (state, action: PayloadAction<string>) => {
       state.name = action.payload

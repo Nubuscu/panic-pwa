@@ -60,7 +60,16 @@ const initialState: GameState = {
 
 export const gameStateSlice = createSlice({
   name: "gameState",
-  initialState,
+  initialState: () => {
+    try {
+      const hash = atob(window.location.hash.substring(1))
+      const urlState = JSON.parse(hash) as { hero: { gameState: GameState } }
+      return urlState.hero.gameState
+    } catch (err) {
+      console.warn(err)
+      return initialState
+    }
+  },
   reducers: {
     setHealth: (state, action: PayloadAction<number>) => {
       state.health = action.payload
