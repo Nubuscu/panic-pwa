@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/sw.js', { scope: '/' })})}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('https://nubuscu.github.io/panic-pwa/sw.js', { scope: 'https://nubuscu.github.io/panic-pwa/' })})}
