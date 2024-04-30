@@ -1,5 +1,5 @@
 import { configureStore, combineSlices, Tuple } from "@reduxjs/toolkit"
-import { heroSlice } from "../features/hero/heroSlice"
+import { heroSlice, serializeHero } from "../features/hero/heroSlice"
 import { gameStateSlice } from "../features/hero/gameStateSlice"
 import { createListenerMiddleware } from "@reduxjs/toolkit"
 import { GameState, Hero } from "./types"
@@ -13,8 +13,10 @@ urlMiddleware.startListening({
     return true
   },
   effect: async (action, listenerApi) => {
-    let state = listenerApi.getState() as { hero: Hero; gameState: GameState }
-    window.location.hash = `#${btoa(JSON.stringify(state))}`
+    let state = listenerApi.getState() as {
+      hero: { hero: Hero; gameState: GameState }
+    }
+    window.location.hash = `#${JSON.stringify({ hero: serializeHero(state.hero.hero) })}`
   },
 })
 

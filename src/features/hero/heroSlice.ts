@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store"
-import type { Build, Hero } from "../../app/types"
+import type { Build, Hero, SerializedHero } from "../../app/types"
 import { HeroType } from "../../app/types"
 import {
   archetypes,
@@ -40,13 +40,50 @@ interface FormUpdate {
   formName: string
   number: number
 }
+export const serializeHero = (hero: Hero): SerializedHero => {
+  return {
+    name: hero.name,
+    type: hero.type,
+    build: hero.build.name,
+    archetypes: [
+      hero.archetype1.name,
+      hero.archetype1.name,
+      hero.archetype3.name,
+    ],
+    forms: [hero.form1.name, hero.form2.name, hero.form3.name],
+    styles: [hero.form1.name, hero.form2.name, hero.form3.name],
+  }
+}
+export const deserializeHero = (serialized: SerializedHero): Hero => {
+  const resolveArchetype = (archName: string) =>
+    archetypes.find(a => a.name === archName) ?? defaultArchetype
+  const resolveStyle = (styleName: string) =>
+    styles.find(s => s.name === styleName) ?? defaultStyle
+  const resolveForm = (formName: string) =>
+    forms.find(f => f.name === formName) ?? defaultForm
+  return {
+    name: serialized.name,
+    type:
+      HeroType[serialized.type as keyof typeof HeroType] ?? HeroType.Focused,
+    build: builds.find(b => b.name === serialized.build) ?? builds[0],
+    archetype1: resolveArchetype(serialized.archetypes[0]),
+    archetype2: resolveArchetype(serialized.archetypes[1]),
+    archetype3: resolveArchetype(serialized.archetypes[2]),
+    form1: resolveForm(serialized.forms[0]),
+    form2: resolveForm(serialized.forms[1]),
+    form3: resolveForm(serialized.forms[2]),
+    style1: resolveStyle(serialized.styles[0]),
+    style2: resolveStyle(serialized.styles[1]),
+    style3: resolveStyle(serialized.styles[2]),
+  }
+}
 export const heroSlice = createSlice({
   name: "hero",
   initialState: () => {
     try {
-      const hash = atob(window.location.hash.substring(1))
-      const urlState = JSON.parse(hash) as { hero: { hero: Hero } }
-      return urlState.hero.hero
+      const raw = window.location.hash.substring(1)
+      const urlState = JSON.parse(decodeURI(raw)) as { hero: SerializedHero }
+      return deserializeHero(urlState.hero)
     } catch (err) {
       console.warn(err)
       return initialState

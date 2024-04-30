@@ -96,6 +96,14 @@ export interface Hero {
   style2: Style
   style3: Style
 }
+export interface SerializedHero {
+  name: string
+  type: string
+  build: string
+  archetypes: string[]
+  forms: string[]
+  styles: string[]
+}
 
 export interface TokenDisplay {
   value: number
