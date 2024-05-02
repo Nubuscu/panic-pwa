@@ -54,11 +54,11 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
       </Mui.Tabs>
       {stances.map((s, i) => (
         <TabPanel index={i} selectedTab={selectedTab}>
-          <Mui.Grid container spacing={1}>
+          <Mui.Grid container>
             <StyleDisplay style={s.style} width={6} />
             <FormDisplay form={s.form} width={6} />
           </Mui.Grid>
-          <Mui.Stack>
+          <Mui.Stack spacing={1}>
             {[...s.form.actions, ...s.style.actions].map(action => (
               <ActionDisplay action={action} />
             ))}
@@ -84,16 +84,7 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
 
   return (
     <Mui.Card>
-      <Mui.Tabs value={selectedFormTab} onChange={handleChangeFormTab}>
-        {activeForms.map(form => (
-          <Mui.Tab label={form.name} />
-        ))}
-      </Mui.Tabs>
-      {activeForms.map((form, i) => (
-        <TabPanel index={i} selectedTab={selectedFormTab}>
-          <FormDisplay form={form} width={12} />
-        </TabPanel>
-      ))}
+      {/* styles */}
       <Mui.Tabs value={selectedStyleTab} onChange={handleChangeStyleTab}>
         {activeStyles.map(style => (
           <Mui.Tab label={style.name} />
@@ -102,8 +93,26 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
       {activeStyles.map((style, i) => (
         <TabPanel index={i} selectedTab={selectedStyleTab}>
           <StyleDisplay style={style} width={12} />
+          <Mui.Stack spacing={1}>
+            {style.actions.map(action => <ActionDisplay action={action} />)}
+          </Mui.Stack>
         </TabPanel>
       ))}
+      {/* forms */}
+      <Mui.Tabs value={selectedFormTab} onChange={handleChangeFormTab}>
+        {activeForms.map(form => (
+          <Mui.Tab label={form.name} />
+        ))}
+      </Mui.Tabs>
+      {activeForms.map((form, i) => (
+        <TabPanel index={i} selectedTab={selectedFormTab}>
+          <FormDisplay form={form} width={12} />
+          <Mui.Stack spacing={1}>
+            {form.actions.map(action => <ActionDisplay action={action} />)}
+          </Mui.Stack>
+        </TabPanel>
+      ))}
+
     </Mui.Card>
   )
 }
