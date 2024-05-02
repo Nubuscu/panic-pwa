@@ -6,6 +6,8 @@ import type { ReactNode, SyntheticEvent } from "react"
 import { useState } from "react"
 import { ActionDisplay } from "./Action"
 import { defaultArchetype } from "../textContent"
+import { StyleDisplay } from "./Style"
+import { FormDisplay } from "./Form"
 
 interface TabPanelProps {
   children?: ReactNode
@@ -21,29 +23,6 @@ const TabPanel = ({ children, index, selectedTab }: TabPanelProps) => {
   )
 }
 
-const StyleContainer = ({ style, width }: { style: Style; width: number }) => (
-  <Mui.Grid item xs={width} className="styleContainer">
-    <h4>{style.name}</h4>
-    <p>{style.ability.description}</p>
-    <p>
-      <strong>Range: </strong>
-      {style.minRange === style.maxRange
-        ? style.minRange
-        : `${style.minRange} - ${style.maxRange}`}
-    </p>
-  </Mui.Grid>
-)
-
-const FormContainer = ({ form, width }: { form: Form; width: number }) => (
-  <Mui.Grid item xs={width} className="formContainer">
-    <h4>{form.name}</h4>
-    <p>{form.ability.description}</p>
-    <p>
-      <strong>Action Dice: </strong>
-      {form.actionDice.join(", ")}
-    </p>
-  </Mui.Grid>
-)
 const StancesTabs = ({ hero }: { hero: Hero }) => {
   const [selectedTab, setSelectedTab] = useState(0)
   const handleChangeTab = (event: SyntheticEvent, newValue: number) => {
@@ -76,8 +55,8 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
       {stances.map((s, i) => (
         <TabPanel index={i} selectedTab={selectedTab}>
           <Mui.Grid container spacing={1}>
-            <StyleContainer style={s.style} width={6} />
-            <FormContainer form={s.form} width={6} />
+            <StyleDisplay style={s.style} width={6} />
+            <FormDisplay form={s.form} width={6} />
           </Mui.Grid>
           <Mui.Stack>
             {[...s.form.actions, ...s.style.actions].map(action => (
@@ -112,7 +91,7 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
       </Mui.Tabs>
       {activeForms.map((form, i) => (
         <TabPanel index={i} selectedTab={selectedFormTab}>
-          <FormContainer form={form} width={12} />
+          <FormDisplay form={form} width={12} />
         </TabPanel>
       ))}
       <Mui.Tabs value={selectedStyleTab} onChange={handleChangeStyleTab}>
@@ -122,7 +101,7 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
       </Mui.Tabs>
       {activeStyles.map((style, i) => (
         <TabPanel index={i} selectedTab={selectedStyleTab}>
-          <StyleContainer style={style} width={12} />
+          <StyleDisplay style={style} width={12} />
         </TabPanel>
       ))}
     </Mui.Card>
