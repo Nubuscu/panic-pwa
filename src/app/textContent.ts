@@ -8,6 +8,7 @@ import {
   type Build,
 } from "./types"
 export const defaultForm: Form = {
+  key: "0",
   name: "<unselected>",
   ability: {
     description: "",
