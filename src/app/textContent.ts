@@ -17,6 +17,7 @@ export const defaultForm: Form = {
 }
 export const forms: Form[] = [
   {
+    key: "b",
     ability: {
       description:
         "Your Actions may apply to one extra target within range. When you add Blaster Form to a Style, increase that Style's maximum range by 1",
@@ -50,6 +51,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "c",
     ability: {
       description:
         "When an enemy within range takes an action you can spend one Control token to negate it or two control tokens to redirect it.\nYou may only use Control tokens once per turn. If you negate an action they lose the number they spent and the action does not happen.\nIf you redirect an action you choose all targets and make all decisions for that action",
@@ -77,6 +79,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "d",
     ability: {
       description:
         "After you Throw or Grapple someone, you gain X Speed tokens, where X is how many spaces you moved them.\nAfter each space you move using Free Movement, you may choose someone within range and pull them 1 space",
@@ -101,6 +104,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "i",
     ability: {
       description:
         "You have Armor. When you gain Speed tokens, replace half of them (rounded up) with Iron tokens",
@@ -140,6 +144,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "o",
     ability: {
       description:
         "After you deal damage to an enemy with an Action, you hit them again for 1 damage",
@@ -168,6 +173,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "p",
     ability: {
       description:
         "When you gain Speed tokens, replace half of them (rounded up) with Power tokens.\nYou may spend up to 3 Power tokens per hit",
@@ -202,6 +208,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "r",
     ability: {
       description:
         "You have Armor. You do not discard your Speed tokens at the end of a turn.\nYou may only take one Action per turn.\nYour Action Pool does not empty between Turns or Rounds",
@@ -222,6 +229,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "s",
     ability: {
       description:
         "At the start and end of your turn, you gain 2 Speed tokens\nYou do not discard your Speed tokens at the end of a turn.",
@@ -247,6 +255,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "S",
     ability: {
       description:
         "At the start of each turn choose a song; Iron, Power or Speed. You gain three tokens of the chosen type and each of your allies gain 1 of that type",
@@ -276,6 +285,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "v",
     ability: {
       description:
         "At the start of your turn, either heal or discard one token you hold. At the end of your turn, choose an enemy in range and give them one Weakness token",
@@ -312,6 +322,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "w",
     ability: {
       description:
         "At the start of your turn, for each of these that is true, add 1d6 to your Action Dice\n-Your current Health Bar is at half HP or less\n-Someone on your team is Taken Out\n-You are holding a non-basic Token",
@@ -337,6 +348,7 @@ export const forms: Form[] = [
     ],
   },
   {
+    key: "z",
     ability: {
       description:
         "Your Action Pool is predetermined: 7, 5, 3, 1. You may hold multiple Shields at a time. Only one Shield is active at a time. When your active Shield breaks, your next Shield doesn't become active until the end of the current turn.\nWhen an enemy damages or breaks your Shield, you deal 1 damage to them",
@@ -361,6 +373,7 @@ export const forms: Form[] = [
   },
 ]
 export const defaultArchetype: Archetype = {
+  key: "0",
   name: "<unselected>",
   focusedAbility: {
     description: "",
@@ -374,6 +387,7 @@ export const defaultArchetype: Archetype = {
 }
 export const archetypes: Archetype[] = [
   {
+    key: "a",
     name: "Angel",
     focusedAbility: {
       description:
@@ -389,6 +403,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "c",
     name: "Cavalry",
     focusedAbility: {
       description:
@@ -404,6 +419,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "y",
     name: "Cyborg",
     focusedAbility: {
       description:
@@ -419,6 +435,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "d",
     name: "Demon",
     focusedAbility: {
       description: "At the end of your turn, you gain 2 Chaos tokens.",
@@ -431,6 +448,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "f",
     name: "Flametongue",
     focusedAbility: {
       description:
@@ -446,6 +464,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "g",
     name: "Gunkata",
     focusedAbility: {
       description:
@@ -461,6 +480,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "h",
     name: "Phantom",
     focusedAbility: {
       description:
@@ -476,6 +496,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "p",
     name: "Punk",
     focusedAbility: {
       description:
@@ -491,6 +512,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "t",
     name: "Teacher",
     focusedAbility: {
       description: "At the end of your turn, you gain two Inspired tokens.",
@@ -503,6 +525,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "r",
     name: "Trickster",
     focusedAbility: {
       description:
@@ -518,6 +541,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "u",
     name: "Underdog",
     focusedAbility: {
       description:
@@ -533,6 +557,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "w",
     name: "Wardancer",
     focusedAbility: {
       description:
@@ -548,6 +573,7 @@ export const archetypes: Archetype[] = [
     },
   },
   {
+    key: "i",
     name: "Winterblossom",
     focusedAbility: {
       description:
@@ -565,6 +591,7 @@ export const archetypes: Archetype[] = [
 ]
 
 export const defaultStyle: Style = {
+  key: "0",
   name: "<unselected>",
   parentArchetypeName: "<unselected>",
   maxRange: 0,
@@ -576,6 +603,7 @@ export const defaultStyle: Style = {
 }
 export const styles: Style[] = [
   {
+    key: "01",
     parentArchetypeName: "Angel",
     name: "Halcyon",
     minRange: 1,
@@ -606,6 +634,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "02",
     parentArchetypeName: "Angel",
     name: "Judgment",
     minRange: 1,
@@ -628,6 +657,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "03",
     parentArchetypeName: "Angel",
     name: "Shining",
     minRange: 1,
@@ -654,6 +684,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "04",
     parentArchetypeName: "Angel",
     name: "Singing",
     minRange: 2,
@@ -676,6 +707,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "05",
     parentArchetypeName: "Angel",
     name: "Winged",
     minRange: 1,
@@ -697,6 +729,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "06",
     parentArchetypeName: "Cavalry",
     name: "Charging",
     minRange: 1,
@@ -719,6 +752,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "07",
     parentArchetypeName: "Cavalry",
     name: "Heroic",
     minRange: 1,
@@ -740,6 +774,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "08",
     parentArchetypeName: "Cavalry",
     name: "Jumping",
     minRange: 1,
@@ -762,6 +797,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "09",
     parentArchetypeName: "Cavalry",
     name: "Rallying",
     minRange: 1,
@@ -791,6 +827,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "10",
     parentArchetypeName: "Cavalry",
     name: "Unbreakable",
     minRange: 1,
@@ -812,6 +849,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "11",
     parentArchetypeName: "Cyborg",
     name: "Armored",
     minRange: 1,
@@ -838,6 +876,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "12",
     parentArchetypeName: "Cyborg",
     name: "Incinerator",
     minRange: 1,
@@ -865,6 +904,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "13",
     parentArchetypeName: "Cyborg",
     name: "Machine",
     minRange: 1,
@@ -891,6 +931,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "14",
     parentArchetypeName: "Cyborg",
     name: "Rocket",
     minRange: 1,
@@ -917,6 +958,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "15",
     parentArchetypeName: "Cyborg",
     name: "Syphon",
     minRange: 1,
@@ -944,6 +986,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "16",
     parentArchetypeName: "Demon",
     name: "Dark",
     minRange: 2,
@@ -976,6 +1019,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "17",
     parentArchetypeName: "Demon",
     name: "Ogre",
     minRange: 1,
@@ -998,6 +1042,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "18",
     parentArchetypeName: "Demon",
     name: "Slasher",
     minRange: 1,
@@ -1020,6 +1065,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "19",
     parentArchetypeName: "Demon",
     name: "Vampire",
     minRange: 1,
@@ -1042,6 +1088,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "20",
     parentArchetypeName: "Demon",
     name: "Zombie",
     minRange: 1,
@@ -1064,6 +1111,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "21",
     parentArchetypeName: "Flametongue",
     name: "Burning",
     minRange: 2,
@@ -1086,6 +1134,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "22",
     parentArchetypeName: "Flametongue",
     name: "Explosion",
     minRange: 2,
@@ -1108,6 +1157,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "23",
     parentArchetypeName: "Flametongue",
     name: "Inferno",
     minRange: 1,
@@ -1135,6 +1185,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "24",
     parentArchetypeName: "Flametongue",
     name: "Phoenix",
     minRange: 1,
@@ -1157,6 +1208,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "25",
     parentArchetypeName: "Flametongue",
     name: "Volcanic",
     minRange: 1,
@@ -1179,6 +1231,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "26",
     parentArchetypeName: "Gunkata",
     name: "Akimbo",
     minRange: 3,
@@ -1200,6 +1253,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "27",
     parentArchetypeName: "Gunkata",
     name: "Artillery",
     minRange: 3,
@@ -1225,6 +1279,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "28",
     parentArchetypeName: "Gunkata",
     name: "Crosshair",
     minRange: 4,
@@ -1247,6 +1302,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "29",
     parentArchetypeName: "Gunkata",
     name: "Ricochet",
     minRange: 2,
@@ -1269,6 +1325,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "30",
     parentArchetypeName: "Gunkata",
     name: "Ten Thousand",
     minRange: 2,
@@ -1290,6 +1347,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "31",
     parentArchetypeName: "Phantom",
     name: "Aura",
     minRange: 1,
@@ -1316,6 +1374,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "32",
     parentArchetypeName: "Phantom",
     name: "Crying",
     minRange: 1,
@@ -1338,6 +1397,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "33",
     parentArchetypeName: "Phantom",
     name: "Puppet",
     minRange: 1,
@@ -1365,6 +1425,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "34",
     parentArchetypeName: "Phantom",
     name: "Spirit",
     minRange: 1,
@@ -1404,6 +1465,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "35",
     parentArchetypeName: "Phantom",
     name: "Vortex",
     minRange: 1,
@@ -1425,6 +1487,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "36",
     parentArchetypeName: "Punk",
     name: "Bleeding",
     minRange: 1,
@@ -1457,6 +1520,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "37",
     parentArchetypeName: "Punk",
     name: "Brawling",
     minRange: 1,
@@ -1483,6 +1547,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "38",
     parentArchetypeName: "Punk",
     name: "Flashy",
     minRange: 1,
@@ -1505,6 +1570,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "39",
     parentArchetypeName: "Punk",
     name: "Knockdown",
     minRange: 1,
@@ -1527,6 +1593,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "40",
     parentArchetypeName: "Punk",
     name: "Taunting",
     minRange: 1,
@@ -1559,6 +1626,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "41",
     parentArchetypeName: "Teacher",
     name: "Patient",
     minRange: 1,
@@ -1581,6 +1649,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "42",
     parentArchetypeName: "Teacher",
     name: "Elder",
     minRange: 1,
@@ -1592,6 +1661,7 @@ export const styles: Style[] = [
     actions: [],
   },
   {
+    key: "43",
     parentArchetypeName: "Teacher",
     name: "Mastermind",
     minRange: 0,
@@ -1603,6 +1673,7 @@ export const styles: Style[] = [
     actions: [],
   },
   {
+    key: "44",
     parentArchetypeName: "Teacher",
     name: "Motivating",
     minRange: 1,
@@ -1625,6 +1696,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "45",
     parentArchetypeName: "Teacher",
     name: "Training",
     minRange: 1,
@@ -1647,6 +1719,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "46",
     parentArchetypeName: "Trickster",
     name: "Caged",
     minRange: 1,
@@ -1668,6 +1741,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "47",
     parentArchetypeName: "Trickster",
     name: "Mysterious",
     minRange: 1,
@@ -1705,6 +1779,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "48",
     parentArchetypeName: "Trickster",
     name: "Illusion",
     minRange: 1,
@@ -1730,6 +1805,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "49",
     parentArchetypeName: "Trickster",
     name: "Hidden",
     minRange: 1,
@@ -1756,6 +1832,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "50",
     parentArchetypeName: "Trickster",
     name: "Whip",
     minRange: 2,
@@ -1777,6 +1854,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "51",
     parentArchetypeName: "Underdog",
     name: "Collateral",
     minRange: 1,
@@ -1799,6 +1877,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "52",
     parentArchetypeName: "Underdog",
     name: "Distracting",
     minRange: 1,
@@ -1827,6 +1906,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "53",
     parentArchetypeName: "Underdog",
     name: "Eye of the ...",
     minRange: 1,
@@ -1849,6 +1929,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "54",
     parentArchetypeName: "Underdog",
     name: "Lucky",
     minRange: 1,
@@ -1870,6 +1951,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "55",
     parentArchetypeName: "Underdog",
     name: "Misfortune's",
     minRange: 1,
@@ -1898,6 +1980,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "56",
     parentArchetypeName: "Wardancer",
     name: "Forbidden",
     minRange: 1,
@@ -1909,6 +1992,7 @@ export const styles: Style[] = [
     actions: [],
   },
   {
+    key: "57",
     parentArchetypeName: "Wardancer",
     name: "Lightning",
     minRange: 1,
@@ -1940,6 +2024,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "58",
     parentArchetypeName: "Wardancer",
     name: "Overwhelming",
     minRange: 1,
@@ -1966,6 +2051,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "59",
     parentArchetypeName: "Wardancer",
     name: "Relentless",
     minRange: 1,
@@ -1996,6 +2082,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "60",
     parentArchetypeName: "Wardancer",
     name: "Weightless",
     minRange: 1,
@@ -2022,6 +2109,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "61",
     parentArchetypeName: "Winterblossom",
     name: "Crystal",
     minRange: 1,
@@ -2059,6 +2147,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "62",
     parentArchetypeName: "Winterblossom",
     name: "Frozen",
     minRange: 1,
@@ -2081,6 +2170,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "63",
     parentArchetypeName: "Winterblossom",
     name: "Precision",
     minRange: 1,
@@ -2103,6 +2193,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "64",
     parentArchetypeName: "Winterblossom",
     name: "Pressure",
     minRange: 1,
@@ -2125,6 +2216,7 @@ export const styles: Style[] = [
     ],
   },
   {
+    key: "65",
     parentArchetypeName: "Winterblossom",
     name: "Reflected",
     minRange: 2,
@@ -2157,27 +2249,33 @@ export const styles: Style[] = [
 ]
 export const builds: Build[] = [
   {
+    key: "a",
     name: "Agile",
     description: "At the start of your turn you gain 2 speed tokens",
   },
   {
+    key: "o",
     name: "Overpowering",
     description: "At the start of your turn, you gain 1 Power token",
   },
   {
+    key: "t",
     name: "Tough",
     description: "At the start of your turn, you gain 1 Iron token",
   },
   {
+    key: "b",
     name: "Bumbling",
     description: "At the end of any turn you took damage, you may move 1 space",
   },
   {
+    key: "s",
     name: "Scheming",
     description:
       "At either the start or the end of your turn, you may place one Trap into an adjacent space",
   },
   {
+    key: "m",
     name: "Mysterious",
     description:
       "At the start of your turn, you may place a Copy or Fog obstacle into an empty adjacent space",

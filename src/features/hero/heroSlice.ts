@@ -40,49 +40,50 @@ interface FormUpdate {
   formName: string
   number: number
 }
-export const serializeHero = (hero: Hero): SerializedHero => {
-  return {
-    name: hero.name,
-    type: hero.type,
-    build: hero.build.name,
-    archetypes: [
-      hero.archetype1.name,
-      hero.archetype1.name,
-      hero.archetype3.name,
-    ],
-    forms: [hero.form1.name, hero.form2.name, hero.form3.name],
-    styles: [hero.form1.name, hero.form2.name, hero.form3.name],
-  }
+export const serializeHero = (hero: Hero): string[] => {
+  return [
+    hero.name,
+    hero.type,
+    hero.build.key,
+    hero.archetype1.key,
+    hero.archetype2.key,
+    hero.archetype3.key,
+    hero.form1.key,
+    hero.form2.key,
+    hero.form3.key,
+    hero.style1.key,
+    hero.style2.key,
+    hero.style3.key,
+  ]
 }
-export const deserializeHero = (serialized: SerializedHero): Hero => {
+export const deserializeHero = (serialized: string[]): Hero => {
   const resolveArchetype = (archName: string) =>
-    archetypes.find(a => a.name === archName) ?? defaultArchetype
+    archetypes.find(a => a.key === archName) ?? defaultArchetype
   const resolveStyle = (styleName: string) =>
-    styles.find(s => s.name === styleName) ?? defaultStyle
+    styles.find(s => s.key === styleName) ?? defaultStyle
   const resolveForm = (formName: string) =>
-    forms.find(f => f.name === formName) ?? defaultForm
+    forms.find(f => f.key === formName) ?? defaultForm
   return {
-    name: serialized.name,
-    type:
-      HeroType[serialized.type as keyof typeof HeroType] ?? HeroType.Focused,
-    build: builds.find(b => b.name === serialized.build) ?? builds[0],
-    archetype1: resolveArchetype(serialized.archetypes[0]),
-    archetype2: resolveArchetype(serialized.archetypes[1]),
-    archetype3: resolveArchetype(serialized.archetypes[2]),
-    form1: resolveForm(serialized.forms[0]),
-    form2: resolveForm(serialized.forms[1]),
-    form3: resolveForm(serialized.forms[2]),
-    style1: resolveStyle(serialized.styles[0]),
-    style2: resolveStyle(serialized.styles[1]),
-    style3: resolveStyle(serialized.styles[2]),
+    name: serialized[0],
+    type: HeroType[serialized[1] as keyof typeof HeroType] ?? HeroType.Focused,
+    build: builds.find(b => b.key === serialized[2]) ?? builds[0],
+    archetype1: resolveArchetype(serialized[3]),
+    archetype2: resolveArchetype(serialized[4]),
+    archetype3: resolveArchetype(serialized[5]),
+    form1: resolveForm(serialized[6]),
+    form2: resolveForm(serialized[7]),
+    form3: resolveForm(serialized[8]),
+    style1: resolveStyle(serialized[9]),
+    style2: resolveStyle(serialized[10]),
+    style3: resolveStyle(serialized[11]),
   }
 }
 export const heroSlice = createSlice({
   name: "hero",
   initialState: () => {
     try {
-      const raw = window.location.hash.substring(1)
-      const urlState = JSON.parse(decodeURI(raw)) as { hero: SerializedHero }
+      const raw = atob(window.location.hash.substring(1))
+      const urlState = JSON.parse(raw) as { hero: string[] }
       return deserializeHero(urlState.hero)
     } catch (err) {
       console.warn(err)

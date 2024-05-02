@@ -40,6 +40,7 @@ export interface Ability {
 }
 
 export interface Form {
+  key: string
   name: string
   ability: Ability
   actionDice: Dice[] | number[]
@@ -48,6 +49,7 @@ export interface Form {
 }
 
 export interface Style {
+  key: string
   parentArchetypeName: string
   name: string
   maxRange: number
@@ -63,6 +65,7 @@ export enum HeroType {
 }
 
 export interface Archetype {
+  key: string
   name: string
   focusedAbility: Ability
   fusedAbility: Ability
@@ -71,6 +74,7 @@ export interface Archetype {
 }
 
 export interface Build {
+  key: string
   name: string
   description: string
 }
