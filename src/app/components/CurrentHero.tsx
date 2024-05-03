@@ -1,6 +1,6 @@
 import { Card, Grid, Stack, Tab, Tabs } from "@mui/material"
 import { useAppSelector } from "../hooks"
-import type { Hero } from "../types"
+import type { Hero, Stance } from "../types"
 import { HeroType } from "../types"
 import type { ReactNode, SyntheticEvent } from "react"
 import { useState } from "react"
@@ -30,23 +30,14 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
   const handleChangeTab = (event: SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue)
   }
-  const stances = [
-    {
-      style: hero.style1,
-      form: hero.form1,
-      name: `${hero.style1.name} ${hero.form1.name}`,
-    },
-    {
-      style: hero.style2,
-      form: hero.form2,
-      name: `${hero.style2.name} ${hero.form2.name}`,
-    },
-    {
-      style: hero.style3,
-      form: hero.form3,
-      name: `${hero.style3.name} ${hero.form3.name}`,
-    },
-  ]
+  const stances: Stance[] = [0, 1, 2].map(i => {
+    return {
+      style: hero.styles[i],
+      form: hero.forms[i],
+      name: `${hero.styles[i].name} ${hero.forms[i].name}`,
+    }
+  })
+
   return (
     <Stack spacing={1}>
       <Tabs value={selectedTab} onChange={handleChangeTab}>
@@ -81,8 +72,8 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
     setSelectedStyleTab(newValue)
   }
 
-  const activeForms = [hero.form1, hero.form2, hero.form3]
-  const activeStyles = [hero.style1, hero.style2, hero.style3]
+  const activeForms = hero.forms
+  const activeStyles = hero.styles
 
   return (
     <Card>
@@ -123,11 +114,9 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
 }
 export const CurrentHero = () => {
   const hero = useAppSelector(state => state.hero.hero)
-  const activeArchetypes = [
-    hero.archetype1,
-    hero.archetype2,
-    hero.archetype3,
-  ].filter(arch => arch !== defaultArchetype)
+  const activeArchetypes = hero.archetypes.filter(
+    arch => arch !== defaultArchetype,
+  )
 
   return (
     <Grid item xs={6}>

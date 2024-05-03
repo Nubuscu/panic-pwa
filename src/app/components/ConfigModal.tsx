@@ -35,16 +35,16 @@ const ArchetypeSelectors = () => {
   let allHeroArchetypes = []
   switch (hero.type) {
     case HeroType.Focused:
-      allHeroArchetypes.push(hero.archetype1)
+      allHeroArchetypes.push(hero.archetypes[0])
       break
     case HeroType.Fused:
-      allHeroArchetypes.push(hero.archetype1)
-      allHeroArchetypes.push(hero.archetype2)
+      allHeroArchetypes.push(hero.archetypes[0])
+      allHeroArchetypes.push(hero.archetypes[1])
       break
     case HeroType.Frantic:
-      allHeroArchetypes.push(hero.archetype1)
-      allHeroArchetypes.push(hero.archetype2)
-      allHeroArchetypes.push(hero.archetype3)
+      allHeroArchetypes.push(hero.archetypes[0])
+      allHeroArchetypes.push(hero.archetypes[1])
+      allHeroArchetypes.push(hero.archetypes[2])
   }
   const selectedArchetypes = allHeroArchetypes.filter(
     a => a !== defaultArchetype,
@@ -57,7 +57,7 @@ const ArchetypeSelectors = () => {
           dispatch(
             setArchetype({
               archetypeName: e.target.value,
-              number: i + 1,
+              number: i,
             }),
           )
         }}
@@ -81,19 +81,16 @@ const StyleSelectors = () => {
   const dispatch = useAppDispatch()
 
   const availableStyles = styles.filter(s =>
-    [hero.archetype1.name, hero.archetype2.name, hero.archetype3.name].includes(
-      s.parentArchetypeName,
-    ),
+    hero.archetypes.map(a => a.name).includes(s.parentArchetypeName),
   )
 
-  const handleDisabled = (style: Style) =>
-    [hero.style1, hero.style2, hero.style3].includes(style)
+  const handleDisabled = (style: Style) => hero.styles.includes(style)
 
-  return [hero.style1, hero.style2, hero.style3].map((style, i) => (
+  return hero.styles.map((style, i) => (
     <select
       value={style.name}
       onChange={e => {
-        dispatch(setStyle({ styleName: e.target.value, number: i + 1 }))
+        dispatch(setStyle({ styleName: e.target.value, number: i }))
       }}
     >
       {availableStyles.map(s => (
@@ -109,14 +106,13 @@ const FormSelectors = () => {
   const hero = useAppSelector(state => state.hero.hero)
   const dispatch = useAppDispatch()
 
-  const handleDisabled = (form: Form) =>
-    [hero.form1, hero.form2, hero.form3].includes(form)
+  const handleDisabled = (form: Form) => hero.forms.includes(form)
 
-  return [hero.form1, hero.form2, hero.form3].map((form, i) => (
+  return hero.forms.map((form, i) => (
     <select
       value={form.name}
       onChange={e => {
-        dispatch(setForm({ formName: e.target.value, number: i + 1 }))
+        dispatch(setForm({ formName: e.target.value, number: i }))
       }}
     >
       {forms.map(f => (

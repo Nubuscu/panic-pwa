@@ -17,8 +17,7 @@ const initialState: GameState = {
   tokens: {
     speed: {
       value: 0,
-      helpText:
-        `Spend one to move in any direction at any time between actions, or in the middle of your own actions.
+      helpText: `Spend one to move in any direction at any time between actions, or in the middle of your own actions.
         These can be used during enemy turns, but only at the start, end, or when placed over an Edge.
         Speed tokens are usually discarded at the end of every turn (unless your stance says otherwise)`,
     },
@@ -29,8 +28,7 @@ const initialState: GameState = {
     },
     power: {
       value: 0,
-      helpText:
-        `Spend one to make an Action deal 1 extra damage or push the target back 1 extra space.
+      helpText: `Spend one to make an Action deal 1 extra damage or push the target back 1 extra space.
         If the Action would normally deal damage and push the target, both effects are increased.
         You can only spend 1 power token per hit`,
     },
@@ -41,7 +39,8 @@ const initialState: GameState = {
     },
     weakness: {
       value: 0,
-      helpText: "Whenever you would deal damage to an enemy, reduce the damage by 2, then discard one weakness token.",
+      helpText:
+        "Whenever you would deal damage to an enemy, reduce the damage by 2, then discard one weakness token.",
     },
     chaos: { value: 0, helpText: "Use at any time to take a 4+ action" },
     control: {

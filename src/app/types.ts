@@ -39,12 +39,17 @@ export interface Ability {
   extra?: string // for ability clarifications, if any
 }
 
+export interface FormRangeModifier {
+  relMaxRange?: number
+  absMinRange?: number
+}
 export interface Form {
   key: string
   name: string
   ability: Ability
   actionDice: Dice[] | number[]
   actions: Action[]
+  rangeModifiers?: FormRangeModifier[]
   // TODO skills, though not hugely important
 }
 
@@ -80,25 +85,23 @@ export interface Build {
 }
 
 export interface Stance {
-  name?: string
-  style?: Style
-  form?: Form
+  name: string
+  style: Style
+  form: Form
 }
 
+// dummy fixed length array types
+type ArchetypeArray = [Archetype, Archetype, Archetype]
+type StyleArray = [Style, Style, Style]
+type FormArray = [Form, Form, Form]
 //combined state for the currently selected/displayed hero
 export interface Hero {
   name: string
   type: HeroType
   build: Build
-  archetype1: Archetype
-  archetype2: Archetype
-  archetype3: Archetype
-  form1: Form
-  form2: Form
-  form3: Form
-  style1: Style
-  style2: Style
-  style3: Style
+  archetypes: ArchetypeArray
+  forms: FormArray
+  styles: StyleArray
 }
 
 export interface TokenDisplay {

@@ -25,6 +25,7 @@ export const forms: Form[] = [
     },
     actionDice: [Dice.d8, Dice.d8, Dice.d8],
     name: "Blaster",
+    rangeModifiers: [{ relMaxRange: 2 }],
     actions: [
       {
         name: "Amplify",
@@ -54,11 +55,13 @@ export const forms: Form[] = [
   {
     key: "c",
     ability: {
-      description:
-        "When an enemy within range takes an action you can spend one Control token to negate it or two control tokens to redirect it.\nYou may only use Control tokens once per turn. If you negate an action they lose the number they spent and the action does not happen.\nIf you redirect an action you choose all targets and make all decisions for that action",
+      description: `When an enemy within range takes an action you can spend one Control token to negate it or two control tokens to redirect it.
+        You may only use Control tokens once per turn. If you negate an action they lose the number they spent and the action does not happen.
+        If you redirect an action you choose all targets and make all decisions for that action.`,
     },
     actionDice: [Dice.d10, Dice.d8, Dice.d6, Dice.d4],
     name: "Control",
+    rangeModifiers: [{ relMaxRange: 3 }, { absMinRange: 1 }],
     actions: [
       {
         name: "Suppression",

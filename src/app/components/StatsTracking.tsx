@@ -12,7 +12,6 @@ import {
 } from "@mui/material"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import {
-  TokenUpdate,
   setChallengedBy,
   setChallenging,
   setExtraShields,
@@ -22,7 +21,7 @@ import {
   setToken,
 } from "../../features/hero/gameStateSlice"
 import type { TokenDisplay } from "../types"
-import { ActionCreatorWithPayload } from "@reduxjs/toolkit"
+import type { ActionCreatorWithPayload } from "@reduxjs/toolkit"
 
 const Explainer = ({ helpText }: { helpText: string }) => {
   return (
@@ -133,7 +132,7 @@ export const StatsTracking = () => {
                 <Explainer helpText="Extra shields (i.e. from the Zen form)" />
               </TableCell>
               <TableCell align="right">
-              <input
+                <input
                   type="text"
                   value={gameState.extraShields}
                   onChange={e => dispatch(setExtraShields(e.target.value))}
