@@ -122,7 +122,7 @@ export interface GameState {
   health: number
   healthBars: number
   shields: number
-  extraShields: number[]
+  extraShields: string
   // hasArmor: boolean
   challenging: string
   challengedBy: string

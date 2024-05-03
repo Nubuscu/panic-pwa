@@ -1,10 +1,14 @@
-import { Container, Grid, StyledEngineProvider, Typography } from "@mui/material"
+import {
+  Container,
+  Grid,
+  StyledEngineProvider,
+  Typography,
+} from "@mui/material"
 import { BasicActionsList } from "./app/components/BasicActions"
 import { ConfigModal } from "./app/components/ConfigModal"
 import { CurrentHero } from "./app/components/CurrentHero"
 import { StatsTracking } from "./app/components/StatsTracking"
 import { useAppSelector } from "./app/hooks"
-
 
 const App = () => {
   const hero = useAppSelector(state => state.hero.hero)
