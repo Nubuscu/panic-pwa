@@ -1,4 +1,4 @@
-import { configureStore, combineSlices, Tuple } from "@reduxjs/toolkit"
+import { configureStore, combineSlices } from "@reduxjs/toolkit"
 import { heroSlice, serializeHero } from "../features/hero/heroSlice"
 import { gameStateSlice } from "../features/hero/gameStateSlice"
 import { createListenerMiddleware } from "@reduxjs/toolkit"

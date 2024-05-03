@@ -1,6 +1,6 @@
 import { Card, Grid, Stack, Tab, Tabs } from "@mui/material"
 import { useAppSelector } from "../hooks"
-import type { Archetype, Form, Hero, Style } from "../types"
+import type { Hero } from "../types"
 import { HeroType } from "../types"
 import type { ReactNode, SyntheticEvent } from "react"
 import { useState } from "react"

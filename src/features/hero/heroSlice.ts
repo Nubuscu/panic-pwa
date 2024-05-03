@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store"
-import type { Build, Hero, SerializedHero } from "../../app/types"
+import type { Build, Hero } from "../../app/types"
 import { HeroType } from "../../app/types"
 import {
   archetypes,
