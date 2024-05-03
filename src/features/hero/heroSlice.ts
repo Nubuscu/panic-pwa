@@ -20,6 +20,8 @@ const initialState: Hero = {
   archetypes: [defaultArchetype, defaultArchetype, defaultArchetype],
   forms: [defaultForm, defaultForm, defaultForm],
   styles: [defaultStyle, defaultStyle, defaultStyle],
+  selectedFormIndex: 0,
+  selectedStyleIndex: 0,
 }
 
 interface ArchetypeUpdate {
@@ -130,10 +132,24 @@ export const heroSlice = createSlice({
         state.forms[action.payload.number] = formForName
       }
     },
+    setSelectedStyle: (state, action: PayloadAction<number>) => {
+      state.selectedStyleIndex = action.payload
+    },
+    setSelectedForm: (state, action: PayloadAction<number>) => {
+      state.selectedFormIndex = action.payload
+    },
   },
 })
 
-export const { setName, setBuild, setType, setArchetype, setStyle, setForm } =
-  heroSlice.actions
+export const {
+  setName,
+  setBuild,
+  setType,
+  setArchetype,
+  setStyle,
+  setForm,
+  setSelectedForm,
+  setSelectedStyle,
+} = heroSlice.actions
 
 export const selectHero = (state: RootState) => state.hero.hero

@@ -17,7 +17,16 @@ import {
   setForm,
   setBuild,
 } from "../../features/hero/heroSlice"
-import { Button, Card, CardContent, Modal } from "@mui/material"
+import {
+  Button,
+  Card,
+  CardContent,
+  Modal,
+  Table,
+  TableCell,
+  TableRow,
+  Typography,
+} from "@mui/material"
 
 const boxStyle = {
   position: "absolute" as "absolute",
@@ -87,18 +96,20 @@ const StyleSelectors = () => {
   const handleDisabled = (style: Style) => hero.styles.includes(style)
 
   return hero.styles.map((style, i) => (
-    <select
-      value={style.name}
-      onChange={e => {
-        dispatch(setStyle({ styleName: e.target.value, number: i }))
-      }}
-    >
-      {availableStyles.map(s => (
-        <option key={s.name} value={s.name} disabled={handleDisabled(s)}>
-          {s.name}
-        </option>
-      ))}
-    </select>
+    <TableCell align="center">
+      <select
+        value={style.name}
+        onChange={e => {
+          dispatch(setStyle({ styleName: e.target.value, number: i }))
+        }}
+      >
+        {availableStyles.map(s => (
+          <option key={s.name} value={s.name} disabled={handleDisabled(s)}>
+            {s.name}
+          </option>
+        ))}
+      </select>
+    </TableCell>
   ))
 }
 
@@ -109,18 +120,20 @@ const FormSelectors = () => {
   const handleDisabled = (form: Form) => hero.forms.includes(form)
 
   return hero.forms.map((form, i) => (
-    <select
-      value={form.name}
-      onChange={e => {
-        dispatch(setForm({ formName: e.target.value, number: i }))
-      }}
-    >
-      {forms.map(f => (
-        <option key={f.name} value={f.name} disabled={handleDisabled(f)}>
-          {f.name}
-        </option>
-      ))}
-    </select>
+    <TableCell align="center">
+      <select
+        value={form.name}
+        onChange={e => {
+          dispatch(setForm({ formName: e.target.value, number: i }))
+        }}
+      >
+        {forms.map(f => (
+          <option key={f.name} value={f.name} disabled={handleDisabled(f)}>
+            {f.name}
+          </option>
+        ))}
+      </select>
+    </TableCell>
   ))
 }
 
@@ -179,14 +192,37 @@ export const ConfigModal = () => {
       <Modal open={open} onClose={handleClose}>
         <Card sx={boxStyle}>
           <CardContent>
-            {nameInput}
-            {buildSelector}
-            {heroTypeSelector}
-            <ArchetypeSelectors />
-            <br />
-            <StyleSelectors />
-            <br />
-            <FormSelectors />
+            <Table>
+              <TableRow>
+                <TableCell align="right">Name:</TableCell>
+                <TableCell>{nameInput}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell align="right">Build:</TableCell>
+                <TableCell>{buildSelector}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell align="right">Hero Type:</TableCell>
+                <TableCell>{heroTypeSelector}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell align="right">Archetypes:</TableCell>
+                <TableCell>
+                  <ArchetypeSelectors />
+                </TableCell>
+              </TableRow>
+            </Table>
+            <Typography variant="body2" align="center">
+              Stances
+            </Typography>
+            <Table>
+              <TableRow>
+                <StyleSelectors />
+              </TableRow>
+              <TableRow>
+                <FormSelectors />
+              </TableRow>
+            </Table>
           </CardContent>
         </Card>
       </Modal>

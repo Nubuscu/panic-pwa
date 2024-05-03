@@ -1,5 +1,5 @@
 import { Card, Grid, Stack, Tab, Tabs } from "@mui/material"
-import { useAppSelector } from "../hooks"
+import { useAppDispatch, useAppSelector } from "../hooks"
 import type { Hero, Stance } from "../types"
 import { HeroType } from "../types"
 import type { ReactNode, SyntheticEvent } from "react"
@@ -10,6 +10,10 @@ import { StyleDisplay } from "./character/Style"
 import { FormDisplay } from "./character/Form"
 import { ArchetypeDisplay } from "./character/Archetype"
 import { BuildDisplay } from "./character/Build"
+import {
+  setSelectedForm,
+  setSelectedStyle,
+} from "../../features/hero/heroSlice"
 
 interface TabPanelProps {
   children?: ReactNode
@@ -26,9 +30,12 @@ const TabPanel = ({ children, index, selectedTab }: TabPanelProps) => {
 }
 
 const StancesTabs = ({ hero }: { hero: Hero }) => {
+  const dispatch = useAppDispatch()
   const [selectedTab, setSelectedTab] = useState(0)
   const handleChangeTab = (event: SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue)
+    dispatch(setSelectedForm(newValue))
+    dispatch(setSelectedStyle(newValue))
   }
   const stances: Stance[] = [0, 1, 2].map(i => {
     return {
@@ -63,13 +70,16 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
 }
 
 const FranticTabs = ({ hero }: { hero: Hero }) => {
+  const dispatch = useAppDispatch()
   const [selectedFormTab, setSelectedFormTab] = useState(0)
   const handleChangeFormTab = (event: SyntheticEvent, newValue: number) => {
     setSelectedFormTab(newValue)
+    dispatch(setSelectedForm(newValue))
   }
   const [selectedStyleTab, setSelectedStyleTab] = useState(0)
   const handleChangeStyleTab = (event: SyntheticEvent, newValue: number) => {
     setSelectedStyleTab(newValue)
+    dispatch(setSelectedStyle(newValue))
   }
 
   const activeForms = hero.forms

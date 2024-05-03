@@ -101,7 +101,9 @@ export interface Hero {
   build: Build
   archetypes: ArchetypeArray
   forms: FormArray
+  selectedFormIndex: number
   styles: StyleArray
+  selectedStyleIndex: number
 }
 
 export interface TokenDisplay {
