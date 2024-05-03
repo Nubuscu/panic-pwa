@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../hooks"
-import * as Mui from "@mui/material"
 import type { Form, Style } from "../types"
 import { HeroType } from "../types"
 import {
@@ -18,6 +17,7 @@ import {
   setForm,
   setBuild,
 } from "../../features/hero/heroSlice"
+import { Button, Card, CardContent, Modal } from "@mui/material"
 
 const boxStyle = {
   position: "absolute" as "absolute",
@@ -26,9 +26,7 @@ const boxStyle = {
   transform: "translate(-50%, -50%)",
   width: "80%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
 }
 
 const ArchetypeSelectors = () => {
@@ -181,19 +179,21 @@ export const ConfigModal = () => {
   )
   return (
     <>
-      <Mui.Button onClick={handleOpen}>Edit Character</Mui.Button>
-      <Mui.Modal open={open} onClose={handleClose}>
-        <Mui.Box sx={boxStyle}>
-          {nameInput}
-          {buildSelector}
-          {heroTypeSelector}
-          <ArchetypeSelectors />
-          <br />
-          <StyleSelectors />
-          <br />
-          <FormSelectors />
-        </Mui.Box>
-      </Mui.Modal>
+      <Button onClick={handleOpen}>Edit Character</Button>
+      <Modal open={open} onClose={handleClose}>
+        <Card sx={boxStyle}>
+          <CardContent>
+            {nameInput}
+            {buildSelector}
+            {heroTypeSelector}
+            <ArchetypeSelectors />
+            <br />
+            <StyleSelectors />
+            <br />
+            <FormSelectors />
+          </CardContent>
+        </Card>
+      </Modal>
     </>
   )
 }

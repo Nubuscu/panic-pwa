@@ -1,13 +1,15 @@
-import * as Mui from "@mui/material"
+import { Card, Grid, Stack, Tab, Tabs } from "@mui/material"
 import { useAppSelector } from "../hooks"
 import type { Archetype, Form, Hero, Style } from "../types"
 import { HeroType } from "../types"
 import type { ReactNode, SyntheticEvent } from "react"
 import { useState } from "react"
-import { ActionDisplay } from "./Action"
+import { ActionDisplay } from "./character/Action"
 import { defaultArchetype } from "../textContent"
-import { StyleDisplay } from "./Style"
-import { FormDisplay } from "./Form"
+import { StyleDisplay } from "./character/Style"
+import { FormDisplay } from "./character/Form"
+import { ArchetypeDisplay } from "./character/Archetype"
+import { BuildDisplay } from "./character/Build"
 
 interface TabPanelProps {
   children?: ReactNode
@@ -46,26 +48,26 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
     },
   ]
   return (
-    <Mui.Card>
-      <Mui.Tabs value={selectedTab} onChange={handleChangeTab}>
+    <Stack spacing={1}>
+      <Tabs value={selectedTab} onChange={handleChangeTab}>
         {stances.map(s => (
-          <Mui.Tab label={s.name} />
+          <Tab label={s.name} />
         ))}
-      </Mui.Tabs>
+      </Tabs>
       {stances.map((s, i) => (
         <TabPanel index={i} selectedTab={selectedTab}>
-          <Mui.Grid container>
-            <StyleDisplay style={s.style} width={6} />
-            <FormDisplay form={s.form} width={6} />
-          </Mui.Grid>
-          <Mui.Stack spacing={1}>
+          <Stack rowGap={1}>
+            <Grid container columnSpacing={1}>
+              <StyleDisplay style={s.style} width={6} />
+              <FormDisplay form={s.form} width={6} />
+            </Grid>
             {[...s.form.actions, ...s.style.actions].map(action => (
               <ActionDisplay action={action} />
             ))}
-          </Mui.Stack>
+          </Stack>
         </TabPanel>
       ))}
-    </Mui.Card>
+    </Stack>
   )
 }
 
@@ -83,37 +85,40 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
   const activeStyles = [hero.style1, hero.style2, hero.style3]
 
   return (
-    <Mui.Card>
+    <Card>
       {/* styles */}
-      <Mui.Tabs value={selectedStyleTab} onChange={handleChangeStyleTab}>
+      <Tabs value={selectedStyleTab} onChange={handleChangeStyleTab}>
         {activeStyles.map(style => (
-          <Mui.Tab label={style.name} />
+          <Tab label={style.name} />
         ))}
-      </Mui.Tabs>
+      </Tabs>
       {activeStyles.map((style, i) => (
         <TabPanel index={i} selectedTab={selectedStyleTab}>
           <StyleDisplay style={style} width={12} />
-          <Mui.Stack spacing={1}>
-            {style.actions.map(action => <ActionDisplay action={action} />)}
-          </Mui.Stack>
+          <Stack spacing={1}>
+            {style.actions.map(action => (
+              <ActionDisplay action={action} />
+            ))}
+          </Stack>
         </TabPanel>
       ))}
       {/* forms */}
-      <Mui.Tabs value={selectedFormTab} onChange={handleChangeFormTab}>
+      <Tabs value={selectedFormTab} onChange={handleChangeFormTab}>
         {activeForms.map(form => (
-          <Mui.Tab label={form.name} />
+          <Tab label={form.name} />
         ))}
-      </Mui.Tabs>
+      </Tabs>
       {activeForms.map((form, i) => (
         <TabPanel index={i} selectedTab={selectedFormTab}>
           <FormDisplay form={form} width={12} />
-          <Mui.Stack spacing={1}>
-            {form.actions.map(action => <ActionDisplay action={action} />)}
-          </Mui.Stack>
+          <Stack spacing={1}>
+            {form.actions.map(action => (
+              <ActionDisplay action={action} />
+            ))}
+          </Stack>
         </TabPanel>
       ))}
-
-    </Mui.Card>
+    </Card>
   )
 }
 export const CurrentHero = () => {
@@ -123,34 +128,21 @@ export const CurrentHero = () => {
     hero.archetype2,
     hero.archetype3,
   ].filter(arch => arch !== defaultArchetype)
-  const descriptionForArch = (hero: Hero, arch: Archetype) => {
-    switch (hero.type) {
-      case HeroType.Focused:
-        return arch.focusedAbility.description
-      case HeroType.Fused:
-        return arch.fusedAbility.description
-      case HeroType.Frantic:
-        return arch.franticAbility.description
-    }
-  }
+
   return (
-    <Mui.Grid item xs={6}>
+    <Grid item xs={6}>
       <h2>Stances/Unique Actions</h2>
-      <Mui.Stack spacing={1}>
-        <Mui.Card>
-          <strong>{hero.build.name}</strong>: {hero.build.description}
-        </Mui.Card>
+      <Stack spacing={1}>
+        <BuildDisplay build={hero.build} />
         {activeArchetypes.map(arch => (
-          <Mui.Card>
-            <strong>{arch.name}</strong>: {descriptionForArch(hero, arch)}
-          </Mui.Card>
+          <ArchetypeDisplay arch={arch} type={hero.type} />
         ))}
         {hero.type === HeroType.Frantic ? (
           <FranticTabs hero={hero} />
         ) : (
           <StancesTabs hero={hero} />
         )}
-      </Mui.Stack>
-    </Mui.Grid>
+      </Stack>
+    </Grid>
   )
 }
