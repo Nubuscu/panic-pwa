@@ -78,6 +78,8 @@ export const deserializeHero = (serialized: string[]): Hero => {
       resolveStyle(serialized[10]),
       resolveStyle(serialized[11]),
     ],
+    selectedFormIndex: 0,
+    selectedStyleIndex: 0,
   }
 }
 export const heroSlice = createSlice({
