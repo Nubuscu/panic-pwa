@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store"
 import type { Build, Hero } from "../../app/types"
+import { CharacterType } from "../../app/types"
 import { HeroType } from "../../app/types"
 import {
   archetypes,
@@ -14,6 +15,7 @@ import {
 } from "../../app/textContent"
 
 const initialState: Hero = {
+  characterType: CharacterType.Hero,
   name: "Jimmy Space",
   type: HeroType.Focused,
   build: builds[0],
@@ -38,6 +40,7 @@ interface FormUpdate {
 }
 export const serializeHero = (hero: Hero): string[] => {
   return [
+    hero.characterType,
     hero.name,
     hero.type,
     hero.build.key,
@@ -60,23 +63,26 @@ export const deserializeHero = (serialized: string[]): Hero => {
   const resolveForm = (formName: string) =>
     forms.find(f => f.key === formName) ?? defaultForm
   return {
-    name: serialized[0],
-    type: HeroType[serialized[1] as keyof typeof HeroType] ?? HeroType.Focused,
-    build: builds.find(b => b.key === serialized[2]) ?? builds[0],
+    characterType:
+      CharacterType[serialized[0] as keyof typeof CharacterType] ??
+      CharacterType.Hero,
+    name: serialized[1],
+    type: HeroType[serialized[2] as keyof typeof HeroType] ?? HeroType.Focused,
+    build: builds.find(b => b.key === serialized[3]) ?? builds[0],
     archetypes: [
-      resolveArchetype(serialized[3]),
       resolveArchetype(serialized[4]),
       resolveArchetype(serialized[5]),
+      resolveArchetype(serialized[6]),
     ],
     forms: [
-      resolveForm(serialized[6]),
       resolveForm(serialized[7]),
       resolveForm(serialized[8]),
+      resolveForm(serialized[9]),
     ],
     styles: [
-      resolveStyle(serialized[9]),
       resolveStyle(serialized[10]),
       resolveStyle(serialized[11]),
+      resolveStyle(serialized[12]),
     ],
     selectedFormIndex: 0,
     selectedStyleIndex: 0,
@@ -140,6 +146,12 @@ export const heroSlice = createSlice({
     setSelectedForm: (state, action: PayloadAction<number>) => {
       state.selectedFormIndex = action.payload
     },
+    setCharacterType: (state, action: PayloadAction<CharacterType>) => {
+      state.characterType = action.payload
+    },
+    resetHero: state => {
+      state = initialState
+    },
   },
 })
 
@@ -152,6 +164,8 @@ export const {
   setForm,
   setSelectedForm,
   setSelectedStyle,
+  setCharacterType,
+  resetHero,
 } = heroSlice.actions
 
 export const selectHero = (state: RootState) => state.hero.hero

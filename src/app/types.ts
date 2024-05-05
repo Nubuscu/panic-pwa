@@ -90,12 +90,20 @@ export interface Stance {
   form: Form
 }
 
+export enum CharacterType {
+  Hero = "Hero",
+  Stooge = "Stooge",
+  Warrior = "Warrior",
+  Boss = "Boss",
+}
+
 // dummy fixed length array types
 type ArchetypeArray = [Archetype, Archetype, Archetype]
 type StyleArray = [Style, Style, Style]
 type FormArray = [Form, Form, Form]
 //combined state for the currently selected/displayed hero
 export interface Hero {
+  characterType: CharacterType
   name: string
   type: HeroType
   build: Build

@@ -389,6 +389,7 @@ export const defaultArchetype: Archetype = {
     description: "",
   },
 }
+// TODO boss archetypes
 export const archetypes: Archetype[] = [
   {
     key: "a",
