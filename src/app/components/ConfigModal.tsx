@@ -1,19 +1,25 @@
 import { useState } from "react"
 import { useAppDispatch, useAppSelector } from "../hooks"
 
-import { setName } from "../../features/hero/heroSlice"
+import { setCharacterType, setName } from "../../features/hero/heroSlice"
 import {
   Button,
   Card,
   CardContent,
   Divider,
+  MenuItem,
   Modal,
+  Select,
   Table,
   TableCell,
   TableHead,
   TableRow,
 } from "@mui/material"
 import { HeroConfig } from "./config/HeroConfig"
+import { CharacterType } from "../types"
+import { StoogeConfig } from "./config/StoogeConfig"
+import { WarriorConfig } from "./config/WarriorConfig"
+import { BossConfig } from "./config/BossConfig"
 
 const boxStyle = {
   position: "absolute" as "absolute",
@@ -40,6 +46,24 @@ export const ConfigModal = () => {
       }}
     />
   )
+  const characterTypeSelector = (
+    <Select
+      value={hero.characterType}
+      onChange={e => {
+        dispatch(
+          setCharacterType(
+            CharacterType[e.target.value as keyof typeof CharacterType],
+          ),
+        )
+      }}
+    >
+      {Object.keys(CharacterType).map(t => (
+        <MenuItem key={t} value={t}>
+          {t}
+        </MenuItem>
+      ))}
+    </Select>
+  )
   return (
     <>
       <Button onClick={handleOpen}>Edit Character</Button>
@@ -49,7 +73,7 @@ export const ConfigModal = () => {
             <Table>
               <TableHead>
                 <TableCell align="right">Character Type:</TableCell>
-                <TableCell>Character Type:</TableCell>
+                <TableCell>{characterTypeSelector}</TableCell>
               </TableHead>
               <TableRow>
                 <TableCell align="right">Name:</TableCell>
@@ -58,7 +82,10 @@ export const ConfigModal = () => {
             </Table>
             <br />
             <Divider>{hero.characterType} Config</Divider>
-            <HeroConfig />
+            {hero.characterType == CharacterType.Hero && <HeroConfig />}
+            {hero.characterType == CharacterType.Stooge && <StoogeConfig />}
+            {hero.characterType == CharacterType.Warrior && <WarriorConfig />}
+            {hero.characterType == CharacterType.Boss && <BossConfig />}
           </CardContent>
         </Card>
       </Modal>

@@ -2287,6 +2287,7 @@ export const builds: Build[] = [
   },
 ]
 
+// TODO stooge actions (reinforcements/endless alt)
 export const basicActions: Action[] = [
   {
     name: "Movement",

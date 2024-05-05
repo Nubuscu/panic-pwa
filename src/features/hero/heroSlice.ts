@@ -121,7 +121,7 @@ export const heroSlice = createSlice({
       }
     },
     setArchetype: (state, action: PayloadAction<ArchetypeUpdate>) => {
-      const archForName = archetypes.find(
+      const archForName = [defaultArchetype, ...archetypes].find(
         v => v.name === action.payload.archetypeName,
       )
       if (archForName !== undefined) {
@@ -148,6 +148,10 @@ export const heroSlice = createSlice({
     },
     setCharacterType: (state, action: PayloadAction<CharacterType>) => {
       state.characterType = action.payload
+      // reset all arch/form/style selections
+      state.archetypes = [defaultArchetype, defaultArchetype, defaultArchetype]
+      state.forms = [defaultForm, defaultForm, defaultForm]
+      state.styles = [defaultStyle, defaultStyle, defaultStyle]
     },
     resetHero: state => {
       state = initialState
