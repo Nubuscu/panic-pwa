@@ -25,7 +25,7 @@ export const forms: Form[] = [
     },
     actionDice: [Dice.d8, Dice.d8, Dice.d8],
     name: "Blaster",
-    rangeModifiers: [{ relMaxRange: 2 }],
+    rangeModifiers: [{ relMaxRange: 1 }],
     actions: [
       {
         name: "Amplify",
