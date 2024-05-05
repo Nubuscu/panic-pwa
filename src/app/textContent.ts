@@ -389,7 +389,6 @@ export const defaultArchetype: Archetype = {
     description: "",
   },
 }
-// TODO boss archetypes
 export const archetypes: Archetype[] = [
   {
     key: "a",
@@ -594,7 +593,119 @@ export const archetypes: Archetype[] = [
     },
   },
 ]
-
+export const bossArchetypes: Archetype[] = [
+  {
+    key: "1",
+    name: "The Blur",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description: "After you perform an Action, you may move one space.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "2",
+    name: "The Immortal",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "The first time you deal damage with an ACtion each turn, you heal.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "3",
+    name: "The Giant",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "You take up a 2x2 space on the battle grid. Your maximum range increasese by 1 in all Stances. Edges do not remove you from play unless your entire 2x2 spaces is over Edge spaces. You can move over Walls. When you do, they become Rubble, and you must discard one Speed token.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "4",
+    name: "The Necromancer",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "At the start of your turn, place a Copy into an empty space you can see. At the end of your turn, each of your Copies may move one space, then each copy deals 1 damage to one adjacent enemy.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "5",
+    name: "The Swarm",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "At the end of your turn, for each Copy you have in play, choose one: You gain 1 Power token; or you gain 1 Iron token; or you may move one space; or each of your Copies may move 1 space; or destroy a Copy to deal 1 damage to each enemy adjacent to it.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "6",
+    name: "The Tank",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "You have Armor. When you are Pushed or Pulled, you move one less space.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "7",
+    name: "The Untouchable",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "At the start of your turn, you gain one Control token. You can spend one Control token to Counter an enemy's Action. When you Counter an Action, that Action targets its user in addition to its other targets.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+  {
+    key: "8",
+    name: "The Vehicle",
+    focusedAbility: {
+      description: "",
+    },
+    fusedAbility: {
+      description:
+        "You take up as much or as little space on the battle grid as you want. Once your shape has been drawn in, it cannot be changed. Enemies and allies can move on top of you. When you move, everyone on top of you moves with you. Spaces inside of you are always within your Range. Edges do not remove you from play unless your entire space is over Edge spaces. You can move over Walls. When you do, they become Rubble, and you must discard a number from your Action Pool.",
+    },
+    franticAbility: {
+      description: "",
+    },
+  },
+]
 export const defaultStyle: Style = {
   key: "0",
   name: "<unselected>",
@@ -2287,7 +2398,16 @@ export const builds: Build[] = [
   },
 ]
 
-// TODO stooge actions (reinforcements/endless alt)
+// TODO endless alternate rules version
+export const reinforceAction: Action = {
+  name: "Reinforcements",
+  levels: [
+    {
+      description: "Heal, then place a Stooge anywhere in play.",
+      diceCost: [1],
+    },
+  ],
+}
 export const basicActions: Action[] = [
   {
     name: "Movement",

@@ -1,8 +1,16 @@
 import { CardContent, Card, Grid } from "@mui/material"
-import type { Form } from "../../types"
+import { CharacterType, Form } from "../../types"
 import "./Form.css"
 
-export const FormDisplay = ({ form, width }: { form: Form; width: number }) => (
+export const FormDisplay = ({
+  form,
+  width,
+  characterType,
+}: {
+  form: Form
+  width: number
+  characterType?: CharacterType
+}) => (
   <Grid item xs={width}>
     <Card className="formContainer">
       <CardContent>
@@ -11,6 +19,7 @@ export const FormDisplay = ({ form, width }: { form: Form; width: number }) => (
         <p>
           <strong>Action Dice: </strong>
           {form.actionDice.join(", ")}
+          {characterType === CharacterType.Boss && ", (d4)"}
         </p>
       </CardContent>
     </Card>

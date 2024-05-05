@@ -1,7 +1,13 @@
 import { MenuItem, Select, Table, TableCell, TableRow } from "@mui/material"
 import { BuildSelector } from "./BuildSelector"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { archetypes, defaultArchetype, forms, styles } from "../../textContent"
+import {
+  archetypes,
+  bossArchetypes,
+  defaultArchetype,
+  forms,
+  styles,
+} from "../../textContent"
 import {
   setArchetype,
   setForm,
@@ -13,7 +19,7 @@ import { HeroType } from "../../types"
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
   const dispatch = useAppDispatch()
-  const options = [...archetypes]
+  const options = [...archetypes, ...bossArchetypes]
 
   return (
     <Select

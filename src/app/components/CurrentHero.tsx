@@ -1,11 +1,11 @@
 import { Card, Grid, Stack, Tab, Tabs } from "@mui/material"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import type { Hero, Stance } from "../types"
-import { HeroType } from "../types"
+import { CharacterType, HeroType } from "../types"
 import type { ReactNode, SyntheticEvent } from "react"
 import { useState } from "react"
 import { ActionDisplay } from "./character/Action"
-import { defaultArchetype } from "../textContent"
+import { defaultArchetype, reinforceAction } from "../textContent"
 import { StyleDisplay } from "./character/Style"
 import { FormDisplay } from "./character/Form"
 import { ArchetypeDisplay } from "./character/Archetype"
@@ -57,11 +57,18 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
           <Stack rowGap={1}>
             <Grid container columnSpacing={1}>
               <StyleDisplay style={s.style} width={6} />
-              <FormDisplay form={s.form} width={6} />
+              <FormDisplay
+                form={s.form}
+                width={6}
+                characterType={hero.characterType}
+              />
             </Grid>
             {[...s.form.actions, ...s.style.actions].map(action => (
               <ActionDisplay action={action} />
             ))}
+            {hero.characterType === CharacterType.Stooge && (
+              <ActionDisplay action={reinforceAction} />
+            )}
           </Stack>
         </TabPanel>
       ))}
@@ -132,7 +139,9 @@ export const CurrentHero = () => {
     <Grid item xs={6}>
       <h2>Stances/Unique Actions</h2>
       <Stack spacing={1}>
-        <BuildDisplay build={hero.build} />
+        {[CharacterType.Hero, CharacterType.Stooge].includes(
+          hero.characterType,
+        ) && <BuildDisplay build={hero.build} />}
         {activeArchetypes.map(arch => (
           <ArchetypeDisplay arch={arch} type={hero.type} />
         ))}

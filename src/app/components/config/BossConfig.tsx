@@ -15,13 +15,19 @@ import {
   setStyle,
   setType,
 } from "../../../features/hero/heroSlice"
-import { archetypes, defaultArchetype, forms, styles } from "../../textContent"
+import {
+  archetypes,
+  bossArchetypes,
+  defaultArchetype,
+  forms,
+  styles,
+} from "../../textContent"
 import { BuildSelector } from "./BuildSelector"
 
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
   const dispatch = useAppDispatch()
-  const options = [...archetypes]
+  const options = [...archetypes, ...bossArchetypes]
   return (
     <Select
       value={hero.archetypes[0].name}
@@ -32,6 +38,7 @@ const ArchetypeSelector = () => {
             number: 0,
           }),
         )
+        dispatch(setType(HeroType.Fused))
       }}
     >
       {options.map(arch => (
@@ -94,12 +101,6 @@ export const BossConfig = () => {
   return (
     <>
       <Table>
-        <TableRow>
-          <TableCell align="right">Build:</TableCell>
-          <TableCell>
-            <BuildSelector />
-          </TableCell>
-        </TableRow>
         <TableRow>
           <TableCell align="right">Archetype:</TableCell>
           <TableCell>

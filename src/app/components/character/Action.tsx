@@ -6,7 +6,6 @@ interface ActionProps {
 }
 export const ActionDisplay = ({ action }: ActionProps) => {
   const levelCost = (level: ActionLevel) => {
-    // TODO prettier formatting
     let out = ""
     if (level.diceCost) {
       out = out.concat(`${level.diceCost.map(num => `${num}+`).join(" and ")}`)

@@ -6,6 +6,7 @@ import { CharacterType } from "../../app/types"
 import { HeroType } from "../../app/types"
 import {
   archetypes,
+  bossArchetypes,
   builds,
   defaultArchetype,
   defaultForm,
@@ -121,9 +122,11 @@ export const heroSlice = createSlice({
       }
     },
     setArchetype: (state, action: PayloadAction<ArchetypeUpdate>) => {
-      const archForName = [defaultArchetype, ...archetypes].find(
-        v => v.name === action.payload.archetypeName,
-      )
+      const archForName = [
+        defaultArchetype,
+        ...archetypes,
+        ...bossArchetypes,
+      ].find(v => v.name === action.payload.archetypeName)
       if (archForName !== undefined) {
         state.archetypes[action.payload.number] = archForName
       }
