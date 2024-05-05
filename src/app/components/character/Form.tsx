@@ -1,5 +1,6 @@
 import { CardContent, Card, Grid } from "@mui/material"
-import { CharacterType, Form } from "../../types"
+import type { Form } from "../../types"
+import { CharacterType } from "../../types"
 import "./Form.css"
 
 export const FormDisplay = ({

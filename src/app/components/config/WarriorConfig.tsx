@@ -1,13 +1,6 @@
 import { MenuItem, Select, Table, TableCell, TableRow } from "@mui/material"
-import { BuildSelector } from "./BuildSelector"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import {
-  archetypes,
-  bossArchetypes,
-  defaultArchetype,
-  forms,
-  styles,
-} from "../../textContent"
+import { archetypes, bossArchetypes, forms, styles } from "../../textContent"
 import {
   setArchetype,
   setForm,

@@ -82,10 +82,10 @@ export const ConfigModal = () => {
             </Table>
             <br />
             <Divider>{hero.characterType} Config</Divider>
-            {hero.characterType == CharacterType.Hero && <HeroConfig />}
-            {hero.characterType == CharacterType.Stooge && <StoogeConfig />}
-            {hero.characterType == CharacterType.Warrior && <WarriorConfig />}
-            {hero.characterType == CharacterType.Boss && <BossConfig />}
+            {hero.characterType === CharacterType.Hero && <HeroConfig />}
+            {hero.characterType === CharacterType.Stooge && <StoogeConfig />}
+            {hero.characterType === CharacterType.Warrior && <WarriorConfig />}
+            {hero.characterType === CharacterType.Boss && <BossConfig />}
           </CardContent>
         </Card>
       </Modal>

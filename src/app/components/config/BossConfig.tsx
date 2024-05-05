@@ -15,14 +15,7 @@ import {
   setStyle,
   setType,
 } from "../../../features/hero/heroSlice"
-import {
-  archetypes,
-  bossArchetypes,
-  defaultArchetype,
-  forms,
-  styles,
-} from "../../textContent"
-import { BuildSelector } from "./BuildSelector"
+import { archetypes, bossArchetypes, forms, styles } from "../../textContent"
 
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
