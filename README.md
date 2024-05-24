@@ -23,3 +23,4 @@ Missing features (so far):
 - Correctly restricted character creation options. Boss archetypes in particular require that a certain style is used, but this isn't enforced.
 - Alternate rules (e.g. endless stooges)
 - overarching DM tools, like a round/turn tracker
+- Forbidden style. the style text is there, but selecting two forms is not implemented.
