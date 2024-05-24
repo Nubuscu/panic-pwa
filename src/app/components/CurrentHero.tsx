@@ -47,7 +47,7 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
 
   return (
     <Stack spacing={1}>
-      <Tabs value={selectedTab} onChange={handleChangeTab}>
+      <Tabs value={selectedTab} onChange={handleChangeTab} variant="scrollable" scrollButtons={false}>
         {stances.map(s => (
           <Tab label={s.name} />
         ))}
@@ -78,6 +78,10 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
 
 const FranticTabs = ({ hero }: { hero: Hero }) => {
   const dispatch = useAppDispatch()
+  const [selectedArchTab, setSelectedArchTab] = useState(0)
+  const handleChangeArchTab = (event: SyntheticEvent, newValue: number) => {
+    setSelectedArchTab(newValue)
+  }
   const [selectedFormTab, setSelectedFormTab] = useState(0)
   const handleChangeFormTab = (event: SyntheticEvent, newValue: number) => {
     setSelectedFormTab(newValue)
@@ -94,16 +98,23 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
 
   return (
     <Card>
+      {/* archetypes */}
+      <Tabs value={selectedArchTab} onChange={handleChangeArchTab} variant="scrollable" scrollButtons={false}>
+        {hero.archetypes.map(arch => <Tab label={arch.name} />)}
+      </Tabs>
+      {hero.archetypes.map((arch, i) => <TabPanel index={i} selectedTab={selectedArchTab}>
+        <ArchetypeDisplay arch={arch} type={hero.type} />
+      </TabPanel>)}
       {/* styles */}
-      <Tabs value={selectedStyleTab} onChange={handleChangeStyleTab}>
+      <Tabs value={selectedStyleTab} onChange={handleChangeStyleTab} variant="scrollable" scrollButtons={false}>
         {activeStyles.map(style => (
           <Tab label={style.name} />
         ))}
       </Tabs>
       {activeStyles.map((style, i) => (
         <TabPanel index={i} selectedTab={selectedStyleTab}>
-          <StyleDisplay style={style} width={12} />
           <Stack spacing={1}>
+            <StyleDisplay style={style} width={12} />
             {style.actions.map(action => (
               <ActionDisplay action={action} />
             ))}
@@ -111,15 +122,15 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
         </TabPanel>
       ))}
       {/* forms */}
-      <Tabs value={selectedFormTab} onChange={handleChangeFormTab}>
+      <Tabs value={selectedFormTab} onChange={handleChangeFormTab} variant="scrollable" scrollButtons={false}>
         {activeForms.map(form => (
           <Tab label={form.name} />
         ))}
       </Tabs>
       {activeForms.map((form, i) => (
         <TabPanel index={i} selectedTab={selectedFormTab}>
-          <FormDisplay form={form} width={12} />
           <Stack spacing={1}>
+            <FormDisplay form={form} width={12} />
             {form.actions.map(action => (
               <ActionDisplay action={action} />
             ))}
@@ -142,13 +153,16 @@ export const CurrentHero = () => {
         {[CharacterType.Hero, CharacterType.Stooge].includes(
           hero.characterType,
         ) && <BuildDisplay build={hero.build} />}
-        {activeArchetypes.map(arch => (
-          <ArchetypeDisplay arch={arch} type={hero.type} />
-        ))}
+
         {hero.type === HeroType.Frantic ? (
           <FranticTabs hero={hero} />
         ) : (
-          <StancesTabs hero={hero} />
+          <>
+            {activeArchetypes.map(arch => (
+              <ArchetypeDisplay arch={arch} type={hero.type} />
+            ))}
+            <StancesTabs hero={hero} />
+          </>
         )}
       </Stack>
     </Grid>
