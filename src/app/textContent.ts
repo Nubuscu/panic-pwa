@@ -2503,6 +2503,15 @@ export const basicActions: Action[] = [
     ],
   },
   {
+    name: "Bring it On!",
+    levels: [
+      {
+        description: "Challenge any number of enemies you can see.",
+        diceCost: [4],
+      },
+    ],
+  },
+  {
     name: "Rescue",
     levels: [
       {
