@@ -15,7 +15,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material"
-import { HeroConfig } from "./config/HeroConfig"
+import { HeroConfig } from "./config/hero/HeroConfig"
 import { CharacterType } from "../types"
 import { StoogeConfig } from "./config/StoogeConfig"
 import { WarriorConfig } from "./config/WarriorConfig"

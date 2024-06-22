@@ -47,7 +47,12 @@ const StancesTabs = ({ hero }: { hero: Hero }) => {
 
   return (
     <Stack spacing={1}>
-      <Tabs value={selectedTab} onChange={handleChangeTab} variant="scrollable" scrollButtons={false}>
+      <Tabs
+        value={selectedTab}
+        onChange={handleChangeTab}
+        variant="scrollable"
+        scrollButtons={false}
+      >
         {stances.map(s => (
           <Tab label={s.name} />
         ))}
@@ -99,14 +104,28 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
   return (
     <Card>
       {/* archetypes */}
-      <Tabs value={selectedArchTab} onChange={handleChangeArchTab} variant="scrollable" scrollButtons={false}>
-        {hero.archetypes.map(arch => <Tab label={arch.name} />)}
+      <Tabs
+        value={selectedArchTab}
+        onChange={handleChangeArchTab}
+        variant="scrollable"
+        scrollButtons={false}
+      >
+        {hero.archetypes.map(arch => (
+          <Tab label={arch.name} />
+        ))}
       </Tabs>
-      {hero.archetypes.map((arch, i) => <TabPanel index={i} selectedTab={selectedArchTab}>
-        <ArchetypeDisplay arch={arch} type={hero.type} />
-      </TabPanel>)}
+      {hero.archetypes.map((arch, i) => (
+        <TabPanel index={i} selectedTab={selectedArchTab}>
+          <ArchetypeDisplay arch={arch} type={hero.type} />
+        </TabPanel>
+      ))}
       {/* styles */}
-      <Tabs value={selectedStyleTab} onChange={handleChangeStyleTab} variant="scrollable" scrollButtons={false}>
+      <Tabs
+        value={selectedStyleTab}
+        onChange={handleChangeStyleTab}
+        variant="scrollable"
+        scrollButtons={false}
+      >
         {activeStyles.map(style => (
           <Tab label={style.name} />
         ))}
@@ -122,7 +141,12 @@ const FranticTabs = ({ hero }: { hero: Hero }) => {
         </TabPanel>
       ))}
       {/* forms */}
-      <Tabs value={selectedFormTab} onChange={handleChangeFormTab} variant="scrollable" scrollButtons={false}>
+      <Tabs
+        value={selectedFormTab}
+        onChange={handleChangeFormTab}
+        variant="scrollable"
+        scrollButtons={false}
+      >
         {activeForms.map(form => (
           <Tab label={form.name} />
         ))}
