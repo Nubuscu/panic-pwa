@@ -1,16 +1,17 @@
 import { FormControl, FormGroup, FormHelperText, Stack } from "@mui/material"
 import { useAppSelector } from "../../../hooks"
 import { FormSelector, StyleSelector } from "./selectors"
+import "./stances.css"
 
 export const FocusedStances = () => {
   const hero = useAppSelector(state => state.hero.hero)
   // All styles come from the same archetype
   const archetypes = [hero.archetypes[0]]
   return (
-    <Stack spacing={1}>
+    <Stack spacing={1} direction={"row"}>
       {[0, 1, 2].map(i => {
         return (
-          <FormGroup row={true} className="stanceFormGroup">
+          <FormGroup className="stanceFormGroup">
             <FormControl sx={{ m: 1 }}>
               <StyleSelector fromArchetypes={archetypes} index={i} />
               <FormHelperText>Style {i + 1}</FormHelperText>

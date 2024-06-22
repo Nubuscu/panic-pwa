@@ -1,54 +1,46 @@
 import { FormControl, FormGroup, FormHelperText, Stack } from "@mui/material"
 import { useAppSelector } from "../../../hooks"
 import { FormSelector, StyleSelector } from "./selectors"
+import "./stances.css"
 
 export const FusedStances = () => {
   const hero = useAppSelector(state => state.hero.hero)
   // the hero must have at least one style from each archetype
+  const style0ArchetypeOptions = [hero.archetypes[0]]
+  const style1ArchetypeOptions = [hero.archetypes[0], hero.archetypes[1]]
+  const style2ArchetypeOptions = [hero.archetypes[1]]
 
   return (
-    <Stack spacing={1}>
-      {/* Stance 0 */}
-      <FormGroup row={true} className="stanceFormGroup">
-        <FormControl sx={{ m: 1 }}>
-          <StyleSelector fromArchetypes={hero.archetypes} index={0} />
-          <FormHelperText>
-            Style 1 (must be from {hero.archetypes[0].name})
-          </FormHelperText>
-        </FormControl>
-        <FormControl sx={{ m: 1 }}>
-          <FormSelector index={0} />
-          <FormHelperText>Form 1</FormHelperText>
-        </FormControl>
-      </FormGroup>
-      {/* Stance 1 */}
-      <FormGroup row={true} className="stanceFormGroup">
-        <FormControl sx={{ m: 1 }}>
-          <StyleSelector fromArchetypes={hero.archetypes} index={1} />
-          <FormHelperText>
-            Style 2 (may be from {hero.archetypes[0].name} or{" "}
-            {hero.archetypes[1].name})
-          </FormHelperText>
-        </FormControl>
-        <FormControl sx={{ m: 1 }}>
-          <FormSelector index={1} />
-          <FormHelperText>Form 2</FormHelperText>
-        </FormControl>
-      </FormGroup>
-
-      {/* Stance 2 */}
-      <FormGroup row={true} className="stanceFormGroup">
-        <FormControl sx={{ m: 1 }}>
-          <StyleSelector fromArchetypes={hero.archetypes} index={2} />
-          <FormHelperText>
-            Style 3 (must be from {hero.archetypes[1].name})
-          </FormHelperText>
-        </FormControl>
-        <FormControl sx={{ m: 1 }}>
-          <FormSelector index={2} />
-          <FormHelperText>Form 3</FormHelperText>
-        </FormControl>
-      </FormGroup>
+    <Stack spacing={1} direction={"row"}>
+      {[
+        {
+          opts: style0ArchetypeOptions,
+          helpText: `(must be from ${hero.archetypes[0].name})`,
+        },
+        {
+          opts: style1ArchetypeOptions,
+          helpText: `(may be from ${hero.archetypes[0].name} or ${hero.archetypes[1].name})`,
+        },
+        {
+          opts: style2ArchetypeOptions,
+          helpText: `(must be from ${hero.archetypes[1].name})`,
+        },
+      ].map(({ opts, helpText }, i) => {
+        return (
+          <FormGroup className="stanceFormGroup">
+            <FormControl sx={{ m: 1 }}>
+              <StyleSelector fromArchetypes={opts} index={i} />
+              <FormHelperText>
+                Style {i + 1} {helpText}
+              </FormHelperText>
+            </FormControl>
+            <FormControl sx={{ m: 1 }}>
+              <FormSelector index={i} />
+              <FormHelperText>Form {i + 1}</FormHelperText>
+            </FormControl>
+          </FormGroup>
+        )
+      })}
     </Stack>
   )
 }

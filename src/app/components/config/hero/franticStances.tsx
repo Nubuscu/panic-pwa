@@ -3,6 +3,7 @@ import { useAppSelector } from "../../../hooks"
 import { FormSelector, StyleSelector } from "./selectors"
 import { archetypes, defaultArchetype } from "../../../textContent"
 import type { Archetype } from "../../../types"
+import "./stances.css"
 
 export const FranticStances = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -19,7 +20,7 @@ export const FranticStances = () => {
   const style1ArchetypeOptions = nonDefaultUnselected(hero.archetypes, 1)
   const style2ArchetypeOptions = nonDefaultUnselected(archetypes, 2)
   return (
-    <Stack spacing={1}>
+    <Stack spacing={1} direction={"row"}>
       {[
         {
           opts: style0ArchetypeOptions,
@@ -31,11 +32,11 @@ export const FranticStances = () => {
         },
         {
           opts: style2ArchetypeOptions,
-          helpText: "(may be from any archetype)",
+          helpText: "(may be from any archetype not already in use)",
         },
       ].map(({ opts, helpText }, i) => {
         return (
-          <FormGroup row={true} className="stanceFormGroup">
+          <FormGroup className="stanceFormGroup">
             <FormControl sx={{ m: 1 }}>
               <StyleSelector fromArchetypes={opts} index={i} />
               <FormHelperText>
