@@ -17,7 +17,11 @@ export const ActionDisplay = ({ action }: ActionProps) => {
             `${cost.number} ${cost.tokenType} ${cost.number > 1 ? "Tokens" : "Token"}`,
         )
         .join(" or ")
-      out = out.concat(costs)
+      if (out !== "") {
+        out = out.concat(` or ${costs}`)
+      } else {
+        out = out.concat(costs)
+      }
     }
     if (level.otherCost) {
       out = out.concat(`${level.otherCost}`)
