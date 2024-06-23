@@ -403,7 +403,7 @@ export const archetypes: Archetype[] = [
     },
     fusedAbility: {
       description:
-        "At the start of your turn, Challenge an enemy you can see, then deal 1 damage to them, then heal 1. After you Challenge an enemy, deal 1 damage to them and heal 1.",
+        "At the start of your turn, Challenge an enemy you can see. After you Challenge an enemy, deal 1 damage to them and heal 1.",
     },
   },
   {
