@@ -6,17 +6,14 @@ import {
   TableCell,
   TableRow,
 } from "@mui/material"
-import { useAppDispatch, useAppSelector } from "../../hooks"
-import type { Form, Style } from "../../types"
-import { HeroType } from "../../types"
-import {
-  setArchetype,
-  setForm,
-  setStyle,
-  setType,
-} from "../../../features/hero/heroSlice"
-import { archetypes, defaultArchetype, forms, styles } from "../../textContent"
-import { BuildSelector } from "./BuildSelector"
+import { useAppDispatch, useAppSelector } from "../../../hooks"
+import { HeroType } from "../../../types"
+import { setArchetype, setType } from "../../../../features/hero/heroSlice"
+import { archetypes, defaultArchetype } from "../../../textContent"
+import { BuildSelector } from "../BuildSelector"
+import { FocusedStances } from "./focusedStances"
+import { FusedStances } from "./fusedStances"
+import { FranticStances } from "./franticStances"
 
 const ArchetypeSelectors = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -65,57 +62,6 @@ const ArchetypeSelectors = () => {
   ))
 }
 
-const StyleSelectors = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const availableStyles = styles.filter(s =>
-    hero.archetypes.map(a => a.name).includes(s.parentArchetypeName),
-  )
-
-  const handleDisabled = (style: Style) => hero.styles.includes(style)
-
-  return hero.styles.map((style, i) => (
-    <TableCell align="center">
-      <Select
-        value={style.name}
-        onChange={e => {
-          dispatch(setStyle({ styleName: e.target.value, number: i }))
-        }}
-      >
-        {availableStyles.map(s => (
-          <MenuItem key={s.name} value={s.name} disabled={handleDisabled(s)}>
-            {s.name}
-          </MenuItem>
-        ))}
-      </Select>
-    </TableCell>
-  ))
-}
-
-const FormSelectors = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const handleDisabled = (form: Form) => hero.forms.includes(form)
-
-  return hero.forms.map((form, i) => (
-    <TableCell align="center">
-      <Select
-        value={form.name}
-        onChange={e => {
-          dispatch(setForm({ formName: e.target.value, number: i }))
-        }}
-      >
-        {forms.map(f => (
-          <MenuItem key={f.name} value={f.name} disabled={handleDisabled(f)}>
-            {f.name}
-          </MenuItem>
-        ))}
-      </Select>
-    </TableCell>
-  ))
-}
 export const HeroConfig = () => {
   const hero = useAppSelector(state => state.hero.hero)
   const dispatch = useAppDispatch()
@@ -135,6 +81,18 @@ export const HeroConfig = () => {
       ))}
     </Select>
   )
+  let stanceComponent = <></>
+  switch (hero.type) {
+    case HeroType.Focused:
+      stanceComponent = <FocusedStances />
+      break
+    case HeroType.Fused:
+      stanceComponent = <FusedStances />
+      break
+    case HeroType.Frantic:
+      stanceComponent = <FranticStances />
+      break
+  }
   return (
     <>
       <Table>
@@ -156,14 +114,7 @@ export const HeroConfig = () => {
         </TableRow>
       </Table>
       <Divider>Stances</Divider>
-      <Table>
-        <TableRow>
-          <StyleSelectors />
-        </TableRow>
-        <TableRow>
-          <FormSelectors />
-        </TableRow>
-      </Table>
+      {stanceComponent}
     </>
   )
 }
