@@ -47,7 +47,8 @@ export interface Form {
   key: string
   name: string
   ability: Ability
-  actionDice: Dice[] | number[]
+  actionDice: (Dice | number)[]
+  forbiddenActionDice: (Dice | number)[]
   actions: Action[]
   rangeModifiers?: FormRangeModifier[]
   // TODO skills, though not hugely important

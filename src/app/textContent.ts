@@ -24,6 +24,7 @@ export const forms: Form[] = [
         "Your Actions may apply to one extra target within range. When you add Blaster Form to a Style, increase that Style's maximum range by 1",
     },
     actionDice: [Dice.d8, Dice.d8, Dice.d8],
+    forbiddenActionDice: [Dice.d8],
     name: "Blaster",
     rangeModifiers: [{ relMaxRange: 1 }],
     actions: [
@@ -60,6 +61,7 @@ export const forms: Form[] = [
         If you redirect an action you choose all targets and make all decisions for that action.`,
     },
     actionDice: [Dice.d10, Dice.d8, Dice.d6, Dice.d4],
+    forbiddenActionDice: [Dice.d8, Dice.d6],
     name: "Control",
     rangeModifiers: [{ relMaxRange: 3 }, { absMinRange: 1 }],
     actions: [
@@ -89,6 +91,7 @@ export const forms: Form[] = [
         "After you Throw or Grapple someone, you gain X Speed tokens, where X is how many spaces you moved them.\nAfter each space you move using Free Movement, you may choose someone within range and pull them 1 space",
     },
     actionDice: [Dice.d10, Dice.d8, Dice.d6],
+    forbiddenActionDice: [Dice.d8, Dice.d6],
     name: "Dance",
     actions: [
       {
@@ -114,6 +117,7 @@ export const forms: Form[] = [
         "You have Armor. When you gain Speed tokens, replace half of them (rounded up) with Iron tokens",
     },
     actionDice: [Dice.d8, Dice.d6, Dice.d6],
+    forbiddenActionDice: [Dice.d6, Dice.d6],
     name: "Iron",
     actions: [
       {
@@ -154,6 +158,7 @@ export const forms: Form[] = [
         "After you deal damage to an enemy with an Action, you hit them again for 1 damage",
     },
     actionDice: [Dice.d6, Dice.d6, Dice.d4, Dice.d4],
+    forbiddenActionDice: [Dice.d6, Dice.d4],
     name: "One-Two",
     actions: [
       {
@@ -183,6 +188,7 @@ export const forms: Form[] = [
         "When you gain Speed tokens, replace half of them (rounded up) with Power tokens.\nYou may spend up to 3 Power tokens per hit",
     },
     actionDice: [Dice.d10, Dice.d10, Dice.d4],
+    forbiddenActionDice: [Dice.d10, Dice.d4],
     name: "Power",
     actions: [
       {
@@ -218,6 +224,7 @@ export const forms: Form[] = [
         "You have Armor. You do not discard your Speed tokens at the end of a turn.\nYou may only take one Action per turn.\nYour Action Pool does not empty between Turns or Rounds",
     },
     actionDice: [Dice.d8, Dice.d8, Dice.d6, Dice.d4],
+    forbiddenActionDice: [Dice.d8, Dice.d4],
     name: "Reversal",
     actions: [
       {
@@ -239,6 +246,7 @@ export const forms: Form[] = [
         "At the start and end of your turn, you gain 2 Speed tokens\nYou do not discard your Speed tokens at the end of a turn.",
     },
     actionDice: [Dice.d4, Dice.d4, Dice.d4, Dice.d4, Dice.d4, Dice.d4],
+    forbiddenActionDice: [Dice.d4, Dice.d4, Dice.d4],
     name: "Shadow",
     actions: [
       {
@@ -265,6 +273,7 @@ export const forms: Form[] = [
         "At the start of each turn choose a song; Iron, Power or Speed. You gain three tokens of the chosen type and each of your allies gain 1 of that type",
     },
     actionDice: [Dice.d8, Dice.d6, Dice.d6, Dice.d4],
+    forbiddenActionDice: [Dice.d8, Dice.d4],
     name: "Song",
     actions: [
       {
@@ -295,6 +304,7 @@ export const forms: Form[] = [
         "At the start of your turn, either heal or discard one token you hold. At the end of your turn, choose an enemy in range and give them one Weakness token",
     },
     actionDice: [Dice.d6, Dice.d6, Dice.d6, Dice.d6],
+    forbiddenActionDice: [Dice.d6, Dice.d6],
     name: "Vigilance",
     actions: [
       {
@@ -332,6 +342,7 @@ export const forms: Form[] = [
         "At the start of your turn, for each of these that is true, add 1d6 to your Action Dice\n-Your current Health Bar is at half HP or less\n-Someone on your team is Taken Out\n-You are holding a non-basic Token",
     },
     actionDice: [Dice.d10, Dice.d6, Dice.d6],
+    forbiddenActionDice: [Dice.d10],
     name: "Wild",
     actions: [
       {
@@ -358,6 +369,7 @@ export const forms: Form[] = [
         "Your Action Pool is predetermined: 7, 5, 3, 1. You may hold multiple Shields at a time. Only one Shield is active at a time. When your active Shield breaks, your next Shield doesn't become active until the end of the current turn.\nWhen an enemy damages or breaks your Shield, you deal 1 damage to them",
     },
     actionDice: [7, 5, 3, 1],
+    forbiddenActionDice: [5, 3],
     name: "Zen",
     actions: [
       {
@@ -2103,7 +2115,7 @@ export const styles: Style[] = [
     maxRange: 2,
     ability: {
       description:
-        "At the start of your turn, you take 2 damage. This damage cannot drop you below 1 HP on your current Health Bar.\nThis Style is attached to two Forms. You have the Abilities and Unique Actions from each Form. Do not use the Action Dicelisted in those Forms. This Stance's Action Dice are determined by combining the results of the following chart:\nBlaster: d8            Reversal: d8 d4\nControl: d8 d6       Shadow: d4 d4 d4\nDance: d8 d6        Song: d8 d4\nIron: d6 d6            Vigilance: d6 d6\nOne-Two: d6 d4    Wild: d10\nPower: d10 d4       Zen: 5 3",
+        "At the start of your turn, you take 2 damage. This damage cannot drop you below 1 HP on your current Health Bar.",
     },
     actions: [],
   },
