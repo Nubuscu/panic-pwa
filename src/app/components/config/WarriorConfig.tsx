@@ -1,13 +1,9 @@
-import { MenuItem, Select, Table, TableCell, TableRow } from "@mui/material"
+import { FormControl, FormGroup, FormHelperText, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { archetypes, bossArchetypes, forms, styles } from "../../textContent"
-import {
-  setArchetype,
-  setForm,
-  setStyle,
-  setType,
-} from "../../../features/hero/heroSlice"
+import { archetypes, bossArchetypes } from "../../textContent"
+import { setArchetype, setType } from "../../../features/hero/heroSlice"
 import { HeroType } from "../../types"
+import { FormSelector, StyleSelector } from "./selectors"
 
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -36,50 +32,8 @@ const ArchetypeSelector = () => {
   )
 }
 
-const FormSelector = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const form = hero.forms[0]
-  return (
-    <Select
-      value={form.name}
-      onChange={e => {
-        dispatch(setForm({ formName: e.target.value, number: 0 }))
-      }}
-    >
-      {forms.map(f => (
-        <MenuItem key={f.name} value={f.name}>
-          {f.name}
-        </MenuItem>
-      ))}
-    </Select>
-  )
-}
-const StyleSelector = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const availableStyles = styles.filter(s =>
-    hero.archetypes.map(a => a.name).includes(s.parentArchetypeName),
-  )
-  return (
-    <Select
-      value={hero.styles[0].name}
-      onChange={e => {
-        dispatch(setStyle({ styleName: e.target.value, number: 0 }))
-      }}
-    >
-      {availableStyles.map(s => (
-        <MenuItem key={s.name} value={s.name}>
-          {s.name}
-        </MenuItem>
-      ))}
-    </Select>
-  )
-}
-
 export const WarriorConfig = () => {
+  const hero = useAppSelector(state => state.hero.hero)
   return (
     <Table>
       <TableRow>
@@ -89,16 +43,18 @@ export const WarriorConfig = () => {
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell align="right">Style: </TableCell>
-        <TableCell>
-          <StyleSelector />
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell align="right">Form: </TableCell>
-        <TableCell>
-          <FormSelector />
-        </TableCell>
+        <Stack spacing={1} direction={"row"}>
+          <FormGroup className="stanceFormGroup">
+            <FormControl sx={{ m: 1 }}>
+              <StyleSelector fromArchetypes={[hero.archetypes[0]]} index={0} />
+              <FormHelperText>Style 1</FormHelperText>
+            </FormControl>
+            <FormControl sx={{ m: 1 }}>
+              <FormSelector index={0} />
+              <FormHelperText>Form 1</FormHelperText>
+            </FormControl>
+          </FormGroup>
+        </Stack>
       </TableRow>
     </Table>
   )

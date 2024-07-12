@@ -1,7 +1,11 @@
 import {
   Divider,
+  FormControl,
+  FormGroup,
+  FormHelperText,
   MenuItem,
   Select,
+  Stack,
   Table,
   TableCell,
   TableRow,
@@ -16,6 +20,7 @@ import {
   setType,
 } from "../../../features/hero/heroSlice"
 import { archetypes, bossArchetypes, forms, styles } from "../../textContent"
+import { FormSelector, StyleSelector } from "./selectors"
 
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -43,53 +48,6 @@ const ArchetypeSelector = () => {
   )
 }
 
-const StyleSelectors = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const handleDisabled = (style: Style) => hero.styles.includes(style)
-
-  return hero.styles.map((style, i) => (
-    <TableCell align="center">
-      <Select
-        value={style.name}
-        onChange={e => {
-          dispatch(setStyle({ styleName: e.target.value, number: i }))
-        }}
-      >
-        {styles.map(s => (
-          <MenuItem key={s.name} value={s.name} disabled={handleDisabled(s)}>
-            {s.name}
-          </MenuItem>
-        ))}
-      </Select>
-    </TableCell>
-  ))
-}
-
-const FormSelectors = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const handleDisabled = (form: Form) => hero.forms.includes(form)
-
-  return hero.forms.map((form, i) => (
-    <TableCell align="center">
-      <Select
-        value={form.name}
-        onChange={e => {
-          dispatch(setForm({ formName: e.target.value, number: i }))
-        }}
-      >
-        {forms.map(f => (
-          <MenuItem key={f.name} value={f.name} disabled={handleDisabled(f)}>
-            {f.name}
-          </MenuItem>
-        ))}
-      </Select>
-    </TableCell>
-  ))
-}
 export const BossConfig = () => {
   return (
     <>
@@ -102,14 +60,20 @@ export const BossConfig = () => {
         </TableRow>
       </Table>
       <Divider>Stances</Divider>
-      <Table>
-        <TableRow>
-          <StyleSelectors />
-        </TableRow>
-        <TableRow>
-          <FormSelectors />
-        </TableRow>
-      </Table>
+      <Stack spacing={1} direction={"row"}>
+        {[0, 1, 2].map((i) =>
+          <FormGroup className="stanceFormGroup">
+            <FormControl sx={{ m: 1 }}>
+              <StyleSelector fromArchetypes={[]} index={i} />
+              <FormHelperText>Style {i + 1}</FormHelperText>
+            </FormControl>
+            <FormControl sx={{ m: 1 }}>
+              <FormSelector index={i} />
+              <FormHelperText>Form {i + 1}</FormHelperText>
+            </FormControl>
+          </FormGroup>
+        )}
+      </Stack>
     </>
   )
 }

@@ -4,16 +4,16 @@ import {
   setForm,
   setStyle,
   splitForms,
-} from "../../../../features/hero/heroSlice"
-import { useAppDispatch, useAppSelector } from "../../../hooks"
-import type { Archetype, Form, Style } from "../../../types"
+} from "../../../features/hero/heroSlice"
+import { useAppDispatch, useAppSelector } from "../../hooks"
+import type { Archetype, Form, Style } from "../../types"
 import {
   archetypes,
   defaultArchetype,
   defaultForm,
   forms,
   styles,
-} from "../../../textContent"
+} from "../../textContent"
 import { useState } from "react"
 
 const SingleFormSelector = ({ index }: { index: number }) => {

@@ -1,12 +1,9 @@
-import { MenuItem, Select, Table, TableCell, TableRow } from "@mui/material"
+import { FormControl, FormGroup, FormHelperText, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
 import { BuildSelector } from "./BuildSelector"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { archetypes, defaultArchetype, forms, styles } from "../../textContent"
-import {
-  setArchetype,
-  setForm,
-  setStyle,
-} from "../../../features/hero/heroSlice"
+import { archetypes, defaultArchetype } from "../../textContent"
+import { setArchetype } from "../../../features/hero/heroSlice"
+import { FormSelector, StyleSelector } from "./selectors"
 
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -34,47 +31,9 @@ const ArchetypeSelector = () => {
   )
 }
 
-const FormSelector = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  const form = hero.forms[0]
-  return (
-    <Select
-      value={form.name}
-      onChange={e => {
-        dispatch(setForm({ formName: e.target.value, number: 0 }))
-      }}
-    >
-      {forms.map(f => (
-        <MenuItem key={f.name} value={f.name}>
-          {f.name}
-        </MenuItem>
-      ))}
-    </Select>
-  )
-}
-const StyleSelector = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-
-  return (
-    <Select
-      value={hero.styles[0].name}
-      onChange={e => {
-        dispatch(setStyle({ styleName: e.target.value, number: 0 }))
-      }}
-    >
-      {styles.map(s => (
-        <MenuItem key={s.name} value={s.name}>
-          {s.name}
-        </MenuItem>
-      ))}
-    </Select>
-  )
-}
 
 export const StoogeConfig = () => {
+  const hero = useAppSelector(state => state.hero.hero)
   return (
     <Table>
       <TableRow>
@@ -90,16 +49,20 @@ export const StoogeConfig = () => {
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell align="right">Style: </TableCell>
-        <TableCell>
-          <StyleSelector />
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell align="right">Form: </TableCell>
-        <TableCell>
-          <FormSelector />
-        </TableCell>
+        <Stack spacing={1} direction={"row"}>
+          <FormGroup className="stanceFormGroup">
+            <FormControl sx={{ m: 1 }}>
+              <StyleSelector fromArchetypes={[hero.archetypes[0]]} index={0} />
+              <FormHelperText>
+                Style 1
+              </FormHelperText>
+            </FormControl>
+            <FormControl sx={{ m: 1 }}>
+              <FormSelector index={0} />
+              <FormHelperText>Form 1</FormHelperText>
+            </FormControl>
+          </FormGroup>
+        </Stack>
       </TableRow>
     </Table>
   )

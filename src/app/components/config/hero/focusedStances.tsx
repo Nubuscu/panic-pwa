@@ -1,6 +1,6 @@
 import { FormControl, FormGroup, FormHelperText, Stack } from "@mui/material"
 import { useAppSelector } from "../../../hooks"
-import { FormSelector, StyleSelector } from "./selectors"
+import { FormSelector, StyleSelector } from "../selectors"
 import "./stances.css"
 
 export const FocusedStances = () => {
