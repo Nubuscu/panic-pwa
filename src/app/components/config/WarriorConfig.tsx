@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, FormHelperText, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
+import { FormControl, FormGroup, FormHelperText, ListSubheader, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
 import { useAppDispatch, useAppSelector } from "../../hooks"
 import { archetypes, bossArchetypes } from "../../textContent"
 import { setArchetype, setType } from "../../../features/hero/heroSlice"
@@ -8,7 +8,6 @@ import { FormSelector, StyleSelector } from "./selectors"
 const ArchetypeSelector = () => {
   const hero = useAppSelector(state => state.hero.hero)
   const dispatch = useAppDispatch()
-  const options = [...archetypes, ...bossArchetypes]
 
   return (
     <Select
@@ -23,7 +22,14 @@ const ArchetypeSelector = () => {
         )
       }}
     >
-      {options.map(arch => (
+      <ListSubheader>General</ListSubheader>
+      {archetypes.map(arch => (
+        <MenuItem key={arch.name} value={arch.name}>
+          {arch.name}
+        </MenuItem>
+      ))}
+      <ListSubheader>Boss Archetypes</ListSubheader>
+      {bossArchetypes.map(arch => (
         <MenuItem key={arch.name} value={arch.name}>
           {arch.name}
         </MenuItem>
