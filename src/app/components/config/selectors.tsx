@@ -1,6 +1,7 @@
 import { ListSubheader, MenuItem, Select } from "@mui/material"
 import {
   combineForms,
+  setArchetype,
   setForm,
   setStyle,
   splitForms,
@@ -9,12 +10,23 @@ import { useAppDispatch, useAppSelector } from "../../hooks"
 import type { Archetype, Form, Style } from "../../types"
 import {
   archetypes,
+  bossArchetypes,
   defaultArchetype,
   defaultForm,
   forms,
   styles,
 } from "../../textContent"
 import { useState } from "react"
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 5.5 + ITEM_PADDING_TOP,
+    },
+  },
+};
 
 const SingleFormSelector = ({ index }: { index: number }) => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -27,6 +39,7 @@ const SingleFormSelector = ({ index }: { index: number }) => {
       onChange={e => {
         dispatch(setForm({ formName: e.target.value, number: index }))
       }}
+      MenuProps={MenuProps}
     >
       {forms.map(f => (
         <MenuItem key={f.name} value={f.name} disabled={handleDisabled(f)}>
@@ -68,6 +81,8 @@ const ForbiddenFormSelector = ({ index }: { index: number }) => {
           setForm1(found)
           handleGlobalStateChange(found, form2)
         }}
+        MenuProps={MenuProps}
+
       >
         {forms.map(f => (
           <MenuItem key={f.name} value={f.name} disabled={handleDisabled(f)}>
@@ -83,12 +98,14 @@ const ForbiddenFormSelector = ({ index }: { index: number }) => {
           setForm2(found)
           handleGlobalStateChange(form1, found)
         }}
+        MenuProps={MenuProps}
       >
         {forms.map(f => (
           <MenuItem key={f.name} value={f.name} disabled={handleDisabled(f)}>
             {f.name}
           </MenuItem>
         ))}
+
       </Select>
     </>
   )
@@ -146,8 +163,57 @@ export const StyleSelector = ({
       onChange={e => {
         dispatch(setStyle({ styleName: e.target.value, number: index }))
       }}
+      MenuProps={MenuProps}
     >
       {menuItems}
     </Select>
   )
+}
+
+export const ArchetypeSelector = ({ index, includeBossArchetypes = false, includeUnselected = false }: { index: number, includeBossArchetypes?: boolean, includeUnselected?: boolean }) => {
+  const hero = useAppSelector(state => state.hero.hero)
+  const dispatch = useAppDispatch()
+
+  const selectedArchetypes = hero.archetypes.filter(a => a !== defaultArchetype)
+  const archetype = hero.archetypes[index]
+  let menuItems = archetypes.map(arch => (
+    <MenuItem
+      key={arch.name}
+      value={arch.name}
+      disabled={selectedArchetypes.includes(arch)}
+    >
+      {arch.name}
+    </MenuItem>
+  ))
+  if (includeUnselected) {
+    menuItems = [
+      <MenuItem
+        key={defaultArchetype.name}
+        value={defaultArchetype.name}
+      >
+        No Archetype
+      </MenuItem>, ...menuItems
+    ]
+  }
+  if (includeBossArchetypes) {
+    const bossMenuItems = bossArchetypes.map(arch => (
+      <MenuItem key={arch.name} value={arch.name}>
+        {arch.name}
+      </MenuItem>
+    ))
+    menuItems = [<ListSubheader>General</ListSubheader>, ...menuItems, <ListSubheader>Boss Archetypes</ListSubheader>, ...bossMenuItems]
+  }
+  return (<Select
+    value={archetype.name}
+    onChange={e => {
+      dispatch(
+        setArchetype({
+          archetypeName: e.target.value,
+          number: index,
+        }),
+      )
+    }}
+  >
+    {menuItems}
+  </Select>)
 }

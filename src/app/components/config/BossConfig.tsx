@@ -3,6 +3,7 @@ import {
   FormControl,
   FormGroup,
   FormHelperText,
+  FormLabel,
   ListSubheader,
   MenuItem,
   Select,
@@ -18,52 +19,16 @@ import {
   setType,
 } from "../../../features/hero/heroSlice"
 import { archetypes, bossArchetypes } from "../../textContent"
-import { FormSelector, StyleSelector } from "./selectors"
+import { ArchetypeSelector, FormSelector, StyleSelector } from "./selectors"
 
-const ArchetypeSelector = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
-  return (
-    <Select
-      value={hero.archetypes[0].name}
-      onChange={e => {
-        dispatch(
-          setArchetype({
-            archetypeName: e.target.value,
-            number: 0,
-          }),
-        )
-        dispatch(setType(HeroType.Fused))
-      }}
-    >
-      <ListSubheader>General</ListSubheader>
-      {archetypes.map(arch => (
-        <MenuItem key={arch.name} value={arch.name}>
-          {arch.name}
-        </MenuItem>
-      ))}
-      <ListSubheader>Boss Archetypes</ListSubheader>
-      {bossArchetypes.map(arch => (
-        <MenuItem key={arch.name} value={arch.name}>
-          {arch.name}
-        </MenuItem>
-      ))}
-    </Select>
-  )
-}
 
 export const BossConfig = () => {
   return (
     <>
-      <Table>
-        <TableRow>
-          <TableCell align="right">Archetype:</TableCell>
-          <TableCell>
-            <ArchetypeSelector />
-          </TableCell>
-        </TableRow>
-      </Table>
-      <Divider>Stances</Divider>
+      <FormGroup>
+        <FormLabel>Archetype</FormLabel>
+        <ArchetypeSelector includeUnselected index={0} />
+      </FormGroup>
       <Stack spacing={1} direction={"row"}>
         {[0, 1, 2].map((i) =>
           <FormGroup className="stanceFormGroup">

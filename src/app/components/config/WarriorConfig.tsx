@@ -1,67 +1,20 @@
-import { FormControl, FormGroup, FormHelperText, ListSubheader, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
+import { FormControl, FormGroup, FormHelperText, FormLabel, ListSubheader, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
 import { useAppDispatch, useAppSelector } from "../../hooks"
-import { archetypes, bossArchetypes } from "../../textContent"
-import { setArchetype, setType } from "../../../features/hero/heroSlice"
-import { HeroType } from "../../types"
-import { FormSelector, StyleSelector } from "./selectors"
 
-const ArchetypeSelector = () => {
-  const hero = useAppSelector(state => state.hero.hero)
-  const dispatch = useAppDispatch()
+import { ArchetypeSelector, FormSelector, StyleSelector } from "./selectors"
 
-  return (
-    <Select
-      value={hero.archetypes[0].name}
-      onChange={e => {
-        dispatch(
-          setArchetype({
-            archetypeName: e.target.value,
-            number: 0,
-          }),
-          dispatch(setType(HeroType.Fused)),
-        )
-      }}
-    >
-      <ListSubheader>General</ListSubheader>
-      {archetypes.map(arch => (
-        <MenuItem key={arch.name} value={arch.name}>
-          {arch.name}
-        </MenuItem>
-      ))}
-      <ListSubheader>Boss Archetypes</ListSubheader>
-      {bossArchetypes.map(arch => (
-        <MenuItem key={arch.name} value={arch.name}>
-          {arch.name}
-        </MenuItem>
-      ))}
-    </Select>
-  )
-}
+
 
 export const WarriorConfig = () => {
   const hero = useAppSelector(state => state.hero.hero)
   return (
-    <Table>
-      <TableRow>
-        <TableCell align="right">Archetype: </TableCell>
-        <TableCell>
-          <ArchetypeSelector />
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <Stack spacing={1} direction={"row"}>
-          <FormGroup className="stanceFormGroup">
-            <FormControl sx={{ m: 1 }}>
-              <StyleSelector fromArchetypes={[hero.archetypes[0]]} index={0} />
-              <FormHelperText>Style 1</FormHelperText>
-            </FormControl>
-            <FormControl sx={{ m: 1 }}>
-              <FormSelector index={0} />
-              <FormHelperText>Form 1</FormHelperText>
-            </FormControl>
-          </FormGroup>
-        </Stack>
-      </TableRow>
-    </Table>
+    <FormGroup>
+      <FormLabel>Archetype</FormLabel>
+      <ArchetypeSelector includeBossArchetypes index={0} />
+      <FormLabel>Style</FormLabel>
+      <StyleSelector fromArchetypes={[hero.archetypes[0]]} index={0} />
+      <FormLabel>Form</FormLabel>
+      <FormSelector index={0} />
+    </FormGroup>
   )
 }
