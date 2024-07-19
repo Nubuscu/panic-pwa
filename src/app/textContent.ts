@@ -14,6 +14,7 @@ export const defaultForm: Form = {
     description: "",
   },
   actionDice: [],
+  forbiddenActionDice: [],
   actions: [],
 }
 export const forms: Form[] = [
