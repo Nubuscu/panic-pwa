@@ -1,9 +1,6 @@
-import { FormControl, FormGroup, FormHelperText, FormLabel, ListSubheader, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
-import { useAppDispatch, useAppSelector } from "../../hooks"
-
+import { FormGroup, FormLabel } from "@mui/material"
+import { useAppSelector } from "../../hooks"
 import { ArchetypeSelector, FormSelector, StyleSelector } from "./selectors"
-
-
 
 export const WarriorConfig = () => {
   const hero = useAppSelector(state => state.hero.hero)

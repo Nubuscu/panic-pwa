@@ -18,15 +18,15 @@ import {
 } from "../../textContent"
 import { useState } from "react"
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
+const ITEM_HEIGHT = 48
+const ITEM_PADDING_TOP = 8
 const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 5.5 + ITEM_PADDING_TOP,
     },
   },
-};
+}
 
 const SingleFormSelector = ({ index }: { index: number }) => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -82,7 +82,6 @@ const ForbiddenFormSelector = ({ index }: { index: number }) => {
           handleGlobalStateChange(found, form2)
         }}
         MenuProps={MenuProps}
-
       >
         {forms.map(f => (
           <MenuItem key={f.name} value={f.name} disabled={handleDisabled(f)}>
@@ -105,7 +104,6 @@ const ForbiddenFormSelector = ({ index }: { index: number }) => {
             {f.name}
           </MenuItem>
         ))}
-
       </Select>
     </>
   )
@@ -170,7 +168,15 @@ export const StyleSelector = ({
   )
 }
 
-export const ArchetypeSelector = ({ index, includeBossArchetypes = false, includeUnselected = false }: { index: number, includeBossArchetypes?: boolean, includeUnselected?: boolean }) => {
+export const ArchetypeSelector = ({
+  index,
+  includeBossArchetypes = false,
+  includeUnselected = false,
+}: {
+  index: number
+  includeBossArchetypes?: boolean
+  includeUnselected?: boolean
+}) => {
   const hero = useAppSelector(state => state.hero.hero)
   const dispatch = useAppDispatch()
 
@@ -187,12 +193,10 @@ export const ArchetypeSelector = ({ index, includeBossArchetypes = false, includ
   ))
   if (includeUnselected) {
     menuItems = [
-      <MenuItem
-        key={defaultArchetype.name}
-        value={defaultArchetype.name}
-      >
+      <MenuItem key={defaultArchetype.name} value={defaultArchetype.name}>
         No Archetype
-      </MenuItem>, ...menuItems
+      </MenuItem>,
+      ...menuItems,
     ]
   }
   if (includeBossArchetypes) {
@@ -201,19 +205,27 @@ export const ArchetypeSelector = ({ index, includeBossArchetypes = false, includ
         {arch.name}
       </MenuItem>
     ))
-    menuItems = [<ListSubheader>General</ListSubheader>, ...menuItems, <ListSubheader>Boss Archetypes</ListSubheader>, ...bossMenuItems]
+    menuItems = [
+      <ListSubheader>General</ListSubheader>,
+      ...menuItems,
+      <ListSubheader>Boss Archetypes</ListSubheader>,
+      ...bossMenuItems,
+    ]
   }
-  return (<Select
-    value={archetype.name}
-    onChange={e => {
-      dispatch(
-        setArchetype({
-          archetypeName: e.target.value,
-          number: index,
-        }),
-      )
-    }}
-  >
-    {menuItems}
-  </Select>)
+  return (
+    <Select
+      value={archetype.name}
+      onChange={e => {
+        dispatch(
+          setArchetype({
+            archetypeName: e.target.value,
+            number: index,
+          }),
+        )
+      }}
+      MenuProps={MenuProps}
+    >
+      {menuItems}
+    </Select>
+  )
 }

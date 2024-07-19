@@ -1,10 +1,7 @@
-import { FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel, MenuItem, Select, Stack, Table, TableCell, TableRow } from "@mui/material"
+import { FormGroup, FormLabel } from "@mui/material"
 import { BuildSelector } from "./BuildSelector"
-import { useAppDispatch, useAppSelector } from "../../hooks"
-import { archetypes, defaultArchetype } from "../../textContent"
-import { setArchetype } from "../../../features/hero/heroSlice"
+import { useAppSelector } from "../../hooks"
 import { ArchetypeSelector, FormSelector, StyleSelector } from "./selectors"
-
 
 export const StoogeConfig = () => {
   const hero = useAppSelector(state => state.hero.hero)
