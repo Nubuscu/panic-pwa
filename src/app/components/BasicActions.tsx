@@ -4,7 +4,7 @@ import { ActionDisplay } from "./character/Action"
 
 export const BasicActionsList = () => {
   return (
-    <Grid item xs={3}>
+    <Grid item md={3} sm={12}>
       <h2>Basic Actions</h2>
       <Stack spacing={1}>
         {basicActions.map(action => (

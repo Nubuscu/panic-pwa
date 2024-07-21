@@ -6,7 +6,9 @@ import {
   Button,
   Card,
   CardContent,
+  Dialog,
   Divider,
+  IconButton,
   MenuItem,
   Modal,
   Select,
@@ -14,13 +16,15 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  useMediaQuery,
 } from "@mui/material"
 import { HeroConfig } from "./config/hero/HeroConfig"
 import { CharacterType } from "../types"
 import { StoogeConfig } from "./config/StoogeConfig"
 import { WarriorConfig } from "./config/WarriorConfig"
 import { BossConfig } from "./config/BossConfig"
-
+import { useTheme } from "@mui/material/styles"
+import CloseIcon from "@mui/icons-material/Close"
 const boxStyle = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -64,11 +68,18 @@ export const ConfigModal = () => {
       ))}
     </Select>
   )
+  const theme = useTheme()
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"))
   return (
     <>
       <Button onClick={handleOpen}>Edit Character</Button>
-      <Modal open={open} onClose={handleClose}>
-        <Card sx={boxStyle}>
+      <Dialog open={open} onClose={handleClose} fullScreen={fullScreen}>
+        {fullScreen && (
+          <Button onClick={handleClose} startIcon={<CloseIcon />}>
+            Close
+          </Button>
+        )}
+        <Card sx={{ overflow: "scroll" }}>
           <CardContent>
             <Table>
               <TableHead>
@@ -88,7 +99,7 @@ export const ConfigModal = () => {
             {hero.characterType === CharacterType.Boss && <BossConfig />}
           </CardContent>
         </Card>
-      </Modal>
+      </Dialog>
     </>
   )
 }

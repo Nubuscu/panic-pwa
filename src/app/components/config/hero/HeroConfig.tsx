@@ -7,7 +7,6 @@ import { BuildSelector } from "../BuildSelector"
 import { FocusedStances } from "./focusedStances"
 import { FusedStances } from "./fusedStances"
 import { FranticStances } from "./franticStances"
-import "./HeroConfig.css"
 
 const ArchetypeSelectors = () => {
   const hero = useAppSelector(state => state.hero.hero)

@@ -1,4 +1,10 @@
-import { FormControl, FormGroup, FormHelperText, Stack } from "@mui/material"
+import {
+  FormControl,
+  FormGroup,
+  FormHelperText,
+  Grid,
+  Stack,
+} from "@mui/material"
 import { useAppSelector } from "../../../hooks"
 import { FormSelector, StyleSelector } from "../selectors"
 import { archetypes, defaultArchetype } from "../../../textContent"
@@ -20,7 +26,7 @@ export const FranticStances = () => {
   const style1ArchetypeOptions = nonDefaultUnselected(hero.archetypes, 1)
   const style2ArchetypeOptions = nonDefaultUnselected(archetypes, 2)
   return (
-    <Stack spacing={1} direction={"row"}>
+    <Grid spacing={1} direction={{ xs: "column", sm: "row" }}>
       {[
         {
           opts: style0ArchetypeOptions,
@@ -36,20 +42,22 @@ export const FranticStances = () => {
         },
       ].map(({ opts, helpText }, i) => {
         return (
-          <FormGroup className="stanceFormGroup">
-            <FormControl sx={{ m: 1 }}>
-              <StyleSelector fromArchetypes={opts} index={i} />
-              <FormHelperText>
-                Style {i + 1} {helpText}
-              </FormHelperText>
-            </FormControl>
-            <FormControl sx={{ m: 1 }}>
-              <FormSelector index={i} />
-              <FormHelperText>Form {i + 1}</FormHelperText>
-            </FormControl>
-          </FormGroup>
+          <Grid item md={4} sm={12}>
+            <FormGroup className="stanceFormGroup">
+              <FormControl>
+                <StyleSelector fromArchetypes={opts} index={i} />
+                <FormHelperText>
+                  Style {i + 1} {helpText}
+                </FormHelperText>
+              </FormControl>
+              <FormControl>
+                <FormSelector index={i} />
+                <FormHelperText>Form {i + 1}</FormHelperText>
+              </FormControl>
+            </FormGroup>
+          </Grid>
         )
       })}
-    </Stack>
+    </Grid>
   )
 }
