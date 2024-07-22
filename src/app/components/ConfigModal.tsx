@@ -8,9 +8,7 @@ import {
   CardContent,
   Dialog,
   Divider,
-  IconButton,
   MenuItem,
-  Modal,
   Select,
   Table,
   TableCell,
@@ -25,15 +23,6 @@ import { WarriorConfig } from "./config/WarriorConfig"
 import { BossConfig } from "./config/BossConfig"
 import { useTheme } from "@mui/material/styles"
 import CloseIcon from "@mui/icons-material/Close"
-const boxStyle = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "60%",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-}
 
 export const ConfigModal = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -73,13 +62,19 @@ export const ConfigModal = () => {
   return (
     <>
       <Button onClick={handleOpen}>Edit Character</Button>
-      <Dialog open={open} onClose={handleClose} fullScreen={fullScreen}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        fullScreen={fullScreen}
+        fullWidth
+        maxWidth="md"
+      >
         {fullScreen && (
           <Button onClick={handleClose} startIcon={<CloseIcon />}>
             Close
           </Button>
         )}
-        <Card sx={{ overflow: "scroll" }}>
+        <Card sx={{ overflowY: "scroll" }}>
           <CardContent>
             <Table>
               <TableHead>

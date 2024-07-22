@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  FormGroup,
-  FormHelperText,
-  Grid,
-  Stack,
-} from "@mui/material"
+import { FormControl, FormGroup, FormHelperText, Grid } from "@mui/material"
 import { useAppSelector } from "../../../hooks"
 import { FormSelector, StyleSelector } from "../selectors"
 import { archetypes, defaultArchetype } from "../../../textContent"
@@ -26,7 +20,7 @@ export const FranticStances = () => {
   const style1ArchetypeOptions = nonDefaultUnselected(hero.archetypes, 1)
   const style2ArchetypeOptions = nonDefaultUnselected(archetypes, 2)
   return (
-    <Grid spacing={1} direction={{ xs: "column", sm: "row" }}>
+    <Grid container spacing={1} direction={{ xs: "column", sm: "row" }}>
       {[
         {
           opts: style0ArchetypeOptions,

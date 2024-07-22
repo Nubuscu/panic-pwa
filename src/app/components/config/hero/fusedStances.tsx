@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  FormGroup,
-  FormHelperText,
-  Grid,
-  Stack,
-} from "@mui/material"
+import { FormControl, FormGroup, FormHelperText, Grid } from "@mui/material"
 import { useAppSelector } from "../../../hooks"
 import { FormSelector, StyleSelector } from "../selectors"
 import "./stances.css"
@@ -34,14 +28,14 @@ export const FusedStances = () => {
       ].map(({ opts, helpText }, i) => {
         return (
           <Grid item md={4} sm={12}>
-            <FormGroup className="stanceFormGroup" sx={{ md: 4, xs: 12 }}>
+            <FormGroup className="stanceFormGroup">
               <FormControl>
                 <StyleSelector fromArchetypes={opts} index={i} />
                 <FormHelperText>
                   Style {i + 1} {helpText}
                 </FormHelperText>
               </FormControl>
-              <FormControl sx={{ m: 1 }}>
+              <FormControl>
                 <FormSelector index={i} />
                 <FormHelperText>Form {i + 1}</FormHelperText>
               </FormControl>
