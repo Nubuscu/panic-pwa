@@ -171,7 +171,7 @@ export const CurrentHero = () => {
   )
 
   return (
-    <Grid item xs={6}>
+    <Grid item md={6} sm={12}>
       <h2>Stances/Unique Actions</h2>
       <Stack spacing={1}>
         {[CharacterType.Hero, CharacterType.Stooge].includes(

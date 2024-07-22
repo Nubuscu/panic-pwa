@@ -88,7 +88,7 @@ export const StatsTracking = () => {
     ),
   )
   return (
-    <Grid item xs={3}>
+    <Grid item md={3} sm={12}>
       <h2>Character Stats</h2>
       <TableContainer component={Card}>
         <Table>

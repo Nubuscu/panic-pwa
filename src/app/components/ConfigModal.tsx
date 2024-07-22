@@ -6,30 +6,23 @@ import {
   Button,
   Card,
   CardContent,
+  Dialog,
   Divider,
   MenuItem,
-  Modal,
   Select,
   Table,
   TableCell,
   TableHead,
   TableRow,
+  useMediaQuery,
 } from "@mui/material"
 import { HeroConfig } from "./config/hero/HeroConfig"
 import { CharacterType } from "../types"
 import { StoogeConfig } from "./config/StoogeConfig"
 import { WarriorConfig } from "./config/WarriorConfig"
 import { BossConfig } from "./config/BossConfig"
-
-const boxStyle = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "60%",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-}
+import { useTheme } from "@mui/material/styles"
+import CloseIcon from "@mui/icons-material/Close"
 
 export const ConfigModal = () => {
   const hero = useAppSelector(state => state.hero.hero)
@@ -64,11 +57,24 @@ export const ConfigModal = () => {
       ))}
     </Select>
   )
+  const theme = useTheme()
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"))
   return (
     <>
       <Button onClick={handleOpen}>Edit Character</Button>
-      <Modal open={open} onClose={handleClose}>
-        <Card sx={boxStyle}>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        fullScreen={fullScreen}
+        fullWidth
+        maxWidth="md"
+      >
+        {fullScreen && (
+          <Button onClick={handleClose} startIcon={<CloseIcon />}>
+            Close
+          </Button>
+        )}
+        <Card sx={{ overflowY: "scroll" }}>
           <CardContent>
             <Table>
               <TableHead>
@@ -88,7 +94,7 @@ export const ConfigModal = () => {
             {hero.characterType === CharacterType.Boss && <BossConfig />}
           </CardContent>
         </Card>
-      </Modal>
+      </Dialog>
     </>
   )
 }
