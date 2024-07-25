@@ -20,7 +20,7 @@ if (container) {
       <Provider store={store}>
         <App />
       </Provider>
-    </React.StrictMode>,
+    </React.StrictMode>
   )
 } else {
   throw new Error(
