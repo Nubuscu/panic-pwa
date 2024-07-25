@@ -9,13 +9,17 @@ import { ConfigModal } from "./app/components/ConfigModal"
 import { CurrentHero } from "./app/components/CurrentHero"
 import { StatsTracking } from "./app/components/StatsTracking"
 import { useAppSelector } from "./app/hooks"
+import { useEffect } from "react"
 
 const App = () => {
   const hero = useAppSelector(state => state.hero.hero)
 
+  useEffect(() => {
+    document.title = `${hero.name} - Panic At The Dojo`
+  }, [hero.name])
   return (
     <StyledEngineProvider injectFirst>
-      <Container maxWidth={"xl"} disableGutters={true}>
+      <Container maxWidth={"xl"} disableGutters>
         <Typography variant="h4" align="center">
           {hero.name}
         </Typography>
@@ -31,6 +35,11 @@ const App = () => {
           <CurrentHero />
           <BasicActionsList />
         </Grid>
+        <footer>
+          <Typography variant="caption">
+            Found a bug? Report it on <a href="https://github.com/Nubuscu/panic-pwa/issues">Github</a>
+          </Typography>
+        </footer>
       </Container>
     </StyledEngineProvider>
   )
