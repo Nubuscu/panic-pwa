@@ -139,9 +139,7 @@ export const heroSlice = createSlice({
       const urlState = JSON.parse(raw) as { hero: string[] }
       return deserializeHero(urlState.hero)
     } catch (err) {
-      console.info(
-        "v1 app failed to load from url state. continuing with defaults",
-      )
+      console.warn(err)
       return initialState
     }
   },
