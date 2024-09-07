@@ -23,3 +23,17 @@ Missing features (so far):
 - Correctly restricted character creation options. Boss archetypes in particular require that a certain style is used, but this isn't enforced.
 - Alternate rules (e.g. endless stooges)
 - overarching DM tools, like a round/turn tracker
+
+## Patch'd Up, soon to be Second Strike
+
+The ruleset has had a substantial overhaul through a series of patches. There's a /v2/ of the application in development.
+Reach out if you want to get involved! I am `Nubuscu` on most platforms
+
+Feature wishlist, things to do:
+
+- [ ] A level-by-level character builder, like [pathbuilder](https://pathbuilder2e.com) does for Pathfinder 2e
+- [ ] Update/rewrite the descriptions
+- [ ] Roughly the same UI/layout as v1
+- [ ] reconsider url as state if it gets too long. Maybe plaintext or through a shortener
+- [ ] keep track of cinematic weight (to set max hp/shield)
+- [ ] make token categories clearer, update help text
