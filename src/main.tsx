@@ -10,26 +10,17 @@ import "@fontsource/roboto/500.css"
 import "@fontsource/roboto/700.css"
 import "@fontsource/roboto/900.css"
 import "./index.css"
-import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
+import { createHashRouter, RouterProvider } from "react-router-dom"
 import { ErrorPage } from "./errorPage"
 const container = document.getElementById("root")
 
 if (container) {
-  const basePath = "/panic-pwa"
   const root = createRoot(container)
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
-      path: "/",
+      // optional state variable. v1 doesn't use it directly, this just stops react-router trying to navigate to a random b64 string.
+      path: "/:state?",
       errorElement: <ErrorPage />,
-    },
-    {
-      path: basePath,
-      loader: async () => {
-        return redirect(basePath + "/v1/" + window.location.hash)
-      },
-    },
-    {
-      path: basePath + "/v1",
       element: (
         <Provider store={store}>
           <App />
@@ -37,7 +28,7 @@ if (container) {
       ),
     },
     {
-      path: basePath + "/v2",
+      path: "/v2",
       element: <div>WIP</div>,
     },
   ])
