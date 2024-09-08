@@ -1,8 +1,8 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
-import App from "./App"
-import { store } from "./app/store"
+import App from "./v1/App"
+import { store } from "./v1/app/store"
 import "@fontsource/roboto/100.css"
 import "@fontsource/roboto/300.css"
 import "@fontsource/roboto/400.css"
@@ -10,17 +10,32 @@ import "@fontsource/roboto/500.css"
 import "@fontsource/roboto/700.css"
 import "@fontsource/roboto/900.css"
 import "./index.css"
+import { createHashRouter, RouterProvider } from "react-router-dom"
+import { ErrorPage } from "./errorPage"
 const container = document.getElementById("root")
 
 if (container) {
   const root = createRoot(container)
-
+  const router = createHashRouter([
+    {
+      // optional state variable. v1 doesn't use it directly, this just stops react-router trying to navigate to a random b64 string.
+      path: "/:state?",
+      errorElement: <ErrorPage />,
+      element: (
+        <Provider store={store}>
+          <App />
+        </Provider>
+      ),
+    },
+    {
+      path: "/v2",
+      element: <div>WIP</div>,
+    },
+  ])
   root.render(
     <React.StrictMode>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>,
   )
 } else {
   throw new Error(
