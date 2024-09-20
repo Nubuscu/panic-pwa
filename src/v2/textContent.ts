@@ -1,5 +1,31 @@
-import { AdvancementGrants, Archetype, Build, Form, Style } from "./types"
+import {
+  AdvancementGrants,
+  Archetype,
+  Build,
+  CharacterType,
+  Form,
+  heroTypes,
+  Style,
+} from "./types"
 
+export const blankArchetypeReference: Archetype = {
+  name: "",
+  actions: [],
+  focusedAbility: "",
+  fusedAbility: "",
+  franticAbility: "",
+  keywords: [],
+  superMoves: {
+    alpha: {
+      name: "",
+      description: "",
+    },
+    delta: {
+      name: "",
+      description: "",
+    },
+  },
+}
 export const archetypesReference: Archetype[] = [
   {
     name: "Gunkata",
@@ -48,30 +74,97 @@ export const stylesReference: Style[] = []
 
 export const buildsReference: Build[] = []
 
-export const heroAdvancementGrants: AdvancementGrants[] = [
-  {
-    level: 1,
-    extraStances: 3,
-  },
-  {
-    level: 2,
-    extraSupers: 1,
-    bonusDie: "d4",
-    bonusHp: 1,
-  },
-  {
-    level: 3,
-    extraStances: 1,
-    bonusDie: "d4",
-    bonusHp: 2,
-  },
-  {
-    level: 4,
-    bonusDie: "d6",
-    bonusHp: 2,
-    extraArchetype: true,
-  },
-  // TODO up to level 10
-]
-
-// TODO villain advancements (separate per type?)
+// TODO up to level 10
+// TODO villain track too
+export const getAdvancementTrack = (
+  characterType: CharacterType,
+): AdvancementGrants[] => {
+  if (heroTypes.includes(characterType as any)) {
+    if (characterType === "Focused Hero") {
+      return [
+        {
+          level: 1,
+          totalStances: 3,
+          setBuild: true,
+          totalArchetypes: 1,
+        },
+        {
+          level: 2,
+          totalSuperMoves: 1,
+          bonusDie: ["d4"],
+          bonusHp: 1,
+        },
+        {
+          level: 3,
+          totalStances: 4,
+          bonusDie: ["d4"],
+          bonusHp: 2,
+        },
+        {
+          level: 4,
+          bonusDie: ["d6"],
+          bonusHp: 2,
+          totalArchetypes: 2,
+          gainFusedArchetype: true,
+        },
+      ]
+    } else if (characterType === "Fused Hero") {
+      return [
+        {
+          level: 1,
+          totalStances: 3,
+          setBuild: true,
+          totalArchetypes: 2,
+        },
+        {
+          level: 2,
+          totalSuperMoves: 1,
+          bonusDie: ["d4"],
+          bonusHp: 1,
+        },
+        {
+          level: 3,
+          totalStances: 4,
+          bonusDie: ["d4"],
+          bonusHp: 2,
+        },
+        {
+          level: 4,
+          bonusDie: ["d6"],
+          bonusHp: 2,
+          totalArchetypes: 3,
+          gainFusedArchetype: true,
+        },
+      ]
+    } else if (characterType === "Frantic Hero") {
+      return [
+        {
+          level: 1,
+          totalStances: 3,
+          setBuild: true,
+          totalArchetypes: 3,
+        },
+        {
+          level: 2,
+          totalSuperMoves: 1,
+          bonusDie: ["d4"],
+          bonusHp: 1,
+        },
+        {
+          level: 3,
+          totalStances: 4,
+          bonusDie: ["d4"],
+          bonusHp: 2,
+        },
+        {
+          level: 4,
+          bonusDie: ["d6"],
+          bonusHp: 2,
+          totalArchetypes: 4,
+          gainFusedArchetype: true,
+        },
+      ]
+    }
+  }
+  return []
+}

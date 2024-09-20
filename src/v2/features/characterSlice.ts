@@ -1,5 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Advancement, Character, CharacterType } from "../types"
+import {
+  Advancement,
+  Character,
+  CharacterArchetype,
+  CharacterType,
+  isCharacterHero,
+  isFocusedHero,
+} from "../types"
 
 const initialState: Character = {
   name: "Jimmy Space",
@@ -17,6 +24,9 @@ export const CharacterSlice = createSlice({
     },
     setType: (state, action: PayloadAction<CharacterType>) => {
       state.type = action.payload
+      if (isFocusedHero(state)) {
+        state.archetypes = []
+      }
     },
     setXp: (state, action: PayloadAction<number>) => {
       state.xp = action.payload
@@ -30,8 +40,7 @@ export const CharacterSlice = createSlice({
   },
   selectors: {
     getLevel: (state): number => {
-      // TODO calculate level from highest advancement
-      return 1
+      return Math.max(...state.advancements.map(adv => adv.level), 1)
     },
   },
 })
