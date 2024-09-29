@@ -21,6 +21,7 @@ export interface TokenCost {
   number: number
 }
 export interface ActionLevel {
+  // TODO could be exact N or N+ (mostly N+)
   diceCost?: number[] // most actions will have a single number, handful of exceptions
   tokenCost?: TokenCost[]
   otherCost?: string[] // Free actions, X, or health costs
@@ -106,6 +107,8 @@ export interface Character {
   name: string
   type: CharacterType
   xp: number
+  bonusHp?: number
+  bonusDie?: Dice[]
   advancements: Advancement[]
 }
 
@@ -131,8 +134,13 @@ export interface Advancement {
   bonusDie?: Dice[]
   bonusHp?: number
   build?: Build
-  stances: Map<number, Stance>
-  archetypes: Map<number, CharacterArchetype>
+  // redux doesn't like serializing a map. plain object alternative.
+  stances: {
+    [key: number]: Stance
+  }
+  archetypes: {
+    [key: number]: CharacterArchetype
+  }
 }
 
 // holder types for initial character info

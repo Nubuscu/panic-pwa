@@ -32,10 +32,33 @@ export const CharacterSlice = createSlice({
       state.xp = action.payload
     },
     applyAdvancement: (state, action: PayloadAction<Advancement>) => {
-      // TODO apply an advancement to level up
+      const advancements = [
+        ...state.advancements.filter(adv => adv.level !== action.payload.level),
+        action.payload,
+      ]
+      advancements.sort((a1, a2) => a1.level - a2.level)
+      state.advancements = advancements
+      // reset existing state, then apply all the advancements again
+      // split by character type where necessary
+
+      // TODO other character types
+      if (isFocusedHero(state)) {
+        state.archetypes = []
+        state.stances = []
+        for (let adv of advancements) {
+          state.build = adv.build ?? state.build
+          state.archetypes.push(...Object.values(adv.archetypes))
+          state.stances.push(...Object.values(adv.stances))
+          // these overwrite at each level
+          state.bonusHp = adv.bonusHp
+          state.bonusDie = adv.bonusDie
+        }
+      }
     },
     revertToLevel: (state, action: PayloadAction<number>) => {
-      // TODO remove all further advancements down to this level
+      state.advancements = state.advancements.filter(
+        adv => adv.level <= action.payload,
+      )
     },
   },
   selectors: {
@@ -45,6 +68,6 @@ export const CharacterSlice = createSlice({
   },
 })
 
-export const { applyAdvancement, setName, setType, setXp } =
+export const { applyAdvancement, revertToLevel, setName, setType, setXp } =
   CharacterSlice.actions
 export const { getLevel } = CharacterSlice.selectors

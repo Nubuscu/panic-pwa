@@ -5,6 +5,7 @@ import {
   CharacterType,
   Form,
   heroTypes,
+  Stance,
   Style,
 } from "./types"
 
@@ -68,9 +69,66 @@ deal 1 damage to that enemy and all adjacent enemies.`,
   },
 ]
 
-export const formsReference: Form[] = []
+export const blankDefaultForm: Form = {
+  name: "",
+  ability: "",
+  actionDice: {
+    green: ["d4"],
+    purple: ["d4"],
+  },
+  actions: [],
+  keywords: [],
+}
+export const formsReference: Form[] = [
+  {
+    name: "test form pls ignore",
+    ability: "nothing useful",
+    actionDice: {
+      green: [],
+      purple: [],
+    },
+    actions: [
+      {
+        isArchetypeAction: false,
+        name: "thing",
+        levels: [
+          {
+            description: "asdf",
+            diceCost: [1],
+          },
+        ],
+      },
+    ],
+    keywords: ["foo"],
+  },
+]
 
-export const stylesReference: Style[] = []
+export const blankDefaultStyle: Style = {
+  name: "",
+  ability: "",
+  actions: [],
+  keywords: [],
+  minRange: 0,
+  maxRange: 0,
+  parentArchetypeName: "",
+}
+export const stylesReference: Style[] = [
+  {
+    name: "test style pls ignore",
+    ability: "something",
+    actions: [],
+    keywords: ["bar"],
+    minRange: 1,
+    maxRange: 2,
+    parentArchetypeName: "test",
+  },
+]
+
+export const blankDefaultStance: Stance = {
+  name: "",
+  style: blankDefaultStyle,
+  form: blankDefaultForm,
+}
 
 export const buildsReference: Build[] = []
 

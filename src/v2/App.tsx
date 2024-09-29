@@ -1,10 +1,4 @@
-import {
-  Drawer,
-  Grid,
-  Stack,
-  StyledEngineProvider,
-  Typography,
-} from "@mui/material"
+import { Grid, StyledEngineProvider, Typography } from "@mui/material"
 import { Container } from "@mui/material"
 import { CharacterBuilder } from "./components/CharacterBuilder"
 
