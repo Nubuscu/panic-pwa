@@ -2,6 +2,7 @@ import React from "react"
 import { createRoot } from "react-dom/client"
 import { Provider } from "react-redux"
 import App from "./v1/App"
+import AppV2 from "./v2/App"
 import { store } from "./v1/app/store"
 import "@fontsource/roboto/100.css"
 import "@fontsource/roboto/300.css"
@@ -12,6 +13,7 @@ import "@fontsource/roboto/900.css"
 import "./index.css"
 import { createHashRouter, RouterProvider } from "react-router-dom"
 import { ErrorPage } from "./errorPage"
+import { storeV2 } from "./v2/store"
 const container = document.getElementById("root")
 
 if (container) {
@@ -29,7 +31,11 @@ if (container) {
     },
     {
       path: "/v2",
-      element: <div>WIP</div>,
+      element: (
+        <Provider store={storeV2}>
+          <AppV2 />
+        </Provider>
+      ),
     },
   ])
   root.render(
