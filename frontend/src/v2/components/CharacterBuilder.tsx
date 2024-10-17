@@ -10,15 +10,13 @@ import {
   Select,
   Stack,
 } from "@mui/material"
-import {
+import type {
   Advancement,
   AdvancementGrants,
   Character,
   CharacterType,
-  characterTypes,
-  heroTypes,
-  isCharacterHero,
 } from "../types"
+import { characterTypes, heroTypes, isCharacterHero } from "../types"
 import { useAppDispatch, useAppSelector } from "../hooks"
 import {
   applyAdvancement,

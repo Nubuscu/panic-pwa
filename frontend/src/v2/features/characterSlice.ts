@@ -1,12 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import {
-  Advancement,
-  Character,
-  CharacterArchetype,
-  CharacterType,
-  isCharacterHero,
-  isFocusedHero,
-} from "../types"
+import type { PayloadAction } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
+import type { Advancement, Character, CharacterType } from "../types"
+import { CharacterArchetype, isCharacterHero, isFocusedHero } from "../types"
 
 const initialState: Character = {
   name: "Jimmy Space",

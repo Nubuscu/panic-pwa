@@ -1,13 +1,13 @@
-import {
+import type {
   AdvancementGrants,
   Archetype,
   Build,
   CharacterType,
   Form,
-  heroTypes,
   Stance,
   Style,
 } from "./types"
+import { heroTypes } from "./types"
 
 export const blankArchetypeReference: Archetype = {
   name: "",
