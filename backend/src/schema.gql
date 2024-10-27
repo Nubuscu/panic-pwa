@@ -1,3 +1,69 @@
+"""
+all the reference content for Panic:
+- archetypes
+- forms
+- styles
+- builds
+- basic actions
+- maybe advancement track (for each character type...)
+
+how all of this turns into a playable character is up to the frontend
+"""
+enum Dice {
+  d4
+  d6
+  d8
+  d10
+  d12
+}
+enum BasicToken {
+  speed
+  iron
+  power
+}
+enum StatusToken {
+  burning
+  challenge
+  fatigue
+  weakness
+}
+enum RareToken {
+  control
+  chaos
+  inspiration
+  training
+}
+# TODO super tokens go somewhere too
+
+type Action {
+  name: String
+  levels: ActionLevel
+}
+
+type ActionLevel {
+  # simplification - we end up just combining the dice/token/other costs back together anyway
+  cost: String # e.g. X, 3+, 1 speed token, ...
+  description: String
+}
+enum ArchetypeVariant {
+  focused
+  fused
+  frantic
+}
+type Archetype {
+  name: String
+  ability(variant: ArchetypeVariant = focused): String
+  alphaSuper: SuperMove
+  deltaSuper: SuperMove
+  keywords: [String!]
+  actions: [Action!]
+}
+
+type SuperMove {
+  name: String
+  description: String
+}
+
 type Query {
   hello: String
 }
